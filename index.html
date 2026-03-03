@@ -1,727 +1,926 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shetimay Farmer Producer Company Limited - कृषि समाधान</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shetimay Farmer Producer Company Limited - कृषि समाधान</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html{scroll-behavior:smooth;}
-body{background:#f4f6f3;color:#333;line-height:1.6;}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-.toggle-btn{
-position:fixed;
-top:20px;
-left:20px;
-background:#0f2f1f;
-color:white;
-padding:10px 15px;
-cursor:pointer;
-border-radius:5px;
-z-index:1100;
-font-size:18px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* mobile adjustments for toggle */
-@media(max-width:768px){
-  .toggle-btn{left:10px;}
-}
+    body {
+      background: #f4f6f3;
+      color: #333;
+      line-height: 1.6;
+    }
 
-.sidebar{
-position:fixed;
-/* hide completely by shifting full width left */
-left:-100%;
-top:0;
-width:270px;
-/* allow shrinking on narrow screens */
-max-width:80%;
-height:100%;
-background:#0f2f1f;
-color:white;
-padding:30px 20px;
-transition:left 0.3s ease;
-z-index:1000;
-overflow-y:auto;
-}
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #0f2f1f;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 1100;
+      font-size: 18px;
+    }
 
-@media(max-width:768px){
-  .sidebar{width:80%;}
-}
+    /* mobile adjustments for toggle */
+    @media(max-width:768px) {
+      .toggle-btn {
+        left: 10px;
+      }
+    }
 
-@media(max-width:480px){
-  .sidebar{width:100%;}
-}
+    .sidebar {
+      position: fixed;
+      /* hide completely by shifting full width left */
+      left: -100%;
+      top: 0;
+      width: 270px;
+      /* allow shrinking on narrow screens */
+      max-width: 80%;
+      height: 100%;
+      background: #0f2f1f;
+      color: white;
+      padding: 30px 20px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+    }
 
-.sidebar.active{left:0;}
+    @media(max-width:768px) {
+      .sidebar {
+        width: 80%;
+      }
+    }
 
-.sidebar img{
-width:120px;
-display:block;
-margin:0 auto 15px auto;
-border-radius:10px;
-}
+    @media(max-width:480px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
 
-.sidebar h2{text-align:center;margin-bottom:25px;font-size:18px;}
+    .sidebar.active {
+      left: 0;
+    }
 
-.sidebar ul{list-style:none;}
-.sidebar ul li{
-margin:16px 0;
-cursor:pointer;
-transition:0.3s;
-}
-.sidebar ul li:hover{color:#c8a23d;}
+    .sidebar img {
+      width: 120px;
+      display: block;
+      margin: 0 auto 15px auto;
+      border-radius: 10px;
+    }
 
-.lang-switch{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #fff;}
-.lang-switch button{
-margin:5px;
-padding:8px 12px;
-border:none;
-background:#c8a23d;
-cursor:pointer;
-border-radius:5px;
-font-weight:600;
-font-size:12px;
-}
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 18px;
+    }
 
-section{
-padding:60px 10%;
-/* alternate background for sections to avoid boxed look */
-background:#fff;
-}
+    .sidebar ul {
+      list-style: none;
+    }
 
-section:nth-of-type(even){
-    background:#f4f6f3;
-}
+    .sidebar ul li {
+      margin: 16px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.hero{
-background:linear-gradient(135deg, #0f2f1f 0%, #1a4d2e 100%);
-color:white;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-min-height:100vh;
-padding:100px 10%;
-}
+    .sidebar ul li:hover {
+      color: #c8a23d;
+    }
 
-.hero img{
-width:150px;
-margin-bottom:30px;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
+    .lang-switch {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #fff;
+    }
 
-.hero h1{font-size:42px;font-weight:700;margin-bottom:15px;}
-.hero p{margin-top:10px;font-size:18px;opacity:0.95;}
-.hero .subtitle{font-size:14px;margin-top:5px;opacity:0.9;}
+    .lang-switch button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      background: #c8a23d;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 12px;
+    }
 
-.section-box{
-/* remove boxed container look */
-background:transparent;
-padding:50px 40px;
-border-radius:0;
-box-shadow:none;
-}
+    section {
+      padding: 60px 10%;
+      /* alternate background for sections to avoid boxed look */
+      background: #fff;
+    }
 
-.section-title{
-font-size:32px;
-font-weight:700;
-color:#0f2f1f;
-margin-bottom:30px;
-text-align:center;
-}
+    section:nth-of-type(even) {
+      background: #f4f6f3;
+    }
 
-.section-subtitle{
-font-size:16px;
-color:#666;
-margin-bottom:20px;
-line-height:1.8;
-}
+    .hero {
+      background: linear-gradient(135deg, #0f2f1f 0%, #1a4d2e 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 100px 10%;
+    }
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-margin-top:30px;
-}
-.service-card{
-background:#fff;
-padding:30px;
-border-radius:10px;
-/* removed border-left color to simplify design */
-transition:0.3s;
-}
-.service-card:hover{
-transform:translateY(-4px);
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
+    .hero img {
+      width: 150px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
-.service-card h3{
-color:#0f2f1f;
-margin-bottom:15px;
-font-size:20px;
-}
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
 
-.service-card p{
-color:#555;
-line-height:1.7;
-}
+    .hero p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.95;
+    }
 
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin:40px 0;
-}
+    .hero .subtitle {
+      font-size: 14px;
+      margin-top: 5px;
+      opacity: 0.9;
+    }
 
-.stat-card{
-background:#0f2f1f;
-color:white;
-padding:30px;
-border-radius:5px;
-text-align:center;
-}
+    .section-box {
+      /* remove boxed container look */
+      background: transparent;
+      padding: 50px 40px;
+      border-radius: 0;
+      box-shadow: none;
+    }
 
-.stat-card .number{
-font-size:36px;
-font-weight:700;
-color:#c8a23d;
-margin-bottom:10px;
-}
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0f2f1f;
+      margin-bottom: 30px;
+      text-align: center;
+    }
 
-.stat-card .label{
-font-size:14px;
-opacity:0.9;
-}
+    .section-subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
 
-.gallery-container{
-margin-top:40px;
-}
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:30px;
-}
+    .service-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      /* removed border-left color to simplify design */
+      transition: 0.3s;
+    }
 
-.gallery-item{
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-cursor:pointer;
-transition:0.3s;
-}
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-.gallery-item:hover{
-transform:scale(1.02);
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-}
+    .service-card h3 {
+      color: #0f2f1f;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
 
-.gallery-item img,
-.gallery-item video{
-width:100%;
-height:250px;
-object-fit:cover;
-display:block;
-}
+    .service-card p {
+      color: #555;
+      line-height: 1.7;
+    }
 
-.features-list{
-margin-top:30px;
-padding:20px;
-background:#f9f9f9;
-border-radius:10px;
-}
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
 
-.features-list li{
-margin:15px 0;
-padding-left:30px;
-position:relative;
-color:#555;
-line-height:1.7;
-}
+    .stat-card {
+      background: #0f2f1f;
+      color: white;
+      padding: 30px;
+      border-radius: 5px;
+      text-align: center;
+    }
 
-.features-list li:before{
-content:'\2713';
-position:absolute;
-left:0;
-color:#0f2f1f;
-font-weight:bold;
-font-size:18px;
-}
+    .stat-card .number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #c8a23d;
+      margin-bottom: 10px;
+    }
 
-.contact-info{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
-}
+    .stat-card .label {
+      font-size: 14px;
+      opacity: 0.9;
+    }
 
-.contact-card{
-background:#fff;
-padding:25px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
+    .gallery-container {
+      margin-top: 40px;
+    }
 
-.contact-card h4{
-color:#0f2f1f;
-margin-bottom:15px;
-}
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-.contact-card p{
-color:#555;
-margin-bottom:10px;
-}
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.highlight{
-background:transparent;
-border-left:4px solid #c8a23d;
-padding:20px 0;
-margin:20px 0;
-}
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
 
-.highlight strong{
-color:#0f2f1f;
-}
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
 
-footer{
-background:#0f2f1f;
-color:white;
-text-align:center;
-padding:40px 20px;
-margin-top:60px;
-}
+    .features-list {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
 
-footer p{margin:10px 0;opacity:0.9;}
+    .features-list li {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #555;
+      line-height: 1.7;
+    }
 
-.reg-details{
-background:#f0f5f0;
-padding:30px;
-border-radius:10px;
-margin-top:30px;
-}
+    .features-list li:before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #0f2f1f;
+      font-weight: bold;
+      font-size: 18px;
+    }
 
-.reg-details-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
 
-.reg-detail-item{
-padding:15px;
-background:white;
-border-radius:8px;
-}
+    .contact-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
 
-.reg-detail-item strong{
-color:#0f2f1f;
-display:block;
-margin-bottom:8px;
-}
+    .contact-card h4 {
+      color: #0f2f1f;
+      margin-bottom: 15px;
+    }
 
-.reg-detail-item span{
-color:#555;
-}
+    .contact-card p {
+      color: #555;
+      margin-bottom: 10px;
+    }
 
-.hidden{display:none;}
+    .highlight {
+      background: transparent;
+      border-left: 4px solid #c8a23d;
+      padding: 20px 0;
+      margin: 20px 0;
+    }
 
-@media(max-width:768px){
-section{padding:40px 20px;}
-.hero{padding:60px 20px;}
-.hero h1{font-size:28px;}
-.hero img{width:120px;}
-.section-title{font-size:24px;}
-.section-box{padding:30px 20px;}
-.gallery-grid{grid-template-columns:1fr;}
-.services{grid-template-columns:1fr;}
-}
-</style>
+    .highlight strong {
+      color: #0f2f1f;
+    }
+
+    footer {
+      background: #0f2f1f;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    footer p {
+      margin: 10px 0;
+      opacity: 0.9;
+    }
+
+    .reg-details {
+      background: #f0f5f0;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .reg-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .reg-detail-item {
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .reg-detail-item strong {
+      color: #0f2f1f;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .reg-detail-item span {
+      color: #555;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media(max-width:768px) {
+      section {
+        padding: 40px 20px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero img {
+        width: 120px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .section-box {
+        padding: 30px 20px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="toggle-btn" data-key="menu">☰ Menu</div>
+  <div class="toggle-btn" data-key="menu">☰ Menu</div>
 
-<div class="sidebar" id="sidebar">
-<img src="logo.jpeg" alt="Shetimay Logo">
-<h2 data-key="shetimay-fpc">शेतिमय FPC</h2>
+  <div class="sidebar" id="sidebar">
+    <img src="logo.jpeg" alt="Shetimay Logo">
+    <h2 data-key="shetimay-fpc">शेतिमय FPC</h2>
 
-<ul>
-<li onclick="closeSidebar()"><a href="#home" style="color:white;text-decoration:none;" data-key="home">🏠 Home</a></li>
-<li onclick="closeSidebar()"><a href="#about" style="color:white;text-decoration:none;" data-key="about">ℹ️ About Us</a></li>
-<li onclick="closeSidebar()"><a href="#approach" style="color:white;text-decoration:none;" data-key="approach">🌾 Our Approach</a></li>
-<li onclick="closeSidebar()"><a href="#products" style="color:white;text-decoration:none;" data-key="products">🌽 Our Products</a></li>
-<li onclick="closeSidebar()"><a href="#services" style="color:white;text-decoration:none;" data-key="services">✨ Services</a></li>
-<li onclick="closeSidebar()"><a href="#gallery" style="color:white;text-decoration:none;" data-key="gallery">📸 Gallery</a></li>
-<li onclick="closeSidebar()"><a href="#registration" style="color:white;text-decoration:none;" data-key="registration">📋 Details</a></li>
-<li onclick="closeSidebar()"><a href="#contact" style="color:white;text-decoration:none;" data-key="contact">📞 Contact</a></li>
-</ul>
+    <ul>
+      <li onclick="closeSidebar()"><a href="#home" style="color:white;text-decoration:none;" data-key="home">🏠 Home</a>
+      </li>
+      <li onclick="closeSidebar()"><a href="#about" style="color:white;text-decoration:none;" data-key="about">ℹ️ About
+          Us</a></li>
+      <li onclick="closeSidebar()"><a href="#approach" style="color:white;text-decoration:none;" data-key="approach">🌾
+          Our Approach</a></li>
+      <li onclick="closeSidebar()"><a href="#products" style="color:white;text-decoration:none;" data-key="products">🌽
+          Our Crops</a></li>
+      <li onclick="closeSidebar()"><a href="#services" style="color:white;text-decoration:none;" data-key="services">✨
+          Services</a></li>
+      <li onclick="closeSidebar()"><a href="#gallery" style="color:white;text-decoration:none;" data-key="gallery">📸
+          Gallery</a></li>
+      <li onclick="closeSidebar()"><a href="#registration" style="color:white;text-decoration:none;"
+          data-key="registration">📋 Details</a></li>
+      <li onclick="closeSidebar()"><a href="#contact" style="color:white;text-decoration:none;" data-key="contact">📞
+          Contact</a></li>
+    </ul>
 
-<div class="lang-switch">
-<button onclick="switchLang('en')" id="en-btn" style="background-color:#0f2f1f;color:white;">EN</button>
-<button onclick="switchLang('mr')" id="mr-btn" style="background-color:#c8a23d;">मराठी</button>
-</div>
-</div>
-
-<!-- HOME -->
-<section id="home" class="hero">
-<img src="logo.jpeg" alt="Shetimay Logo">
-<h1 data-key="hero-title">🌾 Shetimay Farmer Producer Company Limited</h1>
-<p style="font-size:20px;margin-top:15px;" data-key="hero-subtitle">Empowering Farmers, Strengthening Agriculture</p>
-<p class="subtitle" data-key="hero-hindi">कृषकांना सशक्त करणे, कृषि मजबूत करणे</p>
-<div class="highlight" style="margin-top:20px;color:white;border-left:4px solid #c8a23d;background:rgba(0,0,0,0.3);">
-<p><strong>CIN: U01500MH2025PTC464022</strong> | ROC Mumbai</p>
-<p style="margin-top:5px;font-size:14px;">Incorporated: 23 December 2025</p>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-<div class="section-box">
-<h2 class="section-title" data-key="about-title">About Shetimay FPC</h2>
-
-<div class="section-subtitle" data-key="about-desc">
-<p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:20px;">
-Shetimay Farmer Producer Company Limited was incorporated on <strong>23 December 2025</strong> with a mission to <strong>strengthen farmers through collective action, structured procurement, and fair market pricing</strong>. We operate as a bridge between farmers and markets, eliminating unnecessary middlemen to ensure maximum returns for our farming community.
-</p>
-</div>
-
-<div class="stats-grid">
-<div class="stat-card">
-<div class="number">₹3600</div>
-<div class="label">Guaranteed Khapli Wheat Price</div>
-</div>
-<div class="stat-card">
-<div class="number">100+</div>
-<div class="label">Farmers Supported</div>
-</div>
-<div class="stat-card">
-<div class="number">2 Crops</div>
-<div class="label">Khapli Wheat & Maize</div>
-</div>
-<div class="stat-card">
-<div class="number">Dhule</div>
-<div class="label">Based in Maharashtra</div>
-</div>
-</div>
-
-<div class="highlight" style="margin-top:30px;background:#fffbea;border-left:4px solid #c8a23d;padding:20px;border-radius:5px;" data-key="vision"><strong>📌 Our Vision:</strong> To create a sustainable agricultural ecosystem where farmers are valued partners, technology-enabled producers, and receive fair prices for their hard work.</div>
-
-</div>
-</section>
-
-<!-- OUR APPROACH -->
-<section id="approach">
-<div class="section-box">
-<h2 class="section-title" data-key="approach-title">Our Comprehensive Approach</h2>
-
-<p class="section-subtitle" data-key="approach-desc">
-We follow a complete farm-to-market cycle that ensures farmers receive maximum support and fair pricing at every stage.
-</p>
-
-<div class="services">
-<div class="service-card">
-<h3 data-key="phase1">🌱 Phase 1: Seed Selection</h3>
-<p data-key="phase1-desc">We provide certified, high-quality seeds selected specifically for Maharashtra's climate. Our focus on premium varieties like Khapli Wheat ensures better yields and market demand.</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="phase2">📚 Phase 2: Guidance & Training</h3>
-<p data-key="phase2-desc">Expert agricultural advisors guide farmers through every stage - soil preparation, sowing techniques, pest management, and harvesting. Regular field visits and training sessions ensure best practices.</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="phase3">🏪 Phase 3: Direct Procurement</h3>
-<p data-key="phase3-desc">Once crops are ready, we directly purchase produce at guaranteed competitive prices. No stress about market fluctuations - your price is assured!</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="phase4">💰 Phase 4: Fair Pricing</h3>
-<p data-key="phase4-desc">Cut out middlemen and earn maximum profit. Our direct purchasing model ensures farmers get 85-90% of retail market prices instead of 40-50% through traditional channels.</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- OUR PRODUCTS -->
-<section id="products">
-<div class="section-box">
-<h2 class="section-title" data-key="products-title">Our Products</h2>
-
-<div style="margin-top:40px;">
-<h3 style="color:#0f2f1f;font-size:24px;margin-bottom:20px;" data-key="khapli-title">🌾 Khapli (Khafali) Wheat</h3>
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:30px;align-items:center;">
-<div>
-<p style="color:#555;line-height:1.8;margin-bottom:15px;" data-key="khapli-desc">
-<strong>Khapli Wheat</strong> is an ancient Indian heritage crop known for its exceptional nutritional value, higher protein content, and better taste compared to modern wheat varieties.
-</p>
-<ul class="features-list">
-<li>Higher protein content (13-15% VS 10-12% in regular wheat)</li>
-<li>Rich in minerals and amino acids</li>
-<li>Better for health-conscious consumers</li>
-<li>Premium market demand</li>
-<li>Excellent shelf life</li>
-</ul>
-</div>
-<div style="background:#f0f5f0;padding:20px;border-radius:10px;text-align:center;">
-<p style="font-size:18px;font-weight:600;color:#0f2f1f;">GUARANTEED PRICE</p>
-<p style="font-size:36px;color:#c8a23d;font-weight:700;margin:10px 0;">₹3600</p>
-<p style="color:#555;">per quintal<br/>(Hamibhav)</p>
-</div>
-</div>
-
-<div class="highlight">
-<strong data-key="khapli-benefits-title">Why choose Shetimay for Khapli Wheat?</strong><br/>
-✓ <span data-key="khapli-benefit1">Premium certified seeds</span><br/>
-✓ <span data-key="khapli-benefit2">Guaranteed ₹3600 price per quintal</span><br/>
-✓ <span data-key="khapli-benefit3">Free agricultural guidance</span><br/>
-✓ <span data-key="khapli-benefit4">Direct procurement at your farm gate</span><br/>
-✓ <span data-key="khapli-benefit5">No middleman exploitation</span>
-</div>
-</div>
-
-<hr style="margin:40px 0;border:none;border-top:1px solid #ddd;">
-
-<div style="margin-top:40px;">
-<h3 style="color:#0f2f1f;font-size:24px;margin-bottom:20px;" data-key="maize-title">🌽 Maize (Maka)</h3>
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;">
-<div>
-<p style="color:#555;line-height:1.8;margin-bottom:15px;" data-key="maize-desc">
-Maize is one of India's major crops with growing demand in food, animal feed, and industrial applications. We procure premium quality maize ensuring better market returns.
-</p>
-<ul class="features-list">
-<li>High yield potential per acre</li>
-<li>Strong market demand</li>
-<li>Multiple procurement channels</li>
-<li>Support for modern farming techniques</li>
-<li>Fair pricing based on quality grades</li>
-</ul>
-</div>
-<div style="background:#f0f5f0;padding:20px;border-radius:10px;text-align:center;">
-<p style="font-size:18px;font-weight:600;color:#0f2f1f;">COMPETITIVE PRICING</p>
-<p style="font-size:28px;color:#c8a23d;font-weight:700;margin:10px 0;">Market-Linked</p>
-<p style="color:#555;">with quality premium</p>
-</div>
-</div>
-
-<div class="highlight">
-<strong data-key="maize-benefits-title">Maize Procurement Benefits:</strong><br/>
-✓ <span data-key="maize-benefit1">Direct farm procurement</span><br/>
-✓ <span data-key="maize-benefit2">Quality-based pricing</span><br/>
-✓ <span data-key="maize-benefit3">Guaranteed minimum support price</span><br/>
-✓ <span data-key="maize-benefit4">Expert guidance on hybrid selection</span><br/>
-✓ <span data-key="maize-benefit5">Technical support throughout season</span>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery">
-<div class="section-box">
-<h2 class="section-title" data-key="gallery-title">From Our Farmers</h2>
-<p class="section-subtitle" style="text-align:center;" data-key="gallery-desc">See our farmers and fields in action - celebrating successful harvests and quality produce</p>
-
-<div class="gallery-container">
-<h3 style="color:#0f2f1f;margin-bottom:20px;" data-key="gallery-sub1">📸 Khapli Wheat Harvest Gallery</h3>
-<div class="gallery-grid">
-<div class="gallery-item">
-<img src="data/WhatsApp Image 2026-03-03 at 11.05.35 AM.jpeg" alt="Khapli Wheat Field 1">
-</div>
-<div class="gallery-item">
-<img src="data/WhatsApp Image 2026-03-03 at 11.05.37 AM.jpeg" alt="Khapli Wheat Field 2">
-</div>
-<div class="gallery-item">
-<img src="data/WhatsApp Image 2026-03-03 at 11.05.38 AM (1).jpeg" alt="Khapli Wheat Field 3">
-</div>
-<div class="gallery-item">
-<img src="data/WhatsApp Image 2026-03-03 at 11.05.38 AM (2).jpeg" alt="Khapli Wheat Harvest">
-</div>
-<div class="gallery-item">
-<img src="data/WhatsApp Image 2026-03-03 at 11.05.38 AM (3).jpeg" alt="Quality Produce">
-</div>
-<div class="gallery-item">
-<img src="data/WhatsApp Image 2026-03-03 at 11.05.38 AM.jpeg" alt="Farmer Team">
-</div>
-</div>
-</div>
-
-<div style="margin-top:50px;">
-<h3 style="color:#0f2f1f;margin-bottom:20px;" data-key="gallery-sub2">🎥 Video Testimonials</h3>
-<div class="gallery-grid">
-<div class="gallery-item">
-<video width="100%" height="250" style="object-fit:cover;" controls>
-<source src="data/WhatsApp Video 2026-03-03 at 11.05.37 AM.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</div>
-<div class="gallery-item">
-<video width="100%" height="250" style="object-fit:cover;" controls>
-<source src="data/WhatsApp Video 2026-03-03 at 11.05.37 AM (1).mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-<div class="section-box">
-<h2 class="section-title" data-key="services-title">Our Complete Services</h2>
-
-<p class="section-subtitle" style="text-align:center;" data-key="services-desc">
-Comprehensive agricultural solutions from seed to sale
-</p>
-
-<div class="services">
-<div class="service-card">
-<h3 data-key="svc1-title">🌱 Certified Seed Supply</h3>
-<p data-key="svc1-desc">We source and supply only certified, high-quality seeds. Each batch is tested for germination and pest-free certification. Our seed suppliers follow international standards.</p>
-<p style="margin-top:10px;font-size:13px;color:#666;"><strong>Current Offering:</strong> Khapli Wheat, Premium Maize Hybrids</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="svc2-title">👨‍🌾 Expert Farming Guidance</h3>
-<p data-key="svc2-desc">Dedicated agricultural experts provide personalized guidance. From soil testing to pest management, disease identification to harvesting techniques - we support every step of the farming cycle.</p>
-<p style="margin-top:10px;font-size:13px;color:#666;"><strong>Services:</strong> Field visits, Training camps, WhatsApp support, Crisis management</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="svc3-title">📊 Modern Farming Tech</h3>
-<p data-key="svc3-desc">We encourage modern farming techniques while respecting traditional knowledge. IoT soil sensors, drip irrigation advice, weather forecasting, and precision agriculture methods.</p>
-<p style="margin-top:10px;font-size:13px;color:#666;"><strong>Support:</strong> Technology guidance, Cost assistance info, Best practices</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="svc4-title">💰 Guaranteed Price Procurement</h3>
-<p data-key="svc4-desc">Direct farm-gate purchasing at assured prices. No waiting, no middlemen, no price fluctuation stress. We handle logistics, quality testing, and payment within 48 hours of delivery.</p>
-<p style="margin-top:10px;font-size:13px;color:#666;"><strong>Guarantee:</strong> ₹3600/quintal Khapli, Fair-price Maize</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="svc5-title">📈 Market Linkage</h3>
-<p data-key="svc5-desc">We connect farmers directly to food companies, processors, exporters, and retailers. Your produce reaches premium markets, and you receive premium prices - a win for everyone!</p>
-<p style="margin-top:10px;font-size:13px;color:#666;"><strong>Access:</strong> Organic markets, Export channels, B2B buyers</p>
-</div>
-
-<div class="service-card">
-<h3 data-key="svc6-title">💡 Farmer Learning Center</h3>
-<p data-key="svc6-desc">Regular workshops on new techniques, organic farming, soil conservation, water management, and sustainable agriculture. Building knowledge for long-term farming success.</p>
-<p style="margin-top:10px;font-size:13px;color:#666;"><strong>Programs:</strong> Monthly workshops, Field demonstrations, Success stories</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- REGISTRATION DETAILS -->
-<section id="registration">
-<div class="section-box">
-<h2 class="section-title" data-key="registration-title">Company Registration Details</h2>
-
-<p class="section-subtitle" style="text-align:center;" data-key="registration-desc">
-Verified Corporate Information
-</p>
-
-<div class="reg-details">
-<div class="reg-details-grid">
-<div class="reg-detail-item">
-<strong>Company Name</strong>
-<span>SHETIMAY FARMER PRODUCER COMPANY LIMITED</span>
-</div>
-<div class="reg-detail-item">
-<strong>CIN (Corporate Identification Number)</strong>
-<span>U01500MH2025PTC464022</span>
-</div>
-<div class="reg-detail-item">
-<strong>Date of Incorporation</strong>
-<span>23 December 2025</span>
-</div>
-<div class="reg-detail-item">
-<strong>Registrar of Companies (ROC)</strong>
-<span>ROC Mumbai, Maharashtra</span>
-</div>
-<div class="reg-detail-item">
-<strong>Company Status</strong>
-<span>Active</span>
-</div>
-<div class="reg-detail-item">
-<strong>Company Class</strong>
-<span>Private Company</span>
-</div>
-<div class="reg-detail-item">
-<strong>Company Category</strong>
-<span>Non-Government Company</span>
-</div>
-<div class="reg-detail-item">
-<strong>Sub Category</strong>
-<span>Company Limited by Shares</span>
-</div>
-<div class="reg-detail-item">
-<strong>Business Activity</strong>
-<span>Crop and Animal Production, Related Service Activities</span>
-</div>
-<div class="reg-detail-item">
-<strong>Authorised Capital</strong>
-<span>₹15,00,000</span>
-</div>
-<div class="reg-detail-item">
-<strong>Paid-up Capital</strong>
-<span>₹1,00,000</span>
-</div>
-<div class="reg-detail-item">
-<strong>Company Age</strong>
-<span>2+ Months</span>
-</div>
-</div>
-</div>
-
-<div style="background:#fffbea;padding:25px;border-radius:10px;margin-top:30px;border-left:4px solid #c8a23d;">
-<h4 style="color:#0f2f1f;margin-bottom:15px;">Registered Office Address</h4>
-<p style="color:#555;line-height:1.8;">
-C/o Chatursing Girase, G.No. 68<br/>
-Tawkheda, Tavkheda<br/>
-Dhule, Shindkheda<br/>
-Maharashtra 425408<br/>
-India
-</p>
-</div>
-
-</div>
-</section>
-
-<!-- MEMBERSHIP / SABHASAD -->
-<section id="membership">
-<div class="section-box">
-<h2 class="section-title">Join as Sabhasad (Member)</h2>
-
-<!-- <p class="section-subtitle" style="text-align:center;">To become a sabhasad you need to submit <strong>7/12 (Utara)</strong>, <strong>Aadhaar</strong>, a <strong>passport-size photo</strong> and pay a one-time fee of <strong>₹100</strong>. Once approved, members receive seed support, farming guidance, training, procurement priority and market linkage.</p> -->
-
-<div style="display:grid;grid-template-columns:1fr;gap:20px;">
-
-  <!-- Google Form placeholder -->
-  <div style="background:#f9f9f9;padding:20px;border-radius:10px;">
-    <!-- <p style="margin-bottom:10px;"><strong>Prefer Google Form?</strong> If you have a Google Form, paste its public "share" URL into the iframe below (replace YOUR_FORM_ID) to embed it here.</p> -->
-    <!-- <p style="font-size:13px;color:#666;margin-bottom:10px;">Embedded Google Form (placeholder):</p> -->
-    <iframe id="googleFormEmbed" src="https://docs.google.com/forms/d/e/1FAIpQLSf-3dgyPyIUvKU67yrNX8NCxM2LADEBSWzgPPOKIg8X2Jf2GA/viewform?embedded=true" width="100%" height="600" style="border:1px solid #eee;border-radius:8px;"></iframe>
-    <p style="margin-top:8px;font-size:13px;color:#666;">Or open the form in a new tab: <a id="googleFormLink" href="https://docs.google.com/forms/d/e/1FAIpQLSf-3dgyPyIUvKU67yrNX8NCxM2LADEBSWzgPPOKIg8X2Jf2GA/viewform" target="_blank">Open Google Form</a></p>
+    <div class="lang-switch">
+      <button onclick="switchLang('en')" id="en-btn" style="background-color:#0f2f1f;color:white;">EN</button>
+      <button onclick="switchLang('mr')" id="mr-btn" style="background-color:#c8a23d;">मराठी</button>
+    </div>
   </div>
 
-  <!-- Inline fallback form -->
-  <!-- <div class="section-box">
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <img src="logo.jpeg" alt="Shetimay Logo">
+    <h1 data-key="hero-title">🌾 Shetimay Farmer Producer Company Limited</h1>
+    <p style="font-size:20px;margin-top:15px;" data-key="hero-subtitle">Empowering Farmers, Strengthening Agriculture
+    </p>
+    <p class="subtitle" data-key="hero-hindi">कृषकांना सशक्त करणे, कृषि मजबूत करणे</p>
+    <div class="highlight"
+      style="margin-top:20px;color:white;border-left:4px solid #c8a23d;background:rgba(0,0,0,0.3);">
+      <p><strong>CIN: U01500MH2025PTC464022</strong> | ROC Mumbai</p>
+      <p style="margin-top:5px;font-size:14px;">Incorporated: 23 December 2025</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-box">
+      <h2 class="section-title" data-key="about-title">About Shetimay FPC</h2>
+
+      <div class="section-subtitle" data-key="about-desc">
+        <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:20px;">
+          Shetimay Farmer Producer Company Limited was incorporated on <strong>23 December 2025</strong> with a mission
+          to <strong>strengthen farmers through collective action, structured procurement, and fair market
+            pricing</strong>. We operate as a bridge between farmers and markets, eliminating unnecessary middlemen to
+          ensure maximum returns for our farming community.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number" data-key="stat-no-middleman">No Middleman</div>
+          <div class="label" data-key="stat-model">Direct Farm-to-Market Model</div>
+        </div>
+        <div class="stat-card">
+          <div class="number" data-key="stat-farmers">11000+</div>
+          <div class="label" data-key="stat-farmers-label">Farmers Supported</div>
+        </div>
+        <div class="stat-card">
+          <div class="number" data-key="stat-crops">10+</div>
+          <div class="label" data-key="stat-crops-label">Gahu, Khapli Wheat, Maize, Harbhara & More</div>
+        </div>
+        <div class="stat-card">
+          <div class="number" data-key="stat-location">Dhule</div>
+          <div class="label" data-key="stat-location-label">Based in Maharashtra</div>
+        </div>
+      </div>
+
+      <div class="highlight"
+        style="margin-top:30px;background:#fffbea;border-left:4px solid #c8a23d;padding:20px;border-radius:5px;"
+        data-key="vision"><strong>📌 Our Vision:</strong> To create a sustainable agricultural ecosystem where farmers
+        are valued partners, technology-enabled producers, and receive fair prices for their hard work.</div>
+
+    </div>
+  </section>
+
+  <!-- OUR APPROACH -->
+  <section id="approach">
+    <div class="section-box">
+      <h2 class="section-title" data-key="approach-title">Our Comprehensive Approach</h2>
+
+      <p class="section-subtitle" data-key="approach-desc">
+        We follow a complete farm-to-market cycle that ensures farmers receive maximum support and fair pricing at every
+        stage.
+      </p>
+
+      <div class="services">
+        <div class="service-card">
+          <h3 data-key="phase1">🌱 Phase 1: Seed Selection</h3>
+          <p data-key="phase1-desc">We provide certified, high-quality seeds selected specifically for Maharashtra's
+            climate. Our focus on premium varieties like Khapli Wheat ensures better yields and market demand.</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="phase2">📚 Phase 2: Guidance & Training</h3>
+          <p data-key="phase2-desc">Expert agricultural advisors guide farmers through every stage - soil preparation,
+            sowing techniques, pest management, and harvesting. Regular field visits and training sessions ensure best
+            practices.</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="phase3">🏪 Phase 3: Direct Procurement</h3>
+          <p data-key="phase3-desc">Once crops are ready, we directly purchase produce at guaranteed competitive prices.
+            No stress about market fluctuations - your price is assured!</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="phase4">💰 Phase 4: Fair Pricing</h3>
+          <p data-key="phase4-desc">Cut out middlemen and earn maximum profit. Our direct purchasing model ensures
+            farmers get 85-90% of retail market prices instead of 40-50% through traditional channels.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Our Crops -->
+  <section id="products">
+    <div class="section-box">
+      <h2 class="section-title" data-key="products-title">Our Crops</h2>
+
+      <!-- <div style="margin-top:40px;">
+        <h3 style="color:#0f2f1f;font-size:24px;margin-bottom:20px;" data-key="khapli-title">🌾 Khapli (Khafali) Wheat
+        </h3>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:30px;align-items:center;">
+          <div>
+            <p style="color:#555;line-height:1.8;margin-bottom:15px;" data-key="khapli-desc">
+              <strong>Khapli Wheat</strong> is our flagship heritage crop. We provide premium certified seeds to our
+              member farmers and guarantee a buy-back of the entire harvest at competitive market rates.
+            </p>
+            <ul class="features-list">
+              <li data-key="khapli-f1">Premium certified seed supply</li>
+              <li data-key="khapli-f2">Complete harvest buy-back guarantee</li>
+              <li data-key="khapli-f3">Superior taste and traditional value</li>
+              <li data-key="khapli-f4">Expert guidance from sowing to harvest</li>
+              <li data-key="khapli-f5">Assured market even in fluctuations</li>
+            </ul>
+          </div>
+          <div class="gallery-item">
+            <img src="data/WhatsApp Image 2026-03-03 at 11.05.35 AM.jpeg" alt="Khapli Wheat Field">
+          </div>
+        </div>
+
+        <hr style="margin:40px 0;border:none;border-top:1px solid #ddd;">
+
+        <div style="margin-top:40px;">
+          <h3 style="color:#0f2f1f;font-size:24px;margin-bottom:20px;" data-key="maize-title">🌽 Maize (Maka)</h3>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;">
+            <div>
+              <p style="color:#555;line-height:1.8;margin-bottom:15px;" data-key="maize-desc">
+                We support farmers in cultivating high-yield maize by providing quality hybrid seeds and purchasing the
+                produce directly from the farm, ensuring no middleman exploitation.
+              </p>
+              <ul class="features-list">
+                <li data-key="maize-f1">High-quality hybrid seeds</li>
+                <li data-key="maize-f2">Farm-gate procurement</li>
+                <li data-key="maize-f3">Fair, quality-based pricing</li>
+                <li data-key="maize-f4">Technical support for better yields</li>
+                <li data-key="maize-f5">Direct link to industrial buyers</li>
+              </ul>
+            </div>
+            <div class="gallery-item">
+              <img src="data/WhatsApp Image 2026-03-03 at 11.05.38 AM.jpeg" alt="Maize Field/Farmer">
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="data/WhatsApp Image 2026-03-03 at 11.05.37 AM.jpeg" alt="Farmer Field View">
+          </div>
+        </div> -->
+
+      <!-- CROPS GALLERY -->
+      <!-- <div style="margin-top:40px;">
+        <h3 class="section-title" data-key="crops-title">Our Crops</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="data/crops/gahu.jpg" alt="Gahu">
+            <p style="text-align:center;padding:10px;font-size:14px;color:#0f2f1f;font-weight:600;">Gahu</p>
+          </div>
+          <div class="gallery-item">
+            <img src="data/crops/khapli_wheat.jpg" alt="Khapli Wheat">
+            <p style="text-align:center;padding:10px;font-size:14px;color:#0f2f1f;font-weight:600;">Khapli Wheat</p>
+          </div>
+          <div class="gallery-item">
+            <img src="data/crops/maize.jpg" alt="Maize">
+            <p style="text-align:center;padding:10px;font-size:14px;color:#0f2f1f;font-weight:600;">Maize (Maka)</p>
+          </div>
+          <div class="gallery-item">
+            <img src="data/crops/harbhara.jpg" alt="Harbhara">
+            <p style="text-align:center;padding:10px;font-size:14px;color:#0f2f1f;font-weight:600;">Harbhara</p>
+          </div>
+          <div class="gallery-item">
+            <img src="data/crops/other_crops.jpg" alt="Other Crops">
+            <p style="text-align:center;padding:10px;font-size:14px;color:#0f2f1f;font-weight:600;">And More</p>
+          </div>
+        </div> -->
+        <p class="section-subtitle" style="text-align:center;" data-key="crops-intro">
+          We provide quality seeds to farmers and buy back the entire harvest — directly from the farm gate.
+        </p>
+
+        <div class="gallery-grid" style="margin-top:40px;">
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/gahu.png" alt="Gahu" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-gahu-title">🌾 Gahu (Wheat)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-gahu-desc">Seeds supplied & harvest bought back at guaranteed
+                rates.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/khapli gahu.png" alt="Khapli Wheat" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-khapli-title">🌾 Khapli Gahu (Emmer Wheat)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-khapli-desc">Heritage variety — premium seeds provided, full crop
+                procured directly.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/maize.png" alt="Maize" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-maize-title">🌽 Maize (Maka)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-maize-desc">Hybrid seeds supplied & entire harvest purchased at
+                fair market prices.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/harbhara.png" alt="Harbhara" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-harbhara-title">🫘 Harbhara (Chickpea)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-harbhara-desc">Quality seeds given, ready produce bought back
+                directly from farmers.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/Bajra.png" alt="Bajra" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-bajra-title">🌾 Bajra (Pearl Millet)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-bajra-desc">Certified seeds supplied & harvest procured at
+                competitive rates.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/Jowar.png" alt="Jowar" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-jowar-title">🌾 Jowar (Sorghum)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-jowar-desc">Seeds provided & entire yield bought back with
+                guaranteed pricing.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/Tur.png" alt="Tur" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-tur-title">🫘 Tur (Pigeon Pea)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-tur-desc">Seeds given to farmers & harvest purchased directly
+                at fair price.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item"
+            style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <img src="data/crops/moong.png" alt="Moong" style="width:100%;height:220px;object-fit:cover;">
+            <div style="padding:14px 16px;">
+              <h4 style="color:#0f2f1f;margin-bottom:6px;font-size:17px;" data-key="crop-moong-title">🫘 Moong (Green Gram)</h4>
+              <p style="color:#666;font-size:13px;line-height:1.6;" data-key="crop-moong-desc">Quality seeds supplied & produced crop bought back
+                directly.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-box">
+      <h2 class="section-title" data-key="gallery-title">From Our Farmers</h2>
+      <p class="section-subtitle" style="text-align:center;" data-key="gallery-desc">See our farmers and fields in
+        action - celebrating successful harvests and quality produce</p>
+
+      <div class="gallery-container">
+        <h3 style="color:#0f2f1f;margin-bottom:20px;" data-key="gallery-sub1">📸 From Our Farmers</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="data/from_farmers/WhatsApp Image 2026-03-03 at 11.05.35 AM.jpeg" alt="Farmer Image 1">
+          </div>
+          <div class="gallery-item">
+            <img src="data/from_farmers/WhatsApp Image 2026-03-03 at 11.05.37 AM.jpeg" alt="Farmer Image 2">
+          </div>
+          <div class="gallery-item">
+            <img src="data/from_farmers/WhatsApp Image 2026-03-03 at 11.05.38 AM (1).jpeg" alt="Farmer Image 3">
+          </div>
+          <div class="gallery-item">
+            <img src="data/from_farmers/WhatsApp Image 2026-03-03 at 11.05.38 AM (2).jpeg" alt="Farmer Image 4">
+          </div>
+          <div class="gallery-item">
+            <img src="data/from_farmers/WhatsApp Image 2026-03-03 at 11.05.38 AM (3).jpeg" alt="Farmer Image 5">
+          </div>
+          <div class="gallery-item">
+            <img src="data/from_farmers/WhatsApp Image 2026-03-03 at 11.05.38 AM.jpeg" alt="Farmer Image 6">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-box">
+      <h2 class="section-title" data-key="services-title">Our Complete Services</h2>
+
+      <p class="section-subtitle" style="text-align:center;" data-key="services-desc">
+        Comprehensive agricultural solutions from seed to sale
+      </p>
+
+      <div class="services">
+        <div class="service-card">
+          <h3 data-key="svc1-title">🌱 Certified Seed Supply</h3>
+          <p data-key="svc1-desc">We source and supply only certified, high-quality seeds. Each batch is tested for
+            germination and pest-free certification. Our seed suppliers follow international standards.</p>
+          <p style="margin-top:10px;font-size:13px;color:#666;"><strong>Current Offering:</strong> Khapli Wheat, Premium
+            Maize Hybrids</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="svc2-title">👨‍🌾 Expert Farming Guidance</h3>
+          <p data-key="svc2-desc">Dedicated agricultural experts provide personalized guidance. From soil testing to
+            pest management, disease identification to harvesting techniques - we support every step of the farming
+            cycle.</p>
+          <p style="margin-top:10px;font-size:13px;color:#666;"><strong>Services:</strong> Field visits, Training camps,
+            WhatsApp support, Crisis management</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="svc3-title">📊 Modern Farming Tech</h3>
+          <p data-key="svc3-desc">We encourage modern farming techniques while respecting traditional knowledge. IoT
+            soil sensors, drip irrigation advice, weather forecasting, and precision agriculture methods.</p>
+          <p style="margin-top:10px;font-size:13px;color:#666;"><strong>Support:</strong> Technology guidance, Cost
+            assistance info, Best practices</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="svc4-title">💰 Guaranteed Price Procurement</h3>
+          <p data-key="svc4-desc">Direct farm-gate purchasing at assured prices. No waiting, no middlemen, no price
+            fluctuation stress. We handle logistics, quality testing, and payment within 48 hours of delivery.</p>
+          <p style="margin-top:10px;font-size:13px;color:#666;"><strong>Guarantee:</strong> Khapli, Fair-price Maize</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="svc5-title">📈 Market Linkage</h3>
+          <p data-key="svc5-desc">We connect farmers directly to food companies, processors, exporters, and retailers.
+            Your produce reaches premium markets, and you receive premium prices - a win for everyone!</p>
+          <p style="margin-top:10px;font-size:13px;color:#666;"><strong>Access:</strong> Organic markets, Export
+            channels, B2B buyers</p>
+        </div>
+
+        <div class="service-card">
+          <h3 data-key="svc6-title">💡 Farmer Learning Center</h3>
+          <p data-key="svc6-desc">Regular workshops on new techniques, organic farming, soil conservation, water
+            management, and sustainable agriculture. Building knowledge for long-term farming success.</p>
+          <p style="margin-top:10px;font-size:13px;color:#666;"><strong>Programs:</strong> Monthly workshops, Field
+            demonstrations, Success stories</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REGISTRATION DETAILS -->
+  <section id="registration">
+    <div class="section-box">
+      <h2 class="section-title" data-key="registration-title">Company Registration Details</h2>
+
+      <p class="section-subtitle" style="text-align:center;" data-key="registration-desc">
+        Verified Corporate Information
+      </p>
+
+      <div class="reg-details">
+        <div class="reg-details-grid">
+          <div class="reg-detail-item">
+            <strong>Company Name</strong>
+            <span>SHETIMAY FARMER PRODUCER COMPANY LIMITED</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>CIN (Corporate Identification Number)</strong>
+            <span>U01500MH2025PTC464022</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Date of Incorporation</strong>
+            <span>23 December 2025</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Registrar of Companies (ROC)</strong>
+            <span>ROC Mumbai, Maharashtra</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Company Status</strong>
+            <span>Active</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Company Class</strong>
+            <span>Private Company</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Company Category</strong>
+            <span>Non-Government Company</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Sub Category</strong>
+            <span>Company Limited by Shares</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Business Activity</strong>
+            <span>Crop and Animal Production, Related Service Activities</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Authorised Capital</strong>
+            <span>₹15,00,000</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Paid-up Capital</strong>
+            <span>₹1,00,000</span>
+          </div>
+          <div class="reg-detail-item">
+            <strong>Company Age</strong>
+            <span>2+ Months</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fffbea;padding:25px;border-radius:10px;margin-top:30px;border-left:4px solid #c8a23d;">
+        <h4 style="color:#0f2f1f;margin-bottom:15px;">Registered Office Address</h4>
+        <p style="color:#555;line-height:1.8;">
+          C/o Chatursing Girase, G.No. 68<br />
+          Tawkheda, Tavkheda<br />
+          Dhule, Shindkheda<br />
+          Maharashtra 425408<br />
+          India
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP / SABHASAD -->
+  <section id="membership">
+    <div class="section-box">
+      <h2 class="section-title">Join as Sabhasad (Member)</h2>
+
+      <!-- <p class="section-subtitle" style="text-align:center;">To become a sabhasad you need to submit <strong>7/12 (Utara)</strong>, <strong>Aadhaar</strong>, a <strong>passport-size photo</strong> and pay a one-time fee of <strong>₹100</strong>. Once approved, members receive seed support, farming guidance, training, procurement priority and market linkage.</p> -->
+
+      <div style="display:grid;grid-template-columns:1fr;gap:20px;">
+
+        <!-- Google Form placeholder -->
+        <div style="background:#f9f9f9;padding:20px;border-radius:10px;">
+          <!-- <p style="margin-bottom:10px;"><strong>Prefer Google Form?</strong> If you have a Google Form, paste its public "share" URL into the iframe below (replace YOUR_FORM_ID) to embed it here.</p> -->
+          <!-- <p style="font-size:13px;color:#666;margin-bottom:10px;">Embedded Google Form (placeholder):</p> -->
+          <iframe id="googleFormEmbed"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSf-3dgyPyIUvKU67yrNX8NCxM2LADEBSWzgPPOKIg8X2Jf2GA/viewform?embedded=true"
+            width="100%" height="600" style="border:1px solid #eee;border-radius:8px;"></iframe>
+          <p style="margin-top:8px;font-size:13px;color:#666;">Or open the form in a new tab: <a id="googleFormLink"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf-3dgyPyIUvKU67yrNX8NCxM2LADEBSWzgPPOKIg8X2Jf2GA/viewform"
+              target="_blank">Open Google Form</a></p>
+        </div>
+
+        <!-- Inline fallback form -->
+        <!-- <div class="section-box">
     <h3 style="margin-bottom:10px;color:#0f2f1f;">Membership Application (Fallback)</h3>
     <form id="membershipForm">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
@@ -752,334 +951,388 @@ India
     <p id="membershipNote" style="margin-top:10px;font-size:13px;color:#666;"></p>
   </div> -->
 
-</div>
+      </div>
 
-</div>
-</section>
+    </div>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<div class="section-box">
-<h2 class="section-title" data-key="contact-title">Get In Touch With Us</h2>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-box">
+      <h2 class="section-title" data-key="contact-title">Get In Touch With Us</h2>
 
-<p class="section-subtitle" style="text-align:center;" data-key="contact-desc">
-Have questions? Want to join our farmer network? We're here to help!
-</p>
+      <p class="section-subtitle" style="text-align:center;" data-key="contact-desc">
+        Have questions? Want to join our farmer network? We're here to help!
+      </p>
 
-<div class="contact-info">
-<div class="contact-card">
-<h4>📍 Office Address</h4>
-<p>C/o Chatursing Girase, G.No. 68</p>
-<p>Tawkheda, Dhule</p>
-<p>Maharashtra 425408</p>
-</div>
+      <div class="contact-info">
+        <div class="contact-card">
+          <h4>📍 Office Address</h4>
+          <p>C/o Chatursing Girase, G.No. 68</p>
+          <p>Tawkheda, Dhule</p>
+          <p>Maharashtra 425408</p>
+        </div>
 
-<div class="contact-card">
-<h4>📧 Email</h4>
-<p><strong>info@shetimay.com</strong></p>
-<p style="font-size:13px;color:#666;margin-top:10px;">Write to us for any details or farmer membership</p>
-</div>
+        <div class="contact-card">
+          <h4>📧 Email</h4>
+          <p><strong>info@shetimay.com</strong></p>
+          <p style="font-size:13px;color:#666;margin-top:10px;">Write to us for any details or farmer membership</p>
+        </div>
 
-<div class="contact-card">
-<h4>📱 Phone</h4>
-<p><strong>+91-8080704715</strong></p>
-<p style="font-size:13px;color:#666;margin-top:10px;">Call for immediate assistance</p>
-</div>
+        <div class="contact-card">
+          <h4>📱 Phone</h4>
+          <p><strong>+91-8080704715</strong></p>
+          <p style="font-size:13px;color:#666;margin-top:10px;">Call for immediate assistance</p>
+        </div>
 
-<div class="contact-card">
-<h4>💬 WhatsApp</h4>
-<p><strong>+91-8080704715</strong></p>
-<p style="font-size:13px;color:#666;margin-top:10px;">Quick updates & farmer support</p>
-</div>
-</div>
+        <div class="contact-card">
+          <h4>💬 WhatsApp</h4>
+          <p><strong>+91-8080704715</strong></p>
+          <p style="font-size:13px;color:#666;margin-top:10px;">Quick updates & farmer support</p>
+        </div>
+      </div>
 
-<div style="margin-top:40px;">
-<h3 style="color:#0f2f1f;margin-bottom:20px;">📍 Office Location</h3>
-<iframe width="100%" height="400"
-src="https://maps.google.com/maps?q=Dhule%20Maharashtra&t=&z=13&ie=UTF8&iwloc=&output=embed"
-style="border-radius:10px;border:none;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
-</iframe>
-</div>
+      <div style="margin-top:40px;">
+        <h3 style="color:#0f2f1f;margin-bottom:20px;">📍 Office Location</h3>
+        <iframe width="100%" height="400"
+          src="https://maps.google.com/maps?q=Dhule%20Maharashtra&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          style="border-radius:10px;border:none;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        </iframe>
+      </div>
 
-<div class="highlight" style="margin-top:30px;text-align:center;">
-<h4 style="color:#0f2f1f;margin-bottom:10px;">Ready to Join Our Farmer Network?</h4>
-<p>Submit your interest through <strong>email</strong> or visit our office. We welcome all progressive farmers committed to quality and fair practices!</p>
-</div>
+      <div class="highlight" style="margin-top:30px;text-align:center;">
+        <h4 style="color:#0f2f1f;margin-bottom:10px;">Ready to Join Our Farmer Network?</h4>
+        <p>Submit your interest through <strong>email</strong> or visit our office. We welcome all progressive farmers
+          committed to quality and fair practices!</p>
+      </div>
 
-</div>
-</section>
+    </div>
+  </section>
 
-<footer>
-<h3 style="margin-bottom:10px;">🌾 Shetimay Farmer Producer Company Limited</h3>
-<p>Empowering Farmers | Eliminating Middlemen | Ensuring Fair Prices</p>
-<p>कृषकांना सशक्त करणे | मध्यस्थांना काढून टाकणे | न्याय्य किंमती सुनिश्चित करणे</p>
-<hr style="margin:15px 0;border:none;border-top:1px solid rgba(255,255,255,0.2);">
-<p style="font-size:13px;">© 2026 Shetimay FPC | CIN: U01500MH2025PTC464022 | ROC Mumbai</p>
-<p style="font-size:12px;opacity:0.8;">Registered Office: Tawkheda, Dhule, Maharashtra 425408</p>
-</footer>
+  <footer>
+    <h3 style="margin-bottom:10px;">🌾 Shetimay Farmer Producer Company Limited</h3>
+    <p>Empowering Farmers | Eliminating Middlemen | Ensuring Fair Prices</p>
+    <p>कृषकांना सशक्त करणे | मध्यस्थांना काढून टाकणे | न्याय्य किंमती सुनिश्चित करणे</p>
+    <div
+      style="margin:15px 0;padding:15px 0;border-top:1px solid rgba(255,255,255,0.2);border-bottom:1px solid rgba(255,255,255,0.2);">
+      <a href="https://www.instagram.com/shetimay_fpc/" target="_blank"
+        style="color:#c8a23d;text-decoration:none;font-size:18px;margin:0 10px;">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+    <p style="font-size:13px;">© 2026 Shetimay FPC | CIN: U01500MH2025PTC464022 | ROC Mumbai</p>
+    <p style="font-size:12px;opacity:0.8;">Registered Office: Tawkheda, Dhule, Maharashtra 425408</p>
+  </footer>
 
-<script>
-const translations = {
-  en: {
-    "menu": "☰ Menu",
-    "home": "🏠 Home",
-    "about": "ℹ️ About Us",
-    "approach": "🌾 Our Approach",
-    "products": "🌽 Our Products",
-    "services": "✨ Services",
-    "gallery": "📸 Gallery",
-    "registration": "📋 Details",
-    "contact": "📞 Contact",
-    "shetimay-fpc": "Shetimay FPC",
-    "hero-title": "🌾 Shetimay Farmer Producer Company Limited",
-    "hero-subtitle": "Empowering Farmers, Strengthening Agriculture",
-    "hero-hindi": "कृषकांना सशक्त करणे, कृषि मजबूत करणे",
-    "about-title": "About Shetimay FPC",
-    "about-desc": "Shetimay Farmer Producer Company Limited was incorporated on 23 December 2025 with a mission to strengthen farmers through collective action, structured procurement, and fair market pricing. We operate as a bridge between farmers and markets, eliminating unnecessary middlemen to ensure maximum returns for our farming community.",
-    "vision": "📌 Our Vision: To create a sustainable agricultural ecosystem where farmers are valued partners, technology-enabled producers, and receive fair prices for their hard work.",
-    "approach-title": "Our Comprehensive Approach",
-    "approach-desc": "We follow a complete farm-to-market cycle that ensures farmers receive maximum support and fair pricing at every stage.",
-    "phase1": "🌱 Phase 1: Seed Selection",
-    "phase1-desc": "We provide certified, high-quality seeds selected specifically for Maharashtra's climate. Our focus on premium varieties like Khapli Wheat ensures better yields and market demand.",
-    "phase2": "📚 Phase 2: Guidance & Training",
-    "phase2-desc": "Expert agricultural advisors guide farmers through every stage - soil preparation, sowing techniques, pest management, and harvesting. Regular field visits and training sessions ensure best practices.",
-    "phase3": "🏪 Phase 3: Direct Procurement",
-    "phase3-desc": "Once crops are ready, we directly purchase produce at guaranteed competitive prices. No stress about market fluctuations - your price is assured!",
-    "phase4": "💰 Phase 4: Fair Pricing",
-    "phase4-desc": "Cut out middlemen and earn maximum profit. Our direct purchasing model ensures farmers get 85-90% of retail market prices instead of 40-50% through traditional channels.",
-    "products-title": "Our Products",
-    "khapli-title": "🌾 Khapli (Khafali) Wheat",
-    "khapli-desc": "<strong>Khapli Wheat</strong> is an ancient Indian heritage crop known for its exceptional nutritional value, higher protein content, and better taste compared to modern wheat varieties.",
-    "khapli-benefits-title": "Why choose Shetimay for Khapli Wheat?",
-    "khapli-benefit1": "Premium certified seeds",
-    "khapli-benefit2": "Guaranteed ₹3600 price per quintal",
-    "khapli-benefit3": "Free agricultural guidance",
-    "khapli-benefit4": "Direct procurement at your farm gate",
-    "khapli-benefit5": "No middleman exploitation",
-    "maize-title": "🌽 Maize (Maka)",
-    "maize-desc": "Maize is one of India's major crops with growing demand in food, animal feed, and industrial applications. We procure premium quality maize ensuring better market returns.",
-    "maize-benefits-title": "Maize Procurement Benefits:",
-    "maize-benefit1": "Direct farm procurement",
-    "maize-benefit2": "Quality-based pricing",
-    "maize-benefit3": "Guaranteed minimum support price",
-    "maize-benefit4": "Expert guidance on hybrid selection",
-    "maize-benefit5": "Technical support throughout season",
-    "gallery-title": "From Our Farmers",
-    "gallery-desc": "See our farmers and fields in action - celebrating successful harvests and quality produce",
-    "gallery-sub1": "📸 Khapli Wheat Harvest Gallery",
-    "gallery-sub2": "🎥 Video Testimonials",
-    "services-title": "Our Complete Services",
-    "services-desc": "Comprehensive agricultural solutions from seed to sale",
-    "svc1-title": "🌱 Certified Seed Supply",
-    "svc1-desc": "We source and supply only certified, high-quality seeds. Each batch is tested for germination and pest-free certification. Our seed suppliers follow international standards.",
-    "svc2-title": "👨‍🌾 Expert Farming Guidance",
-    "svc2-desc": "Dedicated agricultural experts provide personalized guidance. From soil testing to pest management, disease identification to harvesting techniques - we support every step of the farming cycle.",
-    "svc3-title": "📊 Modern Farming Tech",
-    "svc3-desc": "We encourage modern farming techniques while respecting traditional knowledge. IoT soil sensors, drip irrigation advice, weather forecasting, and precision agriculture methods.",
-    "svc4-title": "💰 Guaranteed Price Procurement",
-    "svc4-desc": "Direct farm-gate purchasing at assured prices. No waiting, no middlemen, no price fluctuation stress. We handle logistics, quality testing, and payment within 48 hours of delivery.",
-    "svc5-title": "📈 Market Linkage",
-    "svc5-desc": "We connect farmers directly to food companies, processors, exporters, and retailers. Your produce reaches premium markets, and you receive premium prices - a win for everyone!",
-    "svc6-title": "💡 Farmer Learning Center",
-    "svc6-desc": "Regular workshops on new techniques, organic farming, soil conservation, water management, and sustainable agriculture. Building knowledge for long-term farming success.",
-    "registration-title": "Company Registration Details",
-    "registration-desc": "Verified Corporate Information",
-    "contact-title": "Get In Touch With Us",
-    "contact-desc": "Have questions? Want to join our farmer network? We're here to help!",
-  },
-  mr: {
-    "menu": "☰ मेनू",
-    "home": "🏠 होम",
-    "about": "ℹ️ आम्हाबद्दल",
-    "approach": "🌾 आमचा दृष्टिकोन",
-    "products": "🌽 आमचे उत्पादन",
-    "services": "✨ सेवा",
-    "gallery": "📸 गॅलरी",
-    "registration": "📋 तपशील",
-    "contact": "📞 संपर्क",
-    "shetimay-fpc": "शेतिमय FPC",
-    "hero-title": "🌾 शेतिमय शेतकरी उत्पादक कंपनी लिमिटेड",
-    "hero-subtitle": "शेतकऱ्यांना सशक्त करणे, कृषि मजबूत करणे",
-    "hero-hindi": "कृषकांना सशक्त करणे, कृषि मजबूत करणे",
-    "about-title": "शेतिमय FPC बद्दल",
-    "about-desc": "शेतिमय शेतकरी उत्पादक कंपनी लिमिटेड, 23 डिसेंबर 2025 रोजी स्थापित केली गेली. आमचे उद्दिष्ट शेतकऱ्यांना सामूहिक कारवाई, संरचित खरेदी आणि न्याय्य बाजार मूल्य निर्धारण द्वारे सशक्त करणे. आम्ही शेतकरी आणि बाजार यांच्या दरम्यान एक पूल म्हणून कार्य करतो, अनावश्यक मध्यस्थांना काढून टाकतो.",
-    "vision": "📌 आमचे दृष्टिकोन: शेतकऱ्यांना मूल्यवान भागीदार, तंत्रज्ञान-सक्षम उत्पादक आणि त्यांच्या कठोर परिश्रमासाठी न्याय्य मूल्य प्राप्त करणे.",
-    "approach-title": "आमचा व्यापक दृष्टिकोन",
-    "approach-desc": "आम्ही संपूर्ण मल्ला-बाजार चक्र अनुसरण करतो जो शेतकऱ्यांना अधिकतम समर्थन आणि न्याय्य मूल्य निर्धारण सुनिश्चित करतो.",
-    "phase1": "🌱 टप्पा 1: बीजांची निवड",
-    "phase1-desc": "आम्ही महाराष्ट्रच्या जलवायूसाठी विशेषतः निवडलेली प्रमाणित, उच्च-गुणवत्तेची बीजे प्रदान करतो. खापळी गहू यासारख्या प्रीमियम जाती आमच्या फोकसमुळे चांगली उत्पन्न आणि बाजार मांग सुनिश्चित होते.",
-    "phase2": "📚 टप्पा 2: मार्गदर्शन आणि प्रशिक्षण",
-    "phase2-desc": "कृषी तज्ञ शेतकऱ्यांना प्रत्येक टप्प्यात मार्गदर्शन करतात - जमीन तयार करणे, बियाण रोपण तंत्र, कीटक व्यवस्थापन आणि कापणी. नियमित क्षेत्र भेटी आणि प्रशिक्षण सत्रे सर्वोत्तम प्रथा सुनिश्चित करतात.",
-    "phase3": "🏪 टप्पा 3: थेट खरेदी",
-    "phase3-desc": "पिकांची तयारी झाल्यानंतर, आम्ही गारंटीकृत स्पर्धात्मक किमतीत थेट उत्पादन खरेदी करतो. बाजार चढ-उतारांची चिंता नाही - आपली किंमत निश्चित आहे!",
-    "phase4": "💰 टप्पा 4: न्याय्य मूल्य निर्धारण",
-    "phase4-desc": "मध्यस्थांना काढून टाकून अधिकतम नफा मिळवा. आमचा थेट खरेदी मॉडेल शेतकऱ्यांना किरकोळ बाजार किमतीच्या 85-90% उपलब्ध करून देतो, परंपरागत चॅनेलद्वारे 40-50% च्या जागी.",
-    "products-title": "आमचे उत्पादन",
-    "khapli-title": "🌾 खापळी (खफाली) गहू",
-    "khapli-desc": "<strong>खापळी गहू</strong> ही एक प्राचीन भारतीय वारसा पीक आहे जी तिच्या असाधारण पौष्टिकतेसाठी, उच्च प्रथिने सामग्रीसाठी आणि आधुनिक गहू प्रकारांपेक्षा चवदार असते.",
-    "khapli-benefits-title": "शेतिमय खापळी गहूसाठी का निवडावे?",
-    "khapli-benefit1": "प्रीमियम प्रमाणित बियाणे",
-    "khapli-benefit2": "प्रति क्विंटल ₹3600 हमी किंमत",
-    "khapli-benefit3": "मुफ्त कृषी मार्गदर्शन",
-    "khapli-benefit4": "तुमच्या शेताच्या गेटवरून थेट खरेदी",
-    "khapli-benefit5": "मध्यस्थांचा वापर नाही",
-    "maize-title": "🌽 मका (मकई)",
-    "maize-desc": "मका हा भारतातील प्रमुख पिकांपैकी एक आहे ज्याची मागणी अन्न, पशुधन चारा आणि औद्योगिक अनुप्रयोगांमध्ये वाढत आहे. आम्ही अधिक चांगली बाजार दर मिळवण्यासाठी गुणवत्तापूर्ण मका खरेदी करतो.",
-    "maize-benefits-title": "मका खरेदीचे फायदे:",
-    "maize-benefit1": "थेट शेत खरेदी",
-    "maize-benefit2": "गुणवत्तेवर आधारित किंमत",
-    "maize-benefit3": "हमी किमान समर्थन किंमत",
-    "maize-benefit4": "हायब्रिड निवड सल्ला",
-    "maize-benefit5": "सत्रभर तांत्रिक समर्थन",
-    "gallery-title": "आमच्या शेतकऱ्यांकडून",
-    "gallery-desc": "यशस्वी कापण आणि दर्जेदार उत्पादन साजरे करताना आमचे शेतकरी आणि शेते बघा",
-    "gallery-sub1": "📸 खापळी गहू कापणी गॅलरी",
-    "gallery-sub2": "🎥 व्हिडिओ शिफारसी",
-    "services-title": "आमच्या पूर्ण सेवा",
-    "services-desc": "बीजापासून विक्रीपर्यंत सर्वसमावेशक कृषी उपाय",
-    "svc1-title": "🌱 प्रमाणित बीज पुरवठा",
-    "svc1-desc": "आम्ही फक्त प्रमाणित, उच्च-गुणवत्तेची बियाणे पुरवतो. प्रत्येक बॅच जीवनक्षम असून कीटकमुक्त असल्याची चाचणी केली जाते. आमचे बियाणे पुरवठादार आंतरराष्ट्रीय मानकांचे पालन करतात.",
-    "svc2-title": "👨‍🌾 तज्ञ कृषी मार्गदर्शन",
-    "svc2-desc": "निवडक कृषी तज्ञ वैयक्तिक मार्गदर्शन देतात. माती चाचणीपासून कीटक व्यवस्थापन, आजार ओळखापर्यंत आणि कापणी तंत्रांपर्यंत - आम्ही शेतकाम चक्राच्या प्रत्येक चरणात समर्थन करतो.",
-    "svc3-title": "📊 आधुनिक कृषी तंत्रज्ञान",
-    "svc3-desc": "आम्ही पारंपरिक ज्ञानाचा आदर राखून आधुनिक शेती तंत्रांचा प्रचार करतो. आयओटी माती सेन्सर्स, ड्रिप सिंचन सल्ला, हवामान भविष्यवाणी आणि अचूक कृषी पद्धती.",
-    "svc4-title": "💰 हमी किमती खरेदी",
-    "svc4-desc": "ठाम किमतीवर थेट शेत गेट खरेदी. प्रतीक्षा नाही, मध्यस्थ नाही, किंमत चढ-उतार चिंता नाही. आम्ही लॉजिस्टिक, गुणवत्ता तपासत आणि वितरणाच्या 48 तासांच्या आत देयके हाताळतो.",
-    "svc5-title": "📈 बाजार संबंध",
-    "svc5-desc": "आम्ही शेतींना अन्न कंपन्यांना, प्रक्रियाकांस, निर्यातदारांना आणि किरकोळ विक्रेत्यांना थेट जोडतो. तुमचे उत्पादन प्रीमियम बाजारपेठेत पोहोचते, आणि तुम्हाला प्रीमियम किम्मत मिळते - सर्वांसाठी विजय!",
-    "svc6-title": "💡 शेतकरी शिक्षण केंद्र",
-    "svc6-desc": "नवीन तंत्रज्ञानावर नियमित कार्यशाळा, सेंद्रिय शेती, माती संवर्धन, जल व्यवस्थापन आणि शाश्वत शेती. दीर्घकालीन शेती यशासाठी ज्ञान निर्माण करणे.",
-    "registration-title": "कंपनी नोंदणी तपशील",
-    "registration-desc": "प्रमाणित कॉर्पोरेट माहिती",
-    "contact-title": "आमच्याशी संपर्क साधा",
-    "contact-desc": "काही प्रश्न आहेत? आमच्या शेतकरी नेटवर्कमध्ये सामील व्हायचे आहे? आम्ही मदत करण्यासाठी इथे आहोत!",
-  }
-};
+  <script>
+    const translations = {
+      en: {
+        "menu": "☰ Menu",
+        "home": "🏠 Home",
+        "about": "ℹ️ About Us",
+        "approach": "🌾 Our Approach",
+        "products": "🌽 Our Crops",
+        "services": "✨ Services",
+        "gallery": "📸 Gallery",
+        "registration": "📋 Details",
+        "contact": "📞 Contact",
+        "shetimay-fpc": "Shetimay FPC",
+        "hero-title": "🌾 Shetimay Farmer Producer Company Limited",
+        "hero-subtitle": "Empowering Farmers, Strengthening Agriculture",
+        "hero-hindi": "कृषकांना सशक्त करणे, कृषि मजबूत करणे",
+        "about-title": "About Shetimay FPC",
+        "about-desc": "Shetimay Farmer Producer Company Limited was incorporated on 23 December 2025 with a mission to strengthen farmers through collective action, structured procurement, and fair market pricing. We operate as a bridge between farmers and markets, eliminating unnecessary middlemen to ensure maximum returns for our farming community.",
+        "stat-no-middleman": "No Middleman",
+        "stat-model": "Direct Farm-to-Market Model",
+        "stat-farmers": "11000+",
+        "stat-farmers-label": "Farmers Supported",
+        "stat-crops": "10+",
+        "stat-crops-label": "Gahu, Khapli Wheat, Maize, Harbhara & More",
+        "stat-location": "Dhule",
+        "stat-location-label": "Based in Maharashtra",
 
-let currentLang = 'en';
+        "approach-title": "Our Comprehensive Approach",
+        "approach-desc": "We follow a complete farm-to-market cycle that ensures farmers receive maximum support and fair pricing at every stage.",
+        "phase1": "🌱 Phase 1: Seed Selection",
+        "phase1-desc": "We provide certified, high-quality seeds selected specifically for Maharashtra's climate. Our focus on premium varieties like Khapli Wheat ensures better yields and market demand.",
+        "phase2": "📚 Phase 2: Guidance & Training",
+        "phase2-desc": "Expert agricultural advisors guide farmers through every stage - soil preparation, sowing techniques, pest management, and harvesting. Regular field visits and training sessions ensure best practices.",
+        "phase3": "🏪 Phase 3: Direct Procurement",
+        "phase3-desc": "Once crops are ready, we directly purchase produce at guaranteed competitive prices. No stress about market fluctuations - your price is assured!",
+        "phase4": "💰 Phase 4: Fair Pricing",
+        "phase4-desc": "Cut out middlemen and earn maximum profit. Our direct purchasing model ensures farmers get 85-90% of retail market prices instead of 40-50% through traditional channels.",
+        "products-title": "Our Crops",
+        "khapli-title": "🌾 Khapli (Khafali) Wheat",
+        "khapli-desc": "<strong>Khapli Wheat</strong> is our flagship heritage crop. We provide premium certified seeds to our member farmers and guarantee a buy-back of the entire harvest at competitive market rates.",
+        "khapli-f1": "Premium certified seed supply",
+        "khapli-f2": "Complete harvest buy-back guarantee",
+        "khapli-f3": "Superior taste and traditional value",
+        "khapli-f4": "Expert guidance from sowing to harvest",
+        "khapli-f5": "Assured market even in fluctuations",
+        "maize-desc": "We support farmers in cultivating high-yield maize by providing quality hybrid seeds and purchasing the produce directly from the farm, ensuring no middleman exploitation.",
+        "maize-f1": "High-quality hybrid seeds",
+        "maize-f2": "Farm-gate procurement",
+        "maize-f3": "Fair, quality-based pricing",
+        "maize-f4": "Technical support for better yields",
+        "maize-f5": "Direct link to industrial buyers",
+        "gallery-title": "From Our Farmers",
+        "gallery-desc": "See our farmers and fields in action - celebrating successful harvests and quality produce",
+        "gallery-sub1": "📸 Khapli Wheat Harvest Gallery",
+        "gallery-sub2": "🎥 Video Testimonials",
+        "services-title": "Our Complete Services",
+        "services-desc": "Comprehensive agricultural solutions from seed to sale",
+        "crops-title": "Our Crops",
+        "crops-intro": "We provide quality seeds to farmers and buy back the entire harvest — directly from the farm gate.",
+        "crop-gahu-title": "🌾 Gahu (Wheat)",
+        "crop-gahu-desc": "Seeds supplied & harvest bought back at guaranteed rates.",
+        "crop-khapli-title": "🌾 Khapli Gahu (Emmer Wheat)",
+        "crop-khapli-desc": "Heritage variety — premium seeds provided, full crop procured directly.",
+        "crop-maize-title": "🌽 Maize (Maka)",
+        "crop-maize-desc": "Hybrid seeds supplied & entire harvest purchased at fair market prices.",
+        "crop-harbhara-title": "🫘 Harbhara (Chickpea)",
+        "crop-harbhara-desc": "Quality seeds given, ready produce bought back directly from farmers.",
+        "crop-bajra-title": "🌾 Bajra (Pearl Millet)",
+        "crop-bajra-desc": "Certified seeds supplied & harvest procured at competitive rates.",
+        "crop-jowar-title": "🌾 Jowar (Sorghum)",
+        "crop-jowar-desc": "Seeds provided & entire yield bought back with guaranteed pricing.",
+        "crop-tur-title": "🫘 Tur (Pigeon Pea)",
+        "crop-tur-desc": "Seeds given to farmers & harvest purchased directly at fair price.",
+        "crop-moong-title": "🫘 Moong (Green Gram)",
+        "crop-moong-desc": "Quality seeds supplied & produced crop bought back directly.",
+        "svc1-title": "🌱 Certified Seed Supply",
+        "svc1-desc": "We source and supply only certified, high-quality seeds. Each batch is tested for germination and pest-free certification. Our seed suppliers follow international standards.",
+        "svc2-title": "👨‍🌾 Expert Farming Guidance",
+        "svc2-desc": "Dedicated agricultural experts provide personalized guidance. From soil testing to pest management, disease identification to harvesting techniques - we support every step of the farming cycle.",
+        "svc3-title": "📊 Modern Farming Tech",
+        "svc3-desc": "We encourage modern farming techniques while respecting traditional knowledge. IoT soil sensors, drip irrigation advice, weather forecasting, and precision agriculture methods.",
+        "svc4-title": "💰 Guaranteed Price Procurement",
+        "svc4-desc": "Direct farm-gate purchasing at assured prices. No waiting, no middlemen, no price fluctuation stress. We handle logistics, quality testing, and payment within 48 hours of delivery.",
+        "svc5-title": "📈 Market Linkage",
+        "svc5-desc": "We connect farmers directly to food companies, processors, exporters, and retailers. Your produce reaches premium markets, and you receive premium prices - a win for everyone!",
+        "svc6-title": "💡 Farmer Learning Center",
+        "svc6-desc": "Regular workshops on new techniques, organic farming, soil conservation, water management, and sustainable agriculture. Building knowledge for long-term farming success.",
+        "registration-title": "Company Registration Details",
+        "registration-desc": "Verified Corporate Information",
+        "contact-title": "Get In Touch With Us",
+        "contact-desc": "Have questions? Want to join our farmer network? We're here to help!",
+      },
+      mr: {
+        "menu": "☰ मेनू",
+        "home": "🏠 होम",
+        "about": "ℹ️ आम्हाबद्दल",
+        "approach": "🌾 आमचा दृष्टिकोन",
+        "products": "🌽 आमचे पिके",
+        "services": "✨ सेवा",
+        "gallery": "📸 गॅलरी",
+        "registration": "📋 तपशील",
+        "contact": "📞 संपर्क",
+        "shetimay-fpc": "शेतिमय FPC",
+        "hero-title": "🌾 शेतिमय शेतकरी उत्पादक कंपनी लिमिटेड",
+        "hero-subtitle": "शेतकऱ्यांना सशक्त करणे, कृषि मजबूत करणे",
+        "hero-hindi": "कृषकांना सशक्त करणे, कृषि मजबूत करणे",
+        "about-title": "शेतिमय FPC बद्दल",
+        "about-desc": "शेतिमय शेतकरी उत्पादक कंपनी लिमिटेड, 23 डिसेंबर 2025 रोजी स्थापित केली गेली. आमचे उद्दिष्ट शेतकऱ्यांना सामूहिक कारवाई, संरचित खरेदी आणि न्याय्य बाजार मूल्य निर्धारण द्वारे सशक्त करणे. आम्ही शेतकरी आणि बाजार यांच्या दरम्यान एक पूल म्हणून कार्य करतो, अनावश्यक मध्यस्थांना काढून टाकतो.",
+        "stat-no-middleman": "कोणी मध्यस्थ नाही",
+        "stat-model": "थेट शेत-बाजार मॉडेल",
+        "stat-farmers": "11000+",
+        "stat-farmers-label": "समर्थित शेतकरी",
+        "stat-crops": "10+",
+        "stat-crops-label": "गहू, खापळी गहू, मका, हरभरा आणि बरेच काही",
+        "stat-location": "धुळे",
+        "stat-location-label": "महाराष्ट्रमध्ये आधारित",
 
-function toggleSidebar(){
-document.getElementById("sidebar").classList.toggle("active");
-}
-
-function closeSidebar(){
-document.getElementById("sidebar").classList.remove("active");
-}
-
-function switchLang(lang){
-if(lang === currentLang){
-alert(lang === 'en' ? "Already in English!" : "आधीच मराठीमध्ये आहे!");
-return;
-}
-
-currentLang = lang;
-const t = translations[lang];
-
-// Update navigation and main elements
-document.querySelectorAll('[data-key]').forEach(el => {
-const key = el.getAttribute('data-key');
-if(t[key]){
-el.textContent = t[key];
-}
-});
-
-// Update button styles
-if(lang === 'en'){
-document.getElementById('en-btn').style.backgroundColor = '#0f2f1f';
-document.getElementById('en-btn').style.color = 'white';
-document.getElementById('mr-btn').style.backgroundColor = '#c8a23d';
-document.getElementById('mr-btn').style.color = '#0f2f1f';
-} else {
-document.getElementById('en-btn').style.backgroundColor = '#c8a23d';
-document.getElementById('en-btn').style.color = '#0f2f1f';
-document.getElementById('mr-btn').style.backgroundColor = '#0f2f1f';
-document.getElementById('mr-btn').style.color = 'white';
-}
-
-// Change document direction for Marathi
-document.documentElement.lang = lang;
-document.documentElement.dir = lang === 'mr' ? 'auto' : 'ltr';
-}
-
-// attach toggle event and membership form handlers after DOM ready
-document.addEventListener('DOMContentLoaded', function(){
-  const btn = document.querySelector('.toggle-btn');
-  if(btn) btn.addEventListener('click', toggleSidebar);
-
-  // if user clicks anywhere outside the sidebar while it's open, close it
-  document.addEventListener('click', function(e){
-    const sidebarEl = document.getElementById('sidebar');
-    if(sidebarEl.classList.contains('active')){
-      // ignore clicks inside sidebar or on the toggle button itself
-      if(!sidebarEl.contains(e.target) && !e.target.classList.contains('toggle-btn')){
-        closeSidebar();
+        "approach-title": "आमचा व्यापक दृष्टिकोन",
+        "approach-desc": "आम्ही संपूर्ण मल्ला-बाजार चक्र अनुसरण करतो जो शेतकऱ्यांना अधिकतम समर्थन आणि न्याय्य मूल्य निर्धारण सुनिश्चित करतो.",
+        "phase1": "🌱 टप्पा 1: बीजांची निवड",
+        "phase1-desc": "आम्ही महाराष्ट्रच्या जलवायूसाठी विशेषतः निवडलेली प्रमाणित, उच्च-गुणवत्तेची बीजे प्रदान करतो. खापळी गहू यासारख्या प्रीमियम जाती आमच्या फोकसमुळे चांगली उत्पन्न आणि बाजार मांग सुनिश्चित होते.",
+        "phase2": "📚 टप्पा 2: मार्गदर्शन आणि प्रशिक्षण",
+        "phase2-desc": "कृषी तज्ञ शेतकऱ्यांना प्रत्येक टप्प्यात मार्गदर्शन करतात - जमीन तयार करणे, बियाण रोपण तंत्र, कीटक व्यवस्थापन आणि कापणी. नियमित क्षेत्र भेटी आणि प्रशिक्षण सत्रे सर्वोत्तम प्रथा सुनिश्चित करतात.",
+        "phase3": "🏪 टप्पा 3: थेट खरेदी",
+        "phase3-desc": "पिकांची तयारी झाल्यानंतर, आम्ही गारंटीकृत स्पर्धात्मक किमतीत थेट उत्पादन खरेदी करतो. बाजार चढ-उतारांची चिंता नाही - आपली किंमत निश्चित आहे!",
+        "phase4": "💰 टप्पा 4: न्याय्य मूल्य निर्धारण",
+        "phase4-desc": "मध्यस्थांना काढून टाकून अधिकतम नफा मिळवा. आमचा थेट खरेदी मॉडेल शेतकऱ्यांना किरकोळ बाजार किमतीच्या 85-90% उपलब्ध करून देतो, परंपरागत चॅनेलद्वारे 40-50% च्या जागी.",
+        "products-title": "आमचे पिके",
+        "crops-intro": "आम्ही शेतकऱ्यांना दर्जेदार बियाणे पुरवतो आणि संपूर्ण कापणीव्य थेट खरेदी करतो — शेताच्या गेटवरून.",
+        "crop-gahu-title": "🌾 गहू",
+        "crop-gahu-desc": "बियाणे पुरवठा आणि कापणी हमी दरांवर खरेदी.",
+        "crop-khapli-title": "🌾 खापळी गहू (एमर गहू)",
+        "crop-khapli-desc": "वारसा जाती — प्रीमियम बियाणे पुरवठा, संपूर्ण पीक थेट खरेदी.",
+        "crop-maize-title": "🌽 मका (मकै)",
+        "crop-maize-desc": "संकरित बियाणे पुरवठा आणि पूर्ण कापणी न्याय्य बाजार दरांवर खरेदी.",
+        "crop-harbhara-title": "🫘 हरभरा (चणा)",
+        "crop-harbhara-desc": "दर्जेदार बियाणे, तयार उत्पादन शेतकऱ्यांकडून थेट खरेदी.",
+        "crop-bajra-title": "🌾 बाजरी (मोतीचा बाजरी)",
+        "crop-bajra-desc": "प्रमाणित बियाणे पुरवठा आणि कापणी प्रतिस्पर्धी दरांवर खरेदी.",
+        "crop-jowar-title": "🌾 ज्वार (सोरघम)",
+        "crop-jowar-desc": "बियाणे पुरवठा आणि संपूर्ण उत्पादन हमी दरांवर खरेदी.",
+        "crop-tur-title": "🫘 तूर (कांजी फुले)",
+        "crop-tur-desc": "शेतकऱ्यांना बियाणे आणि कापणी थेट न्याय्य दरांवर खरेदी.",
+        "crop-moong-title": "🫘 मुंग (हरित अन्न)",
+        "crop-moong-desc": "दर्जेदार बियाणे पुरवठा आणि उत्पादित पीक थेट खरेदी.",
+        "khapli-title": "🌾 खापळी (खफाली) गहू",
+        "khapli-desc": "<strong>खापळी गहू</strong> हे आमचे प्रमुख पीक आहे. आम्ही आमच्या सभासद शेतकऱ्यांना प्रीमियम प्रमाणित बियाणे पुरवतो आणि स्पर्धात्मक बाजार दराने संपूर्ण कापणीच्या खरेदीची खात्री देतो.",
+        "khapli-f1": "प्रीमियम प्रमाणित बियाणे पुरवठा",
+        "khapli-f2": "संपूर्ण कापणी खरेदीची हमी",
+        "khapli-f3": "उत्कृष्ट चव आणि पारंपारिक मूल्य",
+        "khapli-f4": "पेरणीपासून काढणीपर्यंत तज्ञ मार्गदर्शन",
+        "khapli-f5": "बाजार चढ-उतारातही खात्रीशीर बाजारपेठ",
+        "maize-desc": "आम्ही शेतकऱ्यांना दर्जेदार संकरित बियाणे देऊन आणि शेतातून थेट माल खरेदी करून उच्च उत्पादन देणाऱ्या मका लागवडीसाठी मदत करतो, ज्यामुळे मध्यस्थांकडून होणारी पिळवणूक थांबते.",
+        "maize-f1": "उच्च दर्जाचे संकरित बियाणे",
+        "maize-f2": "थेट शेतातून खरेदी",
+        "maize-f3": "वाजवी, गुणवत्तेवर आधारित किंमत",
+        "maize-f4": "उत्तम उत्पन्नासाठी तांत्रिक मदत",
+        "maize-f5": "औद्योगिक खरेदीदारांशी थेट संबंध",
+        "gallery-title": "आमच्या शेतकऱ्यांकडून",
+        "gallery-desc": "यशस्वी कापण आणि दर्जेदार उत्पादन साजरे करताना आमचे शेतकरी आणि शेते बघा",
+        "gallery-sub1": "📸 खापळी गहू कापणी गॅलरी",
+        "gallery-sub2": "🎥 व्हिडिओ शिफारसी",
+        "services-title": "आमच्या पूर्ण सेवा",
+        "services-desc": "बीजापासून विक्रीपर्यंत सर्वसमावेशक कृषी उपाय",
+        "crops-title": "आमची पिके",
+        "svc1-title": "🌱 प्रमाणित बीज पुरवठा",
+        "svc1-desc": "आम्ही फक्त प्रमाणित, उच्च-गुणवत्तेची बियाणे पुरवतो. प्रत्येक बॅच जीवनक्षम असून कीटकमुक्त असल्याची चाचणी केली जाते. आमचे बियाणे पुरवठादार आंतरराष्ट्रीय मानकांचे पालन करतात.",
+        "svc2-title": "👨‍🌾 तज्ञ कृषी मार्गदर्शन",
+        "svc2-desc": "निवडक कृषी तज्ञ वैयक्तिक मार्गदर्शन देतात. माती चाचणीपासून कीटक व्यवस्थापन, आजार ओळखापर्यंत आणि कापणी तंत्रांपर्यंत - आम्ही शेतकाम चक्राच्या प्रत्येक चरणात समर्थन करतो.",
+        "svc3-title": "📊 आधुनिक कृषी तंत्रज्ञान",
+        "svc3-desc": "आम्ही पारंपरिक ज्ञानाचा आदर राखून आधुनिक शेती तंत्रांचा प्रचार करतो. आयओटी माती सेन्सर्स, ड्रिप सिंचन सल्ला, हवामान भविष्यवाणी आणि अचूक कृषी पद्धती.",
+        "svc4-title": "💰 हमी किमती खरेदी",
+        "svc4-desc": "ठाम किमतीवर थेट शेत गेट खरेदी. प्रतीक्षा नाही, मध्यस्थ नाही, किंमत चढ-उतार चिंता नाही. आम्ही लॉजिस्टिक, गुणवत्ता तपासत आणि वितरणाच्या 48 तासांच्या आत देयके हाताळतो.",
+        "svc5-title": "📈 बाजार संबंध",
+        "svc5-desc": "आम्ही शेतींना अन्न कंपन्यांना, प्रक्रियाकांस, निर्यातदारांना आणि किरकोळ विक्रेत्यांना थेट जोडतो. तुमचे उत्पादन प्रीमियम बाजारपेठेत पोहोचते, आणि तुम्हाला प्रीमियम किम्मत मिळते - सर्वांसाठी विजय!",
+        "svc6-title": "💡 शेतकरी शिक्षण केंद्र",
+        "svc6-desc": "नवीन तंत्रज्ञानावर नियमित कार्यशाळा, सेंद्रिय शेती, माती संवर्धन, जल व्यवस्थापन आणि शाश्वत शेती. दीर्घकालीन शेती यशासाठी ज्ञान निर्माण करणे.",
+        "registration-title": "कंपनी नोंदणी तपशील",
+        "registration-desc": "प्रमाणित कॉर्पोरेट माहिती",
+        "contact-title": "आमच्याशी संपर्क साधा",
+        "contact-desc": "काही प्रश्न आहेत? आमच्या शेतकरी नेटवर्कमध्ये सामील व्हायचे आहे? आम्ही मदत करण्यासाठी इथे आहोत!",
       }
+    };
+
+    let currentLang = 'en';
+
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
     }
-  });
 
-  // Membership form handling
-  const mForm = document.getElementById('membershipForm');
-  const note = document.getElementById('membershipNote');
-  const downloadBtn = document.getElementById('downloadBtn');
+    function closeSidebar() {
+      document.getElementById("sidebar").classList.remove("active");
+    }
 
-  if(mForm){
-    mForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('m_name').value.trim();
-      const village = document.getElementById('m_village').value.trim();
-      const phone = document.getElementById('m_phone').value.trim();
-      const aadhaar = document.getElementById('m_aadhaar').value.trim();
-      const txn = document.getElementById('m_txn').value.trim();
-      const file7 = document.getElementById('m_7_12').files[0];
-      const photo = document.getElementById('m_photo').files[0];
-
-      if(!name || !village || !phone || !aadhaar){
-        note.textContent = 'Please fill all required fields.';
-        return;
-      }
-      if(!file7 || !photo){
-        note.textContent = 'Please upload both 7/12 (Utara) and passport photo.';
+    function switchLang(lang) {
+      if (lang === currentLang) {
+        alert(lang === 'en' ? "Already in English!" : "आधीच मराठीमध्ये आहे!");
         return;
       }
 
-      // Compose email body (users will need to attach files manually in their email client)
-      const subject = `Shetimay Membership Application - ${name}`;
-      let body = '';
-      body += `Name: ${name}\n`;
-      body += `Village/Town: ${village}\n`;
-      body += `Phone: ${phone}\n`;
-      body += `Aadhaar: ${aadhaar}\n`;
-      body += `UPI Txn ID: ${txn || 'N/A'}\n`;
-      body += `Note: Please attach 7/12 (Utara) and passport photo to this email before sending. Membership fee ₹100 to be paid via UPI ID: shetimay@upi or at office.\n`;
+      currentLang = lang;
+      const t = translations[lang];
 
-      const mailto = `mailto:info@shetimay.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
-      note.textContent = 'Email opened in your mail client. Please attach files and send the email to complete application.';
+      // Update navigation and main elements
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (t[key]) {
+          el.textContent = t[key];
+        }
+      });
+
+      // Update button styles
+      if (lang === 'en') {
+        document.getElementById('en-btn').style.backgroundColor = '#0f2f1f';
+        document.getElementById('en-btn').style.color = 'white';
+        document.getElementById('mr-btn').style.backgroundColor = '#c8a23d';
+        document.getElementById('mr-btn').style.color = '#0f2f1f';
+      } else {
+        document.getElementById('en-btn').style.backgroundColor = '#c8a23d';
+        document.getElementById('en-btn').style.color = '#0f2f1f';
+        document.getElementById('mr-btn').style.backgroundColor = '#0f2f1f';
+        document.getElementById('mr-btn').style.color = 'white';
+      }
+
+      // Change document direction for Marathi
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'mr' ? 'auto' : 'ltr';
+    }
+
+    // attach toggle event and membership form handlers after DOM ready
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.querySelector('.toggle-btn');
+      if (btn) btn.addEventListener('click', toggleSidebar);
+
+      // if user clicks anywhere outside the sidebar while it's open, close it
+      document.addEventListener('click', function (e) {
+        const sidebarEl = document.getElementById('sidebar');
+        if (sidebarEl.classList.contains('active')) {
+          // ignore clicks inside sidebar or on the toggle button itself
+          if (!sidebarEl.contains(e.target) && !e.target.classList.contains('toggle-btn')) {
+            closeSidebar();
+          }
+        }
+      });
+
+      // Membership form handling
+      const mForm = document.getElementById('membershipForm');
+      const note = document.getElementById('membershipNote');
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      if (mForm) {
+        mForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const name = document.getElementById('m_name').value.trim();
+          const village = document.getElementById('m_village').value.trim();
+          const phone = document.getElementById('m_phone').value.trim();
+          const aadhaar = document.getElementById('m_aadhaar').value.trim();
+          const txn = document.getElementById('m_txn').value.trim();
+          const file7 = document.getElementById('m_7_12').files[0];
+          const photo = document.getElementById('m_photo').files[0];
+
+          if (!name || !village || !phone || !aadhaar) {
+            note.textContent = 'Please fill all required fields.';
+            return;
+          }
+          if (!file7 || !photo) {
+            note.textContent = 'Please upload both 7/12 (Utara) and passport photo.';
+            return;
+          }
+
+          // Compose email body (users will need to attach files manually in their email client)
+          const subject = `Shetimay Membership Application - ${name}`;
+          let body = '';
+          body += `Name: ${name}\n`;
+          body += `Village/Town: ${village}\n`;
+          body += `Phone: ${phone}\n`;
+          body += `Aadhaar: ${aadhaar}\n`;
+          body += `UPI Txn ID: ${txn || 'N/A'}\n`;
+          body += `Note: Please attach 7/12 (Utara) and passport photo to this email before sending. Membership fee ₹100 to be paid via UPI ID: shetimay@upi or at office.\n`;
+
+          const mailto = `mailto:info@shetimay.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          window.location.href = mailto;
+          note.textContent = 'Email opened in your mail client. Please attach files and send the email to complete application.';
+        });
+      }
+
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function () {
+          const name = document.getElementById('m_name').value.trim();
+          const village = document.getElementById('m_village').value.trim();
+          const phone = document.getElementById('m_phone').value.trim();
+          const aadhaar = document.getElementById('m_aadhaar').value.trim();
+          const txn = document.getElementById('m_txn').value.trim();
+          const text = `Membership Application\n\nName: ${name}\nVillage/Town: ${village}\nPhone: ${phone}\nAadhaar: ${aadhaar}\nUPI Txn ID: ${txn || 'N/A'}\n\nPlease attach 7/12 (Utara) and passport photo when emailing to info@shetimay.com`;
+          const blob = new Blob([text], { type: 'text/plain' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `shetimay_membership_${(name || 'application').replace(/\s+/g, '_')}.txt`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        });
+      }
+
     });
-  }
-
-  if(downloadBtn){
-    downloadBtn.addEventListener('click', function(){
-      const name = document.getElementById('m_name').value.trim();
-      const village = document.getElementById('m_village').value.trim();
-      const phone = document.getElementById('m_phone').value.trim();
-      const aadhaar = document.getElementById('m_aadhaar').value.trim();
-      const txn = document.getElementById('m_txn').value.trim();
-      const text = `Membership Application\n\nName: ${name}\nVillage/Town: ${village}\nPhone: ${phone}\nAadhaar: ${aadhaar}\nUPI Txn ID: ${txn || 'N/A'}\n\nPlease attach 7/12 (Utara) and passport photo when emailing to info@shetimay.com`;
-      const blob = new Blob([text], {type: 'text/plain'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `shetimay_membership_${(name||'application').replace(/\s+/g,'_')}.txt`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    });
-  }
-
-});
-</script>
+  </script>
 
 </body>
+
 </html>
