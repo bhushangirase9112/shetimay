@@ -3,69 +3,226 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 let page = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+
 const hi = {
-  'Farmer partnerships � Agricultural sourcing � Dhule, Maharashtra':'किसानों के साथ साझेदारी • कृषि उपज की खरीद • धुले, महाराष्ट्र',
-  'FARMER PRODUCER COMPANY':'किसान उत्पादक कंपनी','For buyers':'खरीदारों के लिए','For farmers':'किसानों के लिए','Emmer wheat':'खपली गेहूँ','Other crops':'अन्य फसलें','FAQs':'अक्सर पूछे जाने वाले सवाल','Our model':'हमारा कार्य','Talk to our team ?':'हमारी टीम से बात करें',
-  'From growers to businesses':'किसानों से कारोबार तक','Good grain starts with':'अच्छे अनाज की शुरुआत होती है','good partnerships.':'अच्छी साझेदारी से।','Shetimay connects farmers with merchants and food businesses through cultivation support, direct procurement and dependable agricultural sourcing.':'शेतिमाय खेती में सहयोग, किसानों से सीधी खरीद और भरोसेमंद कृषि उपज की आपूर्ति के ज़रिए किसानों को व्यापारियों और खाद्य व्यवसायों से जोड़ता है।','I�m a buyer':'मैं खरीदार हूँ','I�m a farmer':'मैं किसान हूँ','Based in Dhule, Maharashtra � Focused on Emmer (Khapli) wheat':'धुले, महाराष्ट्र में • खपली गेहूँ हमारा मुख्य उत्पाद','Emmer wheat � Khapli gahu':'खपली गेहूँ','Our special focus crop':'हमारी मुख्य फसल',
-  'Farmer-linked sourcing':'किसानों से सीधी खरीद','Work directly with growers in our network':'हमारे किसान समूह के उत्पादकों से सीधे जुड़ें','Flexible product preparation':'ज़रूरत के अनुसार उत्पाद की तैयारी','Cleaning and processing by buyer requirement':'खरीदार की ज़रूरत के अनुसार सफाई और प्रोसेसिंग','Rooted in Dhule':'धुले में स्थित','Local knowledge, regional agricultural supply':'स्थानीय अनुभव और क्षेत्रीय कृषि आपूर्ति',
-  'Our main focus crop':'हमारी मुख्य फसल','Emmer wheat, sourced with care.':'खपली गेहूँ, सावधानी से प्राप्त।','Emmer wheat�known locally as Khapli gahu�is Shetimay�s main focus crop. We partner with farmers to support cultivation and procure the harvested grain for business buyers.':'खपली गेहूँ शेतिमाय की मुख्य फसल है। हम किसानों को खेती के दौरान मार्गदर्शन देते हैं और फसल तैयार होने पर व्यापारियों व कंपनियों के लिए अनाज खरीदते हैं।','We can discuss supply as cleaned or processed grain, or as raw produce when that better suits your operation. Availability, quantity, preparation and delivery are confirmed for each enquiry.':'आपकी ज़रूरत के अनुसार साफ़ या प्रोसेस किया हुआ अनाज, अथवा कच्ची उपज देने पर चर्चा कर सकते हैं। उपलब्धता, मात्रा, तैयारी और डिलीवरी हर पूछताछ के अनुसार तय होगी।','Raw grain':'कच्चा अनाज','For buyers who prefer to handle processing':'जो खरीदार प्रोसेसिंग खुद करना चाहते हैं','Cleaning / processing':'सफाई / प्रोसेसिंग','Options discussed to match your needs':'आपकी ज़रूरत के अनुसार विकल्प','Useful for grain merchants, mills, processors and food businesses':'अनाज व्यापारियों, मिलों, प्रोसेसर और खाद्य व्यवसायों के लिए','Share your required quantity, specification and destination':'ज़रूरी मात्रा, गुणवत्ता और डिलीवरी का स्थान बताएं','We�ll confirm current crop availability and commercial details directly':'मौजूदा फसल की उपलब्धता और व्यावसायिक जानकारी हम सीधे बताएंगे','Enquire about Emmer wheat ?':'खपली गेहूँ के लिए पूछताछ करें',
-  'More produce, same farmer connection':'और उपज, किसानों से वही सीधा जुड़ाव','Wheat and maize sourcing.':'गेहूँ और मक्का की खरीद।','Alongside our main focus on Emmer wheat, we also procure other wheat varieties and maize from farmers for merchant and business buyers. Ask us about the current crop, quantity, quality and delivery options.':'खपली गेहूँ के साथ हम व्यापारियों और कंपनियों के लिए किसानों से गेहूँ की अन्य किस्में और मक्का भी खरीदते हैं। मौजूदा फसल, मात्रा, गुणवत्ता और डिलीवरी के विकल्पों के बारे में पूछें।','WHEAT':'गेहूँ','Other wheat varieties':'गेहूँ की अन्य किस्में','We buy other types of wheat from farmers and supply them to merchants. Share the variety, expected quantity and your preferred product condition so we can check availability.':'हम किसानों से गेहूँ की दूसरी किस्में खरीदकर व्यापारियों को देते हैं। उपलब्धता जानने के लिए किस्म, अनुमानित मात्रा और उत्पाद की पसंदीदा स्थिति बताएं।','Enquire about wheat ?':'गेहूँ के लिए पूछताछ करें','MAIZE':'मक्का','Maize procurement':'मक्का की खरीद','We also procure maize from farmers for merchants and companies. Contact us with your buying requirement and we�ll discuss available supply and terms.':'हम व्यापारियों और कंपनियों के लिए किसानों से मक्का भी खरीदते हैं। अपनी खरीद की ज़रूरत बताएं; हम उपलब्ध आपूर्ति और शर्तों पर चर्चा करेंगे।','Enquire about maize ?':'मक्का के लिए पूछताछ करें',
-  'Two sides of one supply chain':'एक ही आपूर्ति श्रृंखला के दो पक्ष','How can Shetimay work with you?':'शेतिमाय आपके साथ कैसे काम कर सकता है?','Whether you grow the crop or need to source it, start with a conversation about what you need and what�s available.':'आप फसल उगाते हों या उपज खरीदना चाहते हों, अपनी ज़रूरत और उपलब्धता पर बातचीत से शुरुआत करें।','01 / FARMERS':'०१ / किसान','Grow with a route to market':'बिक्री के रास्ते के साथ खेती','We provide seeds for selected crops, share cultivation guidance and purchase suitable harvests from farmers. Contact us to discuss crops, season, local availability and procurement terms.':'हम चुनिंदा फसलों के बीज देते हैं, खेती के दौरान मार्गदर्शन करते हैं और उपयुक्त फसल किसानों से खरीदते हैं। फसल, मौसम, स्थानीय उपलब्धता और खरीद की शर्तों पर चर्चा के लिए संपर्क करें।','Discuss farming with us ?':'खेती के बारे में बात करें','02 / MERCHANTS & COMPANIES':'०२ / व्यापारी और कंपनियाँ','Source agricultural produce':'कृषि उपज प्राप्त करें','Tell us the crop, grade or quality requirements, quantity, preferred preparation and delivery location. We welcome enquiries for smaller lots and bulk quantities; supply depends on current availability. Our main focus is Emmer wheat, alongside other wheat varieties and maize.':'फसल, ग्रेड या गुणवत्ता, मात्रा, पसंदीदा तैयारी और डिलीवरी का स्थान बताएं। कम और बड़ी, दोनों मात्राओं की पूछताछ का स्वागत है; आपूर्ति मौजूदा उपलब्धता पर निर्भर है। खपली गेहूँ के साथ अन्य गेहूँ की किस्में और मक्का भी हमारे मुख्य उत्पाद हैं।','Discuss a buying requirement ?':'खरीद की ज़रूरत बताएं',
-  'Support through the crop cycle.':'फसल के पूरे चक्र में साथ।','Our work begins before harvest. Shetimay provides seeds for selected crops, offers practical guidance during cultivation and connects farmers to procurement when produce is ready.':'हमारा काम फसल कटने से पहले शुरू होता है। शेतिमाय चुनिंदा फसलों के बीज देता है, खेती के दौरान व्यावहारिक मार्गदर्शन देता है और उपज तैयार होने पर किसानों को खरीद से जोड़ता है।','Discuss seed availability and suitability before the season':'मौसम से पहले बीजों की उपलब्धता और उपयुक्तता पूछें','Get guidance and stay in touch as your crop grows':'फसल बढ़ने पर मार्गदर्शन लें और संपर्क में रहें','Talk through harvest quality, quantity and procurement terms':'फसल की गुणवत्ता, मात्रा और खरीद की शर्तें तय करें','Build a direct relationship with a local farmer producer company':'स्थानीय किसान उत्पादक कंपनी से सीधा संबंध बनाएं','I�m a farmer � get in touch ?':'मैं किसान हूँ • संपर्क करें',
-  'Built with farmers, season by season':'हर मौसम किसानों के साथ','How we work':'हम कैसे काम करते हैं','A practical farm-to-buyer connection.':'खेत से खरीदार तक का सीधा जुड़ाव।','We coordinate across cultivation, procurement and preparation so farmers and buyers can discuss requirements with one local team.':'खेती, खरीद और तैयारी के काम में तालमेल रखकर किसानों और खरीदारों को हमारी स्थानीय टीम से अपनी ज़रूरतों पर चर्चा करने में मदद करते हैं।','STEP 01':'चरण ०१','Plan the crop':'फसल की योजना','Discuss suitable seeds, crop plans and farmer requirements ahead of the season.':'मौसम से पहले उपयुक्त बीज, फसल की योजना और किसान की ज़रूरतों पर चर्चा करें।','STEP 02':'चरण ०२','Support cultivation':'खेती में सहयोग','Stay connected with growers and share guidance through the growing cycle.':'फसल के बढ़ने के दौरान किसानों के संपर्क में रहकर मार्गदर्शन देते हैं।','STEP 03':'चरण ०३','Procure the harvest':'फसल की खरीद','Review produce availability, quality, quantity and terms with farmers.':'किसानों के साथ उपज की उपलब्धता, गुणवत्ता, मात्रा और शर्तें तय करते हैं।','STEP 04':'चरण ०४','Prepare for buyers':'खरीदारों के लिए तैयारी','Coordinate raw or cleaned and processed supply according to the buyer enquiry.':'खरीदार की ज़रूरत के अनुसार कच्ची, साफ़ या प्रोसेस की हुई उपज देते हैं।',
-  'Farmer and buyer questions':'किसानों और खरीदारों के सवाल','Frequently asked questions.':'अक्सर पूछे जाने वाले सवाल।','What to know before discussing a crop, seed or produce requirement with Shetimay.':'फसल, बीज या उपज की ज़रूरत पर शेतिमाय से बात करने से पहले ये जानकारी जानें।','Does Shetimay buy produce directly from farmers?':'क्या शेतिमाय किसानों से सीधे उपज खरीदता है?','Yes. We work with farmers on selected crops and procure suitable harvests for supply to merchants and businesses. Crop, quality, quantity, timing and terms are confirmed for each enquiry.':'हाँ। हम चुनिंदा फसलों पर किसानों के साथ काम करते हैं और व्यापारियों व व्यवसायों को देने के लिए उपयुक्त उपज खरीदते हैं। फसल, गुणवत्ता, मात्रा, समय और शर्तें हर पूछताछ के अनुसार तय होती हैं।','Which crops can merchants and companies source?':'व्यापारी और कंपनियाँ कौन सी फसलें खरीद सकते हैं?','Emmer (Khapli) wheat is our main focus. We also procure other wheat varieties and maize. Availability changes with the crop and season, so contact us with your requirement.':'खपली गेहूँ हमारा मुख्य उत्पाद है। हम गेहूँ की अन्य किस्में और मक्का भी खरीदते हैं। फसल और मौसम के अनुसार उपलब्धता बदलती है; अपनी ज़रूरत के साथ संपर्क करें।','Can I enquire about a small quantity or bulk supply?':'क्या कम या बड़ी मात्रा के लिए पूछताछ कर सकते हैं?','Yes. We welcome enquiries for smaller lots and bulk quantities. Tell us the crop, approximate quantity, quality or grade, preparation and delivery location so we can discuss current availability.':'हाँ। कम और बड़ी, दोनों मात्राओं की पूछताछ का स्वागत है। मौजूदा उपलब्धता पर चर्चा के लिए फसल, अनुमानित मात्रा, गुणवत्ता या ग्रेड, तैयारी और डिलीवरी का स्थान बताएं।','Can you supply raw grain as well as cleaned or processed produce?':'क्या कच्चा अनाज और साफ़ या प्रोसेस की हुई उपज मिल सकती है?','We can discuss raw produce or cleaning and processing options according to the crop and buyer requirement. Please include the product condition you need in your enquiry.':'फसल और खरीदार की ज़रूरत के अनुसार कच्ची उपज या सफाई और प्रोसेसिंग के विकल्पों पर चर्चा कर सकते हैं। पूछताछ में उत्पाद की अपेक्षित स्थिति बताएं।','Do you provide seeds and farming guidance?':'क्या आप बीज और खेती का मार्गदर्शन देते हैं?','We provide seeds for selected crops and discuss cultivation guidance with farmers. Contact us before the season to ask about the crop, seed availability and local suitability.':'हम चुनिंदा फसलों के बीज देते हैं और किसानों को खेती का मार्गदर्शन देते हैं। फसल, बीजों की उपलब्धता और स्थानीय उपयुक्तता के बारे में मौसम से पहले संपर्क करें।','Looking for Emmer wheat or another crop?':'खपली गेहूँ या दूसरी फसल चाहिए?','Send us your requirement and our team will follow up about availability.':'अपनी ज़रूरत भेजें; उपलब्धता के बारे में हमारी टीम आपसे संपर्क करेगी।','Send a buyer enquiry ?':'खरीद की पूछताछ भेजें',
-  'Email us':'ईमेल करें','Email':'ईमेल','Let�s talk':'आइए, बात करें','Start with a conversation.':'बातचीत से शुरुआत करें।','Tell us whether you�re a farmer or a buyer, and include the crop, quantity and timing you have in mind. We�ll get back to you to discuss next steps.':'बताएं कि आप किसान हैं या खरीदार, और अपनी पसंद की फसल, मात्रा और समय की जानकारी दें। आगे की चर्चा के लिए हम आपसे संपर्क करेंगे।','Call or WhatsApp':'कॉल या WhatsApp','Registered office':'पंजीकृत कार्यालय','What would you like to discuss?':'आप किस बारे में बात करना चाहते हैं?','Choose the closest option to start a WhatsApp conversation. You can share more details directly with our team.':'WhatsApp पर बातचीत शुरू करने के लिए सही विकल्प चुनें। आप हमारी टीम को सीधे और जानकारी भेज सकते हैं।','Farmer partnership':'किसान साझेदारी','Seeds, crop guidance or selling produce':'बीज, खेती का मार्गदर्शन या उपज की बिक्री','Buyer / merchant enquiry':'खरीदार / व्यापारी की पूछताछ','Emmer wheat, quantity and preparation':'खपली गेहूँ, मात्रा और तैयारी','General enquiry':'सामान्य पूछताछ','Email the Shetimay team':'शेतिमाय टीम को ईमेल करें','Connecting farmers, merchants and businesses through agricultural partnerships and produce sourcing in Maharashtra.':'महाराष्ट्र में कृषि साझेदारी और उपज की खरीद के ज़रिए किसानों, व्यापारियों और व्यवसायों को जोड़ना।','Contact':'संपर्क','Instagram ?':'इंस्टाग्राम ↗','Tawkheda, Dhule, Maharashtra, India':'तावखेड़ा, धुले, महाराष्ट्र, भारत'
+  'Farmer partnerships • Agricultural sourcing • Dhule, Maharashtra': 'किसानों के साथ साझेदारी • कृषि उपज की खरीद • धुले, महाराष्ट्र',
+  'FARMER PRODUCER COMPANY': 'किसान उत्पादक कंपनी',
+  'For buyers': 'खरीदारों के लिए',
+  'For farmers': 'किसानों के लिए',
+  'Emmer wheat': 'खपली गेहूँ',
+  'Other crops': 'अन्य फसलें',
+  'FAQs': 'अक्सर पूछे जाने वाले सवाल',
+  'Our model': 'हमारा कार्य',
+  'Talk to our team': 'हमारी टीम से बात करें',
+  'From growers to businesses': 'किसानों से कारोबार तक',
+  'Good grain starts with': 'अच्छे अनाज की शुरुआत होती है',
+  'good partnerships.': 'अच्छी साझेदारी से।',
+  'Shetimay connects farmers with merchants and food businesses through cultivation support, direct procurement and dependable agricultural sourcing.': 'शेतिमाय खेती में सहयोग, किसानों से सीधी खरीद और भरोसेमंद कृषि उपज की आपूर्ति के ज़रिए किसानों को व्यापारियों और खाद्य व्यवसायों से जोड़ता है।',
+  "I'm a buyer": 'मैं खरीदार हूँ',
+  "I'm a farmer": 'मैं किसान हूँ',
+  'Based in Dhule, Maharashtra • Focused on Emmer (Khapli) wheat': 'धुले, महाराष्ट्र में • खपली गेहूँ हमारा मुख्य उत्पाद',
+  'Emmer wheat — Khapli gahu': 'खपली गेहूँ',
+  'Our special focus crop': 'हमारी मुख्य फसल',
+  'Farmer-linked sourcing': 'किसानों से सीधी खरीद',
+  'Work directly with growers in our network': 'हमारे किसान समूह के उत्पादकों से सीधे जुड़ें',
+  'Flexible product preparation': 'ज़रूरत के अनुसार उत्पाद की तैयारी',
+  'Cleaning and processing by buyer requirement': 'खरीदार की ज़रूरत के अनुसार सफाई और प्रोसेसिंग',
+  'Rooted in Dhule': 'धुले में स्थित',
+  'Local knowledge, regional agricultural supply': 'स्थानीय अनुभव और क्षेत्रीय कृषि आपूर्ति',
+  'Our main focus crop': 'हमारी मुख्य फसल',
+  'Emmer wheat, sourced with care.': 'खपली गेहूँ, सावधानी से प्राप्त।',
+  "Emmer wheat—known locally as Khapli gahu—is Shetimay's main focus crop. We partner with farmers to support cultivation and procure the harvested grain for business buyers.": 'खपली गेहूँ शेतिमाय की मुख्य फसल है। हम किसानों को खेती के दौरान मार्गदर्शन देते हैं और फसल तैयार होने पर व्यापारियों व कंपनियों के लिए अनाज खरीदते हैं।',
+  'We can discuss supply as cleaned or processed grain, or as raw produce when that better suits your operation. Availability, quantity, preparation and delivery are confirmed for each enquiry.': 'आपकी ज़रूरत के अनुसार साफ़ या प्रोसेस किया हुआ अनाज, अथवा कच्ची उपज देने पर चर्चा कर सकते हैं। उपलब्धता, मात्रा, तैयारी और डिलीवरी हर पूछताछ के अनुसार तय होगी।',
+  'Raw grain': 'कच्चा अनाज',
+  'For buyers who prefer to handle processing': 'जो खरीदार प्रोसेसिंग खुद करना चाहते हैं',
+  'Cleaning / processing': 'सफाई / प्रोसेसिंग',
+  'Options discussed to match your needs': 'आपकी ज़रूरत के अनुसार विकल्प',
+  'Useful for grain merchants, mills, processors and food businesses': 'अनाज व्यापारियों, मिलों, प्रोसेसर और खाद्य व्यवसायों के लिए',
+  'Share your required quantity, specification and destination': 'ज़रूरी मात्रा, गुणवत्ता और डिलीवरी का स्थान बताएं',
+  "We'll confirm current crop availability and commercial details directly": 'मौजूदा फसल की उपलब्धता और व्यावसायिक जानकारी हम सीधे बताएंगे',
+  'Enquire about Emmer wheat': 'खपली गेहूँ के लिए पूछताछ करें',
+  'Farmer-sourced produce portfolio': 'किसानों से प्राप्त फसलों की सूची',
+  'Crops we procure and supply.': 'फसलें जिनकी हम खरीद और आपूर्ति करते हैं।',
+  'Alongside our signature Emmer (Khapli) wheat, Shetimay partners with farmers to source a diverse basket of pulses, oilseeds, grains, and millets for merchants, mills, and food businesses.': 'हमारे मुख्य खपली गेहूँ के अलावा, शेतिमाय किसानों से दालें, तिलहन, खाद्यान्न और मोटे अनाज (मिलेट्स) सीधे खरीदकर व्यापारियों, मिलों और खाद्य व्यवसायों को उपलब्ध कराता है।',
+  'Pulses': 'दलहन',
+  'Oilseeds': 'तिलहन',
+  'Grains': 'खाद्यान्न',
+  'Grains & Feed': 'खाद्यान्न व चारा',
+  'Millets': 'श्रीअन्न (मोटे अनाज)',
+  'Harbhara (Bengal Gram)': 'चना / हरभरा',
+  'Clean, graded whole gram sourced directly from local farmers in Khandesh. Suited for dal mills, processing units, and food distributors.': 'खान्देश के स्थानीय किसानों से सीधे प्राप्त साफ़ और ग्रेडेड चना। दाल मिलों, खाद्य प्रसंस्करण इकाइयों और अनाज वितरकों के लिए उपयुक्त।',
+  'Enquire about Harbhara →': 'चने के लिए पूछताछ करें →',
+  'Moong (Green Gram)': 'मूँग (हरा मूँग)',
+  'High-quality whole green gram procured fresh during harvest season. Ideal for wholesale merchants, sprout producers, and packaging brands.': 'कटाई के मौसम में किसानों से सीधे खरीदा गया उच्च गुणवत्ता का साबुत हरा मूँग। थोक व्यापारियों, दाल उत्पादकों और पैकेजिंग ब्रांड्स के लिए उपयुक्त।',
+  'Enquire about Moong →': 'मूँग के लिए पूछताछ करें →',
+  'Tur (Pigeon Pea / Arhar)': 'अरहर / तूर',
+  'Carefully procured red gram from trusted grower clusters. Offered as raw harvest or cleaned grain based on buyer specifications.': 'भरोसेमंद किसान समूहों से प्राप्त उत्तम गुणवत्ता की अरहर/तूर। खरीदारों की ज़रूरत के अनुसार कच्ची उपज या साफ़ माल उपलब्ध।',
+  'Enquire about Tur →': 'तूर/अरहर के लिए पूछताछ करें →',
+  'Soybean': 'सोयाबीन',
+  'High-oil content, clean soybean procured directly from growers. Tailored for solvent extraction plants, feed processors, and oil mills.': 'उच्च गुणवत्ता और तेल की मात्रा वाला साफ़ सोयाबीन, सीधे किसानों से प्राप्त। सॉल्वेंट प्लांट्स, पशु आहार उत्पादकों और तेल मिलों के लिए उपयुक्त।',
+  'Enquire about Soybean →': 'सोयाबीन के लिए पूछताछ करें →',
+  'Wheat (Other Varieties)': 'गेहूँ (अन्य किस्में)',
+  'Popular commercial wheat varieties including Lokwan and Sharbati. Uniform golden grains ideal for flour mills, chakki brands, and distributors.': 'लोकवन और शरबती जैसी लोकप्रिय व्यावसायिक गेहूँ की किस्में। आटा मिलों, चक्की ब्रांड्स और वितरकों के लिए एकसमान सुनहरे दाने।',
+  'Enquire about Wheat →': 'गेहूँ के लिए पूछताछ करें →',
+  'Maize (Yellow Corn)': 'मक्का (पीली मक्का)',
+  'Sun-dried, moisture-checked yellow maize procured from regional farms. Suitable for animal feed manufacturers, starch plants, and processors.': 'स्थानीय खेतों से प्राप्त सूखी और नमी-जांची पीली मक्का। पोल्ट्री व पशु आहार निर्माताओं, स्टार्च संयंत्रों और खाद्य प्रसंस्करण के लिए उपयुक्त।',
+  'Enquire about Maize →': 'मक्का के लिए पूछताछ करें →',
+  'Bajra (Pearl Millet)': 'बाजरा',
+  'Nutritious, climate-resilient pearl millet grown locally in Maharashtra. Sourced fresh for health food companies, millers, and grain markets.': 'पोषक तत्वों से भरपूर ताज़ा बाजरा। स्वास्थ्य खाद्य निर्माताओं, आटा मिलों और अनाज मंडियों के लिए सीधे खेतों से उपलब्ध।',
+  'Enquire about Bajra →': 'बाजरा के लिए पूछताछ करें →',
+  'Jowar (Sorghum)': 'ज्वार',
+  'Premium white sorghum sourced directly from farm clusters. Cleaned and graded for flour manufacturing, retail packaging, and bulk trade.': 'किसान समूहों से सीधे प्राप्त सफ़ेद व उत्तम गुणवत्ता की ज्वार। पिसाई, रिटेल पैकेजिंग और थोक व्यापार के लिए साफ़ और ग्रेडेड माल।',
+  'Enquire about Jowar →': 'ज्वार के लिए पूछताछ करें →',
+  'Two sides of one supply chain': 'एक ही आपूर्ति श्रृंखला के दो पक्ष',
+  'How can Shetimay work with you?': 'शेतिमाय आपके साथ कैसे काम कर सकता है?',
+  "Whether you grow the crop or need to source it, start with a conversation about what you need and what's available.": 'आप फसल उगाते हों या उपज खरीदना चाहते हों, अपनी ज़रूरत और उपलब्धता पर बातचीत से शुरुआत करें।',
+  '01 / FARMERS': '०१ / किसान',
+  'Grow with a route to market': 'बिक्री के रास्ते के साथ खेती',
+  'We provide seeds for selected crops, share cultivation guidance and purchase suitable harvests from farmers. Contact us to discuss crops, season, local availability and procurement terms.': 'हम चुनिंदा फसलों के बीज देते हैं, खेती के दौरान मार्गदर्शन करते हैं और उपयुक्त फसल किसानों से खरीदते हैं। फसल, मौसम, स्थानीय उपलब्धता और खरीद की शर्तों पर चर्चा के लिए संपर्क करें।',
+  'Discuss farming with us': 'खेती के बारे में बात करें',
+  '02 / MERCHANTS & COMPANIES': '०२ / व्यापारी और कंपनियाँ',
+  'Source agricultural produce': 'कृषि उपज प्राप्त करें',
+  'Tell us the crop, grade or quality requirements, quantity, preferred preparation and delivery location. We welcome enquiries for smaller lots and bulk quantities; supply depends on current availability. Our focus includes Emmer wheat, alongside Harbhara, Moong, Tur, Soybean, other wheat varieties, Maize, Bajra and Jowar.': 'फसल, ग्रेड या गुणवत्ता, मात्रा, पसंदीदा तैयारी और डिलीवरी का स्थान बताएं। कम और बड़ी, दोनों मात्राओं की पूछताछ का स्वागत है; आपूर्ति मौजूदा उपलब्धता पर निर्भर है। खपली गेहूँ के साथ चना, मूँग, तूर/अरहर, सोयाबीन, अन्य गेहूँ की किस्में, मक्का, बाजरा और ज्वार हमारे प्रमुख उत्पाद हैं।',
+  'Discuss a buying requirement': 'खरीद की ज़रूरत बताएं',
+  'Support through the crop cycle.': 'फसल के पूरे चक्र में साथ।',
+  'Our work begins before harvest. Shetimay provides seeds for selected crops, offers practical guidance during cultivation and connects farmers to procurement when produce is ready.': 'हमारा काम फसल कटने से पहले शुरू होता है। शेतिमाय चुनिंदा फसलों के बीज देता है, खेती के दौरान व्यावहारिक मार्गदर्शन देता है और उपज तैयार होने पर किसानों को खरीद से जोड़ता है।',
+  'Discuss seed availability and suitability before the season': 'मौसम से पहले बीजों की उपलब्धता और उपयुक्तता पूछें',
+  'Get guidance and stay in touch as your crop grows': 'फसल बढ़ने पर मार्गदर्शन लें और संपर्क में रहें',
+  'Talk through harvest quality, quantity and procurement terms': 'फसल की गुणवत्ता, मात्रा और खरीद की शर्तें तय करें',
+  'Build a direct relationship with a local farmer producer company': 'स्थानीय किसान उत्पादक कंपनी से सीधा संबंध बनाएं',
+  "I'm a farmer — get in touch": 'मैं किसान हूँ • संपर्क करें',
+  'Built with farmers, season by season': 'हर मौसम किसानों के साथ',
+  'How we work': 'हम कैसे काम करते हैं',
+  'A practical farm-to-buyer connection.': 'खेत से खरीदार तक का सीधा जुड़ाव।',
+  'We coordinate across cultivation, procurement and preparation so farmers and buyers can discuss requirements with one local team.': 'खेती, खरीद और तैयारी के काम में तालमेल रखकर किसानों और खरीदारों को हमारी स्थानीय टीम से अपनी ज़रूरतों पर चर्चा करने में मदद करते हैं।',
+  'STEP 01': 'चरण ०१',
+  'Plan the crop': 'फसल की योजना',
+  'Discuss suitable seeds, crop plans and farmer requirements ahead of the season.': 'मौसम से पहले उपयुक्त बीज, फसल की योजना और किसान की ज़रूरतों पर चर्चा करें।',
+  'STEP 02': 'चरण ०२',
+  'Support cultivation': 'खेती में सहयोग',
+  'Stay connected with growers and share guidance through the growing cycle.': 'फसल के बढ़ने के दौरान किसानों के संपर्क में रहकर मार्गदर्शन देते हैं।',
+  'STEP 03': 'चरण ०३',
+  'Procure the harvest': 'फसल की खरीद',
+  'Review produce availability, quality, quantity and terms with farmers.': 'किसानों के साथ उपज की उपलब्धता, गुणवत्ता, मात्रा और शर्तें तय करते हैं।',
+  'STEP 04': 'चरण ०४',
+  'Prepare for buyers': 'खरीदारों के लिए तैयारी',
+  'Coordinate raw or cleaned and processed supply according to the buyer enquiry.': 'खरीदार की ज़रूरत के अनुसार कच्ची, साफ़ या प्रोसेस की हुई उपज देते हैं।',
+  'Farmer and buyer questions': 'किसानों और खरीदारों के सवाल',
+  'Frequently asked questions.': 'अक्सर पूछे जाने वाले सवाल.',
+  'What to know before discussing a crop, seed or produce requirement with Shetimay.': 'फसल, बीज या उपज की ज़रूरत पर शेतिमाय से बात करने से पहले ये जानकारी जानें।',
+  'Does Shetimay buy produce directly from farmers?': 'क्या शेतिमाय किसानों से सीधे उपज खरीदता है?',
+  'Yes. We work with farmers on selected crops and procure suitable harvests for supply to merchants and businesses. Crop, quality, quantity, timing and terms are confirmed for each enquiry.': 'हाँ। हम चुनिंदा फसलों पर किसानों के साथ काम करते हैं और व्यापारियों व व्यवसायों को देने के लिए उपयुक्त उपज खरीदते हैं। फसल, गुणवत्ता, मात्रा, समय और शर्तें हर पूछताछ के अनुसार तय होती हैं।',
+  'Which crops can merchants and companies source?': 'व्यापारी और कंपनियाँ कौन सी फसलें खरीद सकते हैं?',
+  'Emmer (Khapli) wheat is our main focus. In addition, we procure Harbhara (Bengal gram / Chana), Moong (Green gram), Tur (Pigeon pea / Arhar), Soybean, other wheat varieties (Lokwan, Sharbati), Maize, Bajra (Pearl millet), and Jowar (Sorghum) directly from local farmers. Availability changes with the crop and season, so contact us with your requirement.': 'खपली गेहूँ हमारा मुख्य उत्पाद है। इसके अलावा हम चना (हरभरा), मूँग, तूर (अरहर), सोयाबीन, गेहूँ की अन्य किस्में (लोकवन, शरबती), मक्का, बाजरा और ज्वार सीधे किसानों से खरीदकर व्यापारियों व कंपनियों को उपलब्ध कराते हैं। फसल और मौसम के अनुसार उपलब्धता बदलती है; अपनी ज़रूरत के साथ संपर्क करें।',
+  'Can I enquire about a small quantity or bulk supply?': 'क्या कम या बड़ी मात्रा के लिए पूछताछ कर सकते हैं?',
+  'Yes. We welcome enquiries for smaller lots and bulk quantities. Tell us the crop, approximate quantity, quality or grade, preparation and delivery location so we can discuss current availability.': 'हाँ। कम और बड़ी, दोनों मात्राओं की पूछताछ का स्वागत है। मौजूदा उपलब्धता पर चर्चा के लिए फसल, अनुमानित मात्रा, गुणवत्ता या ग्रेड, तैयारी और डिलीवरी का स्थान बताएं।',
+  'Can you supply raw grain as well as cleaned or processed produce?': 'क्या कच्चा अनाज और साफ़ या प्रोसेस की हुई उपज मिल सकती है?',
+  'We can discuss raw produce or cleaning and processing options according to the crop and buyer requirement. Please include the product condition you need in your enquiry.': 'फसल और खरीदार की ज़रूरत के अनुसार कच्ची उपज या सफाई और प्रोसेसिंग के विकल्पों पर चर्चा कर सकते हैं। पूछताछ में उत्पाद की अपेक्षित स्थिति बताएं।',
+  'Do you provide seeds and farming guidance?': 'क्या आप बीज और खेती का मार्गदर्शन देते हैं?',
+  'We provide seeds for selected crops and discuss cultivation guidance with farmers. Contact us before the season to ask about the crop, seed availability and local suitability.': 'हम चुनिंदा फसलों के बीज देते हैं और किसानों को खेती का मार्गदर्शन देते हैं। फसल, बीजों की उपलब्धता और स्थानीय उपयुक्तता के बारे में मौसम से पहले संपर्क करें।',
+  'Looking for Emmer wheat or another crop?': 'खपली गेहूँ या दूसरी फसल चाहिए?',
+  'Send us your requirement and our team will follow up about availability.': 'अपनी ज़रूरत भेजें; उपलब्धता के बारे में हमारी टीम आपसे संपर्क करेगी।',
+  'Send a buyer enquiry': 'खरीद की पूछताछ भेजें',
+  'Email us': 'ईमेल करें',
+  'Email': 'ईमेल',
+  "Let's talk": 'आइए, बात करें',
+  'Start with a conversation.': 'बातचीत से शुरुआत करें।',
+  "Tell us whether you're a farmer or a buyer, and include the crop, quantity and timing you have in mind. We'll get back to you to discuss next steps.": 'बताएं कि आप किसान हैं या खरीदार, और अपनी पसंद की फसल, मात्रा और समय की जानकारी दें। आगे की चर्चा के लिए हम आपसे संपर्क करेंगे।',
+  'Call or WhatsApp': 'कॉल या WhatsApp',
+  'Registered office': 'पंजीकृत कार्यालय',
+  'What would you like to discuss?': 'आप किस बारे में बात करना चाहते हैं?',
+  'Choose the closest option to start a WhatsApp conversation. You can share more details directly with our team.': 'WhatsApp पर बातचीत शुरू करने के लिए सही विकल्प चुनें। आप हमारी टीम को सीधे और जानकारी भेज सकते हैं।',
+  'Farmer partnership': 'किसान साझेदारी',
+  'Seeds, crop guidance or selling produce': 'बीज, खेती का मार्गदर्शन या उपज की बिक्री',
+  'Buyer / merchant enquiry': 'खरीदार / व्यापारी की पूछताछ',
+  'Emmer wheat, quantity and preparation': 'खपली गेहूँ, मात्रा और तैयारी',
+  'General enquiry': 'सामान्य पूछताछ',
+  'Email the Shetimay team': 'शेतिमाय टीम को ईमेल करें',
+  'Connecting farmers, merchants and businesses through agricultural partnerships and produce sourcing in Maharashtra.': 'महाराष्ट्र में कृषि साझेदारी और उपज की खरीद के ज़रिए किसानों, व्यापारियों और व्यवसायों को जोड़ना।',
+  'Contact': 'संपर्क',
+  'Instagram': 'इंस्टाग्राम ↗',
+  'Tawkheda, Dhule, Maharashtra, India': 'तावखेड़ा, धुले, महाराष्ट्र, भारत'
 };
 
-hi['Talk to our team'] = 'हमारी टीम से बात करें';
-hi["I'm a buyer"] = 'मैं खरीदार हूँ';
-hi["I'm a farmer"] = 'मैं किसान हूँ';
-hi["I'm a farmer — get in touch"] = 'मैं किसान हूँ • संपर्क करें';
-hi["We also procure maize from farmers for merchants and companies. Contact us with your buying requirement and we'll discuss available supply and terms."] = 'हम व्यापारियों और कंपनियों के लिए किसानों से मक्का भी खरीदते हैं। अपनी खरीद की ज़रूरत बताएं; हम उपलब्ध आपूर्ति और शर्तों पर चर्चा करेंगे।';
-
-const bodyStart = page.indexOf('<body>') + '<body>'.length;
+const bodyStart = page.indexOf('<body>') + 6;
 const bodyEnd = page.lastIndexOf('</body>');
 const scriptStart = page.lastIndexOf('  <script>', bodyEnd);
 let body = page.slice(bodyStart, scriptStart);
 const misses = new Set();
-function translatedText(key) {
-  const normalized = key.replaceAll("'", '\uFFFD').replaceAll('—', '\uFFFD').replaceAll('•', '\uFFFD');
-  for (const candidate of [key, normalized, `${normalized} ?`]) {
-    if (Object.hasOwn(hi, candidate)) return hi[candidate];
-  }
-  return undefined;
+
+function normalizeKey(str) {
+  return str.trim().replace(/\s+/g, ' ');
 }
+
 body = body.replace(/>([^<>]+)</g, (whole, text) => {
-  const key = text.trim().replace(/\s+/g, ' ');
-  const lookup = key.endsWith(' →') ? `${key.slice(0, -2)} ?` : key === 'Instagram ↗' ? 'Instagram ?' : key;
-  const translated = translatedText(lookup);
-  if (translated) return `>${text.match(/^\s*/)[0]}${translated}${text.match(/\s*$/)[0]}<`;
-  if (/[A-Za-z]{3}/.test(key) && !['Shetimay'].includes(key)) misses.add(key);
+  const key = normalizeKey(text);
+  if (Object.hasOwn(hi, key)) {
+    return `>${text.match(/^\s*/)[0]}${hi[key]}${text.match(/\s*$/)[0]}<`;
+  }
+  if (
+    key &&
+    !/^[\d\s+\-.,/|•→↗©:()]+$/.test(key) &&
+    !key.includes('shetimayfpc425407@gmail.com') &&
+    !key.includes('+91') &&
+    !key.includes('CIN:')
+  ) {
+    misses.add(key);
+  }
   return whole;
 });
+
 page = page.slice(0, bodyStart) + body + page.slice(scriptStart);
-page = page.replace(".check-list li:before{content:'?';", ".check-list li:before{content:'✓';");
-page = page.replace(".step:not(:last-child):after{content:'?';", ".step:not(:last-child):after{content:'→';");
-page = page.replaceAll('>?</button>', '>☰</button>');
-page = page.replaceAll('<span aria-hidden="true">?</span>', '<span aria-hidden="true">→</span>');
-page = page.replaceAll('>?</div>', '>•</div>');
-page = page.replaceAll('>� <span id="year">', '>© <span id="year">');
-page = page.replaceAll('Tawkheda, Shindkheda, Dhule', 'तावखेड़ा, शिंदखेड़ा, धुले');
-page = page.replaceAll('Maharashtra 425408, India', 'महाराष्ट्र ४२५४०८, भारत');
-page = page.replace('alt="Shetimay logo"', 'alt="शेतिमाय का लोगो"');
-page = page.replace('alt="Khapli, also known as Emmer wheat, grown in Maharashtra"', 'alt="महाराष्ट्र में उगाया जाने वाला खपली गेहूँ"');
-page = page.replace('alt="Emmer wheat, called Khapli gahu locally"', 'alt="खपली गेहूँ"');
-page = page.replace('alt="A farmer�s crop and field from the Shetimay grower network"', 'alt="शेतिमाय किसान समूह के खेत और फसल"');
+
+// Attributes & Meta Updates
 page = page.replace('<html lang="en">', '<html lang="hi">');
-page = page.replace('<title>Shetimay | Emmer (Khapli) Wheat Sourcing & Farmer Partnerships</title>', '<title>शेतिमाय | खपली गेहूँ, गेहूँ और मक्का की खरीद</title>');
-page = page.replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="शेतिमाय धुले, महाराष्ट्र में किसानों से खपली गेहूँ, गेहूँ की अन्य किस्में और मक्का खरीदता है। बीज, खेती के मार्गदर्शन और सीधे खरीद के लिए संपर्क करें।">');
-page = page.replace(/<meta property="og:title" content="[^"]*">/, '<meta property="og:title" content="शेतिमाय | खपली गेहूँ, गेहूँ और मक्का की खरीद">');
-page = page.replace(/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="शेतिमाय के साथ किसानों, व्यापारियों और कंपनियों के लिए कृषि उपज की सीधी खरीद।">');
+page = page.replace('<title>Shetimay | Emmer (Khapli) Wheat Sourcing & Farmer Partnerships</title>', '<title>शेतिमाय | खपली गेहूँ, चना, मूँग, अरहर, मक्का खरीद</title>');
+page = page.replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="शेतिमाय धुले, महाराष्ट्र में किसानों, व्यापारियों और कंपनियों के लिए खपली गेहूँ, चना, मूँग, तूर, सोयाबीन, गेहूँ, मक्का और बाजरा-ज्वार सीधे खरीदता है।">');
+page = page.replace(/<meta property="og:title" content="[^"]*">/, '<meta property="og:title" content="शेतिमाय | खपली गेहूँ, दलहन, तिलहन और अनाज खरीद">');
+page = page.replace(/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="शेतिमाय के साथ किसानों, व्यापारियों और कंपनियों के लिए सीधी कृषि उपज खरीद।">');
 page = page.replace('<meta property="og:url" content="https://shetimay.in/">', '<meta property="og:url" content="https://shetimay.in/hi/">');
 page = page.replace('<link rel="canonical" href="https://shetimay.in/">', '<link rel="canonical" href="https://shetimay.in/hi/">');
 page = page.replace('<option value="hi">हिंदी</option>', '<option value="hi" selected>हिंदी</option>');
 page = page.replace('<option value="en" selected>English</option>', '<option value="en">English</option>');
-page = page.replace('document.title=language===\'mr\'?\'??????? | ???? ??? ??? ?????? ????????\':language===\'hi\'?\'?????? | ???? ????? ?? ????? ????????\':\'Shetimay | Emmer (Khapli) Wheat Sourcing & Farmer Partnerships\';', 'if(language!==\'hi\') document.title=\'Shetimay | Emmer (Khapli) Wheat Sourcing & Farmer Partnerships\';');
-page = page.replace(/\n\s*changeLanguage\('hi'\);\s*(?=\n\s*<\/script>)/, '');
+page = page.replace('Tawkheda, Shindkheda, Dhule', 'तावखेड़ा, शिंदखेड़ा, धुले');
+page = page.replaceAll('Maharashtra 425408, India', 'महाराष्ट्र ४२५४०८, भारत');
+page = page.replace('alt="Shetimay logo"', 'alt="शेतिमाय का लोगो"');
+page = page.replace('alt="Khapli, also known as Emmer wheat, grown in Maharashtra"', 'alt="महाराष्ट्र में उगाया जाने वाला खपली गेहूँ"');
+page = page.replace('alt="Emmer wheat, called Khapli gahu locally"', 'alt="खपली गेहूँ"');
+page = page.replace('alt="A farmer\'s crop and field from the Shetimay grower network"', 'alt="शेतिमाय किसान समूह के खेत और फसल"');
+page = page.replace('alt="Harbhara / Bengal Gram (Chana) sourced by Shetimay"', 'alt="शेतिमाय द्वारा खरीदा गया चना (हरभरा)"');
+page = page.replace('alt="Moong / Green Gram sourced by Shetimay"', 'alt="शेतिमाय द्वारा खरीदा गया मूँग"');
+page = page.replace('alt="Tur / Pigeon Pea (Arhar) sourced by Shetimay"', 'alt="शेतिमाय द्वारा खरीदी गई अरहर/तूर"');
+page = page.replace('alt="Soybean procured by Shetimay"', 'alt="शेतिमाय द्वारा खरीदा गया सोयाबीन"');
+page = page.replace('alt="Wheat varieties (Lokwan & Sharbati) procured by Shetimay"', 'alt="शेतिमाय द्वारा खरीदी गई गेहूँ की किस्में"');
+page = page.replace('alt="Yellow Maize sourced by Shetimay"', 'alt="शेतिमाय द्वारा खरीदी गई पीली मक्का"');
+page = page.replace('alt="Bajra / Pearl Millet sourced by Shetimay"', 'alt="शेतिमाय द्वारा खरीदा गया बाजरा"');
+page = page.replace('alt="Jowar / Sorghum sourced by Shetimay"', 'alt="शेतिमाय द्वारा खरीदी गई ज्वार"');
+
+// Localize JSON-LD for Hindi
+page = page.replace(
+  '"description": "Farmer producer company based in Dhule, Maharashtra. Sources Emmer (Khapli) wheat, other wheat varieties, and maize from local farmers for merchants and food businesses."',
+  '"description": "शेतिमाय धुले, महाराष्ट्र में स्थित किसान उत्पादक कंपनी है जो स्थानीय किसानों से खपली गेहूँ, चना, मूँग, तूर, सोयाबीन, गेहूँ की अन्य किस्में, मक्का व श्रीअन्न खरीदकर व्यापारियों व खाद्य व्यवसायों को उपलब्ध कराती है।"'
+);
+page = page.replace(
+  '"name": "Does Shetimay buy produce directly from farmers?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "Yes. Shetimay works with farmers on selected crops and procures suitable harvests directly for supply to merchants and businesses. Crop, quality, quantity, timing and terms are confirmed for each enquiry."\n            }',
+  '"name": "क्या शेतिमाय किसानों से सीधे उपज खरीदता है?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "हाँ। हम चुनिंदा फसलों पर किसानों के साथ काम करते हैं और व्यापारियों व व्यवसायों को देने के लिए उपयुक्त उपज खरीदते हैं। फसल, गुणवत्ता, मात्रा, समय और शर्तें हर पूछताछ के अनुसार तय होती हैं।"\n            }'
+);
+page = page.replace(
+  '"name": "Which crops can merchants and companies source?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "Emmer (Khapli) wheat is our main focus. In addition, we procure Harbhara (Bengal gram / Chana), Moong (Green gram), Tur (Pigeon pea / Arhar), Soybean, other wheat varieties (Lokwan, Sharbati), Maize, Bajra (Pearl millet), and Jowar (Sorghum) directly from local farmers."\n            }',
+  '"name": "व्यापारी और कंपनियाँ कौन सी फसलें खरीद सकते हैं?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "खपली गेहूँ हमारा मुख्य उत्पाद है। इसके अलावा हम चना (हरभरा), मूँग, तूर (अरहर), सोयाबीन, गेहूँ की अन्य किस्में (लोकवन, शरबती), मक्का, बाजरा और ज्वार सीधे किसानों से खरीदकर व्यापारियों व कंपनियों को उपलब्ध कराते हैं।"\n            }'
+);
+page = page.replace(
+  '"name": "Can I enquire about a small quantity or bulk supply?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "Yes. We welcome enquiries for smaller lots and bulk quantities. Tell us the crop, approximate quantity, quality or grade, preparation and delivery location so we can discuss current availability."\n            }',
+  '"name": "क्या कम या बड़ी मात्रा के लिए पूछताछ कर सकते हैं?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "हाँ। कम और बड़ी, दोनों मात्राओं की पूछताछ का स्वागत है। मौजूदा उपलब्धता पर चर्चा के लिए फसल, अनुमानित मात्रा, गुणवत्ता या ग्रेड, तैयारी और डिलीवरी का स्थान बताएं।"\n            }'
+);
+page = page.replace(
+  '"name": "Can you supply raw grain as well as cleaned or processed produce?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "Yes. We can discuss raw produce or cleaning and processing options according to the crop and buyer requirement. Please include the product condition you need in your enquiry."\n            }',
+  '"name": "क्या कच्चा अनाज और साफ़ या प्रोसेस की हुई उपज मिल सकती है?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "फसल और खरीदार की ज़रूरत के अनुसार कच्ची उपज या सफाई और प्रोसेसिंग के विकल्पों पर चर्चा कर सकते हैं। पूछताछ में उत्पाद की अपेक्षित स्थिति बताएं।"\n            }'
+);
+page = page.replace(
+  '"name": "Do you provide seeds and farming guidance?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "We provide seeds for selected crops and discuss cultivation guidance with farmers. Contact us before the season to ask about the crop, seed availability and local suitability in Maharashtra."\n            }',
+  '"name": "क्या आप बीज और खेती का मार्गदर्शन देते हैं?",\n            "acceptedAnswer": {\n              "@type": "Answer",\n              "text": "हम चुनिंदा फसलों के बीज देते हैं और किसानों को खेती का मार्गदर्शन देते हैं। फसल, बीजों की उपलब्धता और स्थानीय उपयुक्तता के बारे में मौसम से पहले संपर्क करें।"\n            }'
+);
+
 fs.writeFileSync(path.join(root, 'hi', 'index.html'), page, 'utf8');
 console.log(`Rebuilt Hindi page. Untranslated body snippets: ${[...misses].join(' | ')}`);
