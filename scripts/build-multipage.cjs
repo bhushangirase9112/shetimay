@@ -26,6 +26,30 @@ const instagramSvg = `<svg width="20" height="20" viewBox="0 0 24 24" fill="curr
 
 const whatsappSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>`;
 
+const truckSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>`;
+
+const scaleSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h18"></path></svg>`;
+
+const shieldCheckSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>`;
+
+const sproutSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"></path><path d="M10 20c5.5-2.5.8-6.4 3-10"></path><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4-.1 5.5.8z"></path><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4.1.7-4.9 2z"></path></svg>`;
+
+const checkSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+const phoneSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`;
+
+const mapPinSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`;
+
+const mailSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>`;
+
+const wheatSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 16 8"></path><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"></path><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"></path><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"></path><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"></path><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path></svg>`;
+
+const handshakeSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 0 0 1.4 0l4.3-4.3a1 1 0 0 0 0-1.4l-2-2"></path><path d="m14 14 2.5 2.5a1 1 0 0 0 1.4 0l2.8-2.8a1 1 0 0 0 0-1.4l-3.6-3.6a2 2 0 0 0-2.8 0L13 10"></path><path d="M18 10 9 19a3 3 0 0 1-4.2-4.2L12 7"></path><path d="m7 7 2.3-2.3a2 2 0 0 1 2.8 0l3.6 3.6a1 1 0 0 1 0 1.4l-2.8 2.8a1 1 0 0 1-1.4 0L9 10"></path></svg>`;
+
+const packageSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>`;
+
+const bulbSvg = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>`;
+
 // All Crops Data (8 Core Agricultural Produce)
 const cropsData = [
   {
@@ -280,17 +304,26 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
 <body>
   <!-- Topbar -->
   <div class="topbar">
-    <div class="wrap">
+    <div class="wrap topbar-inner">
       <div class="topbar-left">
-        <span class="topbar-motto">🌿 ${t.mottoDevanagari}</span>
-        <span class="topbar-tagline">• ${t.topbarRegFpc} • ${t.topbarLoc}</span>
+        <span class="topbar-motto">${t.mottoDevanagari}</span>
+        <span class="topbar-sep">•</span>
+        <span class="topbar-tagline">${t.topbarRegFpc}</span>
+        <span class="topbar-sep">•</span>
+        <span class="topbar-tagline">${t.topbarLoc}</span>
       </div>
       <div class="topbar-right">
-        <a class="topbar-phone" href="tel:+918080704715">📞 +91 80807 04715</a>
-        <a class="topbar-phone" href="tel:+917020863882">📞 +91 70208 63882</a>
-        <a class="topbar-email" href="mailto:${config.email}">✉️ ${config.email}</a>
+        <div class="topbar-lang-switcher" role="navigation" aria-label="Language Selector">
+          <a href="${getUrl('mr', pageId)}" class="topbar-lang-link${lang === 'mr' ? ' active' : ''}">मराठी</a>
+          <span class="topbar-lang-sep">|</span>
+          <a href="${getUrl('en', pageId)}" class="topbar-lang-link${lang === 'en' ? ' active' : ''}">English</a>
+          <span class="topbar-lang-sep">|</span>
+          <a href="${getUrl('hi', pageId)}" class="topbar-lang-link${lang === 'hi' ? ' active' : ''}">हिंदी</a>
+        </div>
+        <a class="topbar-phone" href="tel:+918080704715">${phoneSvg} <span>+91 80807 04715</span></a>
+        <a class="topbar-email" href="mailto:${config.email}"><span>✉</span> <span>${config.email}</span></a>
       </div>
-      <a class="topbar-mobile-quick" href="tel:+918080704715">📞 ${lang === 'mr' ? 'कॉल' : lang === 'hi' ? 'कॉल' : 'Call'}</a>
+      <a class="topbar-mobile-quick" href="tel:+918080704715">${phoneSvg} <span>${lang === 'mr' ? 'कॉल' : lang === 'hi' ? 'कॉल' : 'Call'}</span></a>
     </div>
   </div>
 
@@ -319,12 +352,12 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
         ${navItem('contact', t.navContact)}
 
         <div class="nav-actions">
-          <div class="language-pills" role="navigation" aria-label="Language Selector">
+          <div class="mobile-lang-drawer" role="navigation" aria-label="Language Selector">
             <a href="${getUrl('mr', pageId)}" class="lang-btn${lang === 'mr' ? ' active' : ''}">मराठी</a>
             <a href="${getUrl('en', pageId)}" class="lang-btn${lang === 'en' ? ' active' : ''}">English</a>
             <a href="${getUrl('hi', pageId)}" class="lang-btn${lang === 'hi' ? ' active' : ''}">हिंदी</a>
           </div>
-          <a class="button wa" href="https://wa.me/918080704715?text=${encodeURIComponent(t.floatingWaMsg)}" target="_blank" rel="noopener">
+          <a class="button wa nav-cta-btn" href="https://wa.me/918080704715?text=${encodeURIComponent(t.floatingWaMsg)}" target="_blank" rel="noopener">
             ${whatsappSvg}
             <span>${t.btnEnquiry}</span>
           </a>
@@ -370,11 +403,11 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
 
         <div class="footer-contact-col">
           <strong>${t.footerContactHeader}</strong>
-          <p>📍 ${t.regOffice}</p>
-          <p>📞 <a href="tel:+918080704715">+91 80807 04715</a></p>
-          <p>📞 <a href="tel:+917020863882">+91 70208 63882</a></p>
-          <p>📞 <a href="tel:+918766901935">+91 87669 01935</a></p>
-          <p>✉️ <a href="mailto:${config.email}">${config.email}</a></p>
+          <p>${mapPinSvg} <span>${t.regOffice}</span></p>
+          <p>${phoneSvg} <span><a href="tel:+918080704715">+91 80807 04715</a></span></p>
+          <p>${phoneSvg} <span><a href="tel:+917020863882">+91 70208 63882</a></span></p>
+          <p>${phoneSvg} <span><a href="tel:+918766901935">+91 87669 01935</a></span></p>
+          <p>${mailSvg} <span><a href="mailto:${config.email}">${config.email}</a></span></p>
         </div>
       </div>
 
@@ -398,7 +431,7 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
       <span>${t.mobileBottomWa}</span>
     </a>
     <a class="mobile-bottom-btn call" href="tel:+918080704715">
-      <span>📞</span>
+      ${phoneSvg}
       <span>${t.mobileBottomCall}</span>
     </a>
   </div>
@@ -435,7 +468,7 @@ function renderHomePage(lang) {
       title: 'Shetimay | Buy Khapli Wheat, Pulses & Grains in Bulk | All-India Supply & Contract Farming',
       desc: 'Shetimay Farmer Producer Company supplies authentic Khapli wheat, pulses, and grains in bulk (50kg bags to truckloads) across India. We also offer contract farming with quality seeds and guaranteed prices for farmers.',
       ogTitle: 'Shetimay | Wholesale Farm Grains All-India & Farmer Contract Farming',
-      heroTag: '🇮🇳 All-India Bulk Supply • Contract Farming • Farmer Company',
+      heroTag: 'Govt. Registered Farmer Producer Company • Dhule, Maharashtra',
       heroTitle: 'Buy Pure Khapli Wheat, Pulses & Grains in <em>Bulk Across India</em>',
       heroDesc: 'We supply authentic Khapli wheat, chana, tur, moong, and millets directly from Maharashtra farms in wholesale lots (50kg bags to truckloads). For farmers, we offer contract farming with quality seeds and guaranteed good prices (हमीभाव), plus direct crop purchase.',
       heroWaBtn: 'Ask Wholesale Rates on WhatsApp',
@@ -450,11 +483,11 @@ function renderHomePage(lang) {
       t3Sub: 'Computerized electronic scale with direct bank payment for farmers',
       t4Title: 'Cleaned & Quality Checked',
       t4Sub: 'Raw or machine-cleaned grain with tested moisture levels as per your order',
-      cropSecTag: 'What We Supply in Bulk',
+      cropSecTag: 'Direct Farm Produce Portfolio',
       cropSecTitle: 'Grains Available for Wholesale Purchase Across India',
       cropSecDesc: 'Sourced directly from Maharashtra farms, quality-checked, and ready to dispatch to your mill, store, or warehouse.',
       viewAllCrops: 'View All 8 Crops & Bulk Details →',
-      pathwaysTag: 'Two Clear Services',
+      pathwaysTag: 'Agri-Enterprise Services',
       pathwaysTitle: 'How Shetimay Works for Buyers and Farmers',
       farmerCardTitle: 'For Farmers: Contract Farming & Direct Sale',
       farmerCardDesc: 'Partner with us for contract farming: get pure seeds and a guaranteed good price when your crop is ready. Or sell your harvested crop directly on our electronic weighbridge with zero middleman deductions.',
@@ -462,7 +495,7 @@ function renderHomePage(lang) {
       buyerCardTitle: 'For Buyers, Traders & Mills Across India',
       buyerCardDesc: 'Buy pure Khapli wheat, pulses, and grains straight from farm clusters. No middleman commissions. Order test batches (50kg bags) or full commercial truckloads.',
       buyerCardBtn: 'Wholesale Buyer Guide & Sourcing →',
-      processTag: 'How to Order in Bulk',
+      processTag: 'Wholesale Sourcing Process',
       processTitle: 'Simple 4-Step Wholesale Ordering Process',
       p1T: '1. Share Your Requirement',
       p1D: 'Tell us the crop, required quantity (50kg bags / truckloads), and delivery city.',
@@ -472,7 +505,7 @@ function renderHomePage(lang) {
       p3D: 'Produce is cleaned, moisture-checked, and packed in strong 50kg bags.',
       p4T: '4. Delivery Across India',
       p4D: 'Dispatched straight to your mill, warehouse, or store anywhere in India.',
-      faqTag: 'Common Questions',
+      faqTag: 'Frequently Asked Questions',
       faqTitle: 'Frequently Asked Questions',
       f1Q: 'Can buyers from outside Maharashtra order bulk quantities?',
       f1A: 'Yes! We supply 50kg bags to full truckloads to traders, flour mills, dal mills, and stores across all states in India with transport arrangement.',
@@ -485,7 +518,7 @@ function renderHomePage(lang) {
       title: 'शेतिमाय | खपली गहू, डाळी व धान्य घाऊक खरेदी | संपूर्ण भारतात पुरवठा व कॉन्ट्रॅक्ट फार्मिंग',
       desc: 'शेतिमाय शेतकरी कंपनी: देशभरातील व्यापारी, गिरण्या व कंपन्यांसाठी शुद्ध खपली गहू, डाळी व धान्याची घाऊक विक्री (५० किलो गोणी ते ट्रक लोड). तसेच शेतकरी बांधवांसाठी अस्सल बियाण्यांसह कॉन्ट्रॅक्ट फार्मिंग, हमखास चांगला भाव आणि थेट शेतीमाल खरेदी.',
       ogTitle: 'शेतिमाय | संपूर्ण भारतात घाऊक शेतीमाल पुरवठा व कॉन्ट्रॅक्ट फार्मिंग',
-      heroTag: '🇮🇳 संपूर्ण भारतात घाऊक पुरवठा • कॉन्ट्रॅक्ट फार्मिंग • शेतकरी कंपनी',
+      heroTag: 'अधिकृत शेतकरी उत्पादक कंपनी • धुळे, महाराष्ट्र',
       heroTitle: 'अस्सल खपली गहू, डाळी व धान्य — <em>संपूर्ण भारतात थेट घाऊक पुरवठा</em>',
       heroDesc: 'महाराष्ट्रातील शेतकऱ्यांची स्वतःची कंपनी! देशभरातील व्यापारी, गिरण्या व कंपन्यांसाठी शुद्ध खपली गहू, डाळी व धान्याचा घाऊक पुरवठा (५० किलो गोणी ते थेट ट्रक लोड). तसेच शेतकरी बांधवांसाठी उत्तम बियाण्यांसह कॉन्ट्रॅक्ट फार्मिंग, खात्रीशीर चांगला भाव आणि काट्यावर मोजून थेट खरेदी.',
       heroWaBtn: 'व्हॉट्सॲपवर घाऊक भाव विचारा',
@@ -500,11 +533,11 @@ function renderHomePage(lang) {
       t3Sub: 'इलेक्ट्रॉनिक काट्यावर पारदर्शक वजन आणि थेट बँक खात्यात त्वरित पैसे',
       t4Title: 'स्वच्छ व प्रतवारी केलेला माल',
       t4Sub: 'मागणीनुसार कच्चा किंवा मशीनने स्वच्छ केलेला माल, ओलावा तपासून तयार',
-      cropSecTag: 'घाऊक पुरवठ्यासाठी शेतीमाल',
+      cropSecTag: 'घाऊक शेतीमाल व पिके',
       cropSecTitle: 'घाऊक खरेदी व गिरण्यांसाठी उपलब्ध शेतीमाल',
       cropSecDesc: 'महाराष्ट्रातील शेतांतून थेट खरेदी केलेला, स्वच्छ आणि ओलावा तपासलेला माल संपूर्ण भारतात पुरवण्यासाठी तयार.',
       viewAllCrops: 'सर्व ८ पिकांची माहिती व घाऊक तपशील पहा →',
-      pathwaysTag: 'आमच्या दोन मुख्य सेवा',
+      pathwaysTag: 'शेतिमायच्या मुख्य सेवा',
       pathwaysTitle: 'व्यापारी आणि शेतकरी दोघांनाही थेट फायदा',
       farmerCardTitle: 'शेतकऱ्यांसाठी: कॉन्ट्रॅक्ट फार्मिंग व थेट माल विक्री',
       farmerCardDesc: 'आमच्यासोबत कॉन्ट्रॅक्ट फार्मिंग करा: अस्सल बियाणे मिळवा आणि काढणीच्या वेळी खात्रीशीर चांगला भाव मिळवा. किंवा आपला तयार शेतीमाल काट्यावर अचूक मोजून थेट योग्य भावात विका.',
@@ -512,7 +545,7 @@ function renderHomePage(lang) {
       buyerCardTitle: 'देशभरातील व्यापारी, गिरण्या व कंपन्यांसाठी',
       buyerCardDesc: 'दलालांशिवाय थेट शेतकरी समूहाकडून अस्सल खपली गहू, डाळी व धान्य खरेदी करा. सॅम्पल गोणी (५० किलो) किंवा मोठ्या ट्रक लोडसाठी संपर्क करा.',
       buyerCardBtn: 'खरेदीदारांसाठी घाऊक पुरवठा माहिती →',
-      processTag: 'घाऊक खरेदी कशी करावी',
+      processTag: 'घाऊक खरेदी प्रक्रिया',
       processTitle: 'शेतापासून थेट गोदामापर्यंत ४ सोप्या पायऱ्या',
       p1T: '१. तुमची मागणी सांगा',
       p1D: 'हवे असलेले पीक, प्रमाण (गोणी / ट्रक लोड) आणि तुमचे शहर सांगा.',
@@ -522,7 +555,7 @@ function renderHomePage(lang) {
       p3D: 'माल स्वच्छ करून, ओलावा तपासून मजबूत ५० किलो गोणीत भरला जातो.',
       p4T: '४. भारतात कुठेही वाहतूक',
       p4D: 'तुमच्या गोदामात किंवा गिरणीत माल सुरक्षित रवाना केला जातो.',
-      faqTag: 'नेहमीचे प्रश्न',
+      faqTag: 'नेहमी विचारले जाणारे प्रश्न',
       faqTitle: 'नेहमी विचारले जाणारे प्रश्न',
       f1Q: 'महाराष्ट्राबाहेरील व्यापारी घाऊक माल मागवू शकतात का?',
       f1A: 'होय! आम्ही भारतातील कोणत्याही राज्यातील व्यापारी, गिरण्या आणि दुकानांना ५० किलो गोणी किंवा पूर्ण ट्रक लोड माल वाहतुकीसह पाठवतो.',
@@ -535,7 +568,7 @@ function renderHomePage(lang) {
       title: 'शेतिमाय | खपली गेहूँ, दालें और अनाज | ५० किलो बोरी से पूरा ट्रक | कॉन्ट्रैक्ट फार्मिंग',
       desc: 'शेतिमाय किसान कंपनी: व्यापारियों, मिलों और खरीदारों के लिए शुद्ध खपली गेहूँ, दालें और अनाज (५० किलो बोरी से लेकर पूरा ट्रक लोड)। पूरे देश में माल भेजने की व्यवस्था। साथ ही किसानों के लिए कॉन्ट्रैक्ट फार्मिंग, अच्छे बीज और पक्का भाव।',
       ogTitle: 'शेतिमाय | शुद्ध खपली गेहूँ, दालें और अनाज | पूरे देश में डिलीवरी',
-      heroTag: '🇮🇳 ५० किलो बोरी से पूरा ट्रक • कॉन्ट्रैक्ट फार्मिंग • किसान कंपनी',
+      heroTag: 'पंजीकृत किसान उत्पादक कंपनी • धुले, महाराष्ट्र',
       heroTitle: 'शुद्ध खपली गेहूँ, दालें और अनाज — <em>पूरे देश में कहीं भी मंगवाएं</em>',
       heroDesc: 'किसानों की अपनी कंपनी! व्यापारियों, आटा और दाल मिलों को शुद्ध खपली गेहूँ, दालें और अनाज सीधे खेतों से मिलते हैं — ५० किलो बोरी से लेकर पूरे ट्रक तक, पूरे देश में डिलीवरी। साथ ही किसानों के लिए अच्छे बीज, कॉन्ट्रैक्ट फार्मिंग, पक्का भाव और सीधी खरीद।',
       heroWaBtn: 'व्हाट्सएप पर भाव पूछें',
@@ -554,7 +587,7 @@ function renderHomePage(lang) {
       cropSecTitle: 'व्यापारियों और मिलों के लिए उपलब्ध अनाज',
       cropSecDesc: 'महाराष्ट्र के खेतों से खरीदा गया साफ़ अनाज, जो आपके गोदाम या मिल तक पहुंचाने के लिए तैयार है।',
       viewAllCrops: 'सभी ८ फसलों की जानकारी देखें →',
-      pathwaysTag: 'हमारी दो मुख्य सेवाएँ',
+      pathwaysTag: 'मुख्य किसान व व्यापार सेवाएँ',
       pathwaysTitle: 'व्यापारियों और किसानों दोनों के लिए सीधा लाभ',
       farmerCardTitle: 'किसानों के लिए: कॉन्ट्रैक्ट फार्मिंग व सीधी बिक्री',
       farmerCardDesc: 'हमारे साथ कॉन्ट्रैक्ट फार्मिंग करें: शुद्ध बीज पाएं और कटाई के समय तय अच्छा भाव पाएं। या अपनी तैयार फसल कांटे पर सही तौल करवाकर सीधे सही भाव पर बेचें।',
@@ -562,7 +595,7 @@ function renderHomePage(lang) {
       buyerCardTitle: 'व्यापारियों, मिलों और खरीदारों के लिए',
       buyerCardDesc: 'बिना किसी दलाल के सीधे किसानों से शुद्ध खपली गेहूँ, दालें और अनाज खरीदें। ५० किलो बोरी या पूरे ट्रक लोड के लिए संपर्क करें।',
       buyerCardBtn: 'व्यापारियों के लिए अनाज खरीद जानकारी →',
-      processTag: 'माल मंगाने का आसान तरीका',
+      processTag: 'अनाज खरीद प्रक्रिया',
       processTitle: 'खेत से आपकी मिल/गोदाम तक ४ आसान चरण',
       p1T: '१. अपनी जरूरत बताएं',
       p1D: 'फसल, मात्रा (बोरी / ट्रक लोड) और डिलीवरी का शहर बताएं।',
@@ -572,7 +605,7 @@ function renderHomePage(lang) {
       p3D: 'माल साफ़ कर, नमी चेक करके मजबूत ५० किलो बोरियों में पैक होता है।',
       p4T: '४. पूरे देश में डिलीवरी',
       p4D: 'आपकी मिल या गोदाम तक सीधे गाड़ी रवाना की जाती है।',
-      faqTag: 'सामान्य सवाल',
+      faqTag: 'अक्सर पूछे जाने वाले सवाल',
       faqTitle: 'अक्सर पूछे जाने वाले सवाल',
       f1Q: 'क्या महाराष्ट्र के बाहर के व्यापारी माल मंगा सकते हैं?',
       f1A: 'हाँ! हम भारत के किसी भी राज्य के व्यापारियों, आटा मिलों, दाल मिलों और दुकानों को ५० किलो बोरी या पूरे ट्रक लोड में माल भेजते हैं।',
@@ -588,15 +621,14 @@ function renderHomePage(lang) {
     <section class="hero-clean" id="home">
       <div class="wrap hero-grid-clean">
         <div class="hero-content">
-          <div class="hero-badge-pill">
-            <span>🏛️</span>
+          <div class="hero-institutional-tag">
+            <span class="institutional-dot"></span>
             <span>${copy.heroTag}</span>
           </div>
           <h1>${copy.heroTitle}</h1>
           <p class="hero-lead">${copy.heroDesc}</p>
           <div class="hero-actions-row">
             <a class="button primary" href="${getUrl(lang, 'crops')}">
-              <span>🌾</span>
               <span>${copy.heroCropsBtn}</span>
             </a>
             <a class="button wa" href="https://wa.me/918080704715?text=${encodeURIComponent(t.floatingWaMsg)}" target="_blank" rel="noopener">
@@ -605,9 +637,9 @@ function renderHomePage(lang) {
             </a>
           </div>
           <div class="hero-trust-bullets">
-            <span>✓ ${lang === 'mr' ? 'संपूर्ण भारतात घाऊक पुरवठा' : lang === 'hi' ? 'पूरे देश में सुरक्षित डिलीवरी' : 'All-India Bulk Delivery'}</span>
-            <span>✓ ${lang === 'mr' ? 'अस्सल खपली गहू विशेष' : lang === 'hi' ? 'शुद्ध खपली गेहूँ खास' : 'Pure Khapli Wheat Specialty'}</span>
-            <span>✓ ${lang === 'mr' ? 'शेतकऱ्यांसाठी हमीभाव व खरेदी' : lang === 'hi' ? 'किसानों के लिए पक्का भाव व खरीद' : 'Guaranteed Fair Price for Farmers'}</span>
+            <span>${checkSvg} ${lang === 'mr' ? 'संपूर्ण भारतात घाऊक पुरवठा' : lang === 'hi' ? 'पूरे देश में सुरक्षित डिलीवरी' : 'All-India Bulk Delivery'}</span>
+            <span>${checkSvg} ${lang === 'mr' ? 'अस्सल खपली गहू विशेष' : lang === 'hi' ? 'शुद्ध खपली गेहूँ खास' : 'Pure Khapli Wheat Specialty'}</span>
+            <span>${checkSvg} ${lang === 'mr' ? 'शेतकऱ्यांसाठी हमीभाव व खरेदी' : lang === 'hi' ? 'किसानों के लिए पक्का भाव व खरीद' : 'Guaranteed Fair Price for Farmers'}</span>
           </div>
         </div>
 
@@ -615,43 +647,43 @@ function renderHomePage(lang) {
           <div class="hero-img-box">
             <img src="/data/crops/khapli-gahu.webp" width="768" height="1152" alt="Emmer Khapli Wheat Shetimay" fetchpriority="high">
           </div>
-          <div class="hero-visual-badge">
-            <div class="hero-visual-badge-icon">🌾</div>
+          <div class="hero-spec-footer">
             <div>
-              <strong>${copy.visualBadgeTitle}</strong>
-              <span>${copy.visualBadgeSub}</span>
+              <strong class="hero-spec-name">${copy.visualBadgeTitle}</strong>
+              <span class="hero-spec-sub">${copy.visualBadgeSub}</span>
             </div>
+            <span class="hero-spec-pill">${lang === 'mr' ? '५० किलो / ट्रक लोड' : lang === 'hi' ? '५० किग्रा / ट्रक लोड' : '50kg Bags / Truckloads'}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Trust Strip -->
+    <!-- Trust Credentials Strip -->
     <section class="trust-strip">
       <div class="wrap trust-strip-grid">
         <div class="trust-strip-item">
-          <div class="trust-strip-icon">👨‍🌾</div>
+          <div class="trust-strip-icon-box">${truckSvg}</div>
           <div>
             <strong>${copy.t1Title}</strong>
             <span>${copy.t1Sub}</span>
           </div>
         </div>
         <div class="trust-strip-item">
-          <div class="trust-strip-icon">🧪</div>
+          <div class="trust-strip-icon-box">${sproutSvg}</div>
           <div>
             <strong>${copy.t2Title}</strong>
             <span>${copy.t2Sub}</span>
           </div>
         </div>
         <div class="trust-strip-item">
-          <div class="trust-strip-icon">⚖️</div>
+          <div class="trust-strip-icon-box">${scaleSvg}</div>
           <div>
             <strong>${copy.t3Title}</strong>
             <span>${copy.t3Sub}</span>
           </div>
         </div>
         <div class="trust-strip-item">
-          <div class="trust-strip-icon">🚛</div>
+          <div class="trust-strip-icon-box">${shieldCheckSvg}</div>
           <div>
             <strong>${copy.t4Title}</strong>
             <span>${copy.t4Sub}</span>
@@ -664,7 +696,7 @@ function renderHomePage(lang) {
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-tag">🌾 ${copy.cropSecTag}</div>
+          <div class="section-kicker">${copy.cropSecTag}</div>
           <h2>${copy.cropSecTitle}</h2>
           <p>${copy.cropSecDesc}</p>
         </div>
@@ -698,18 +730,18 @@ function renderHomePage(lang) {
     <section class="section subtle">
       <div class="wrap">
         <div class="section-head center">
-          <div class="section-tag">🤝 ${copy.pathwaysTag}</div>
+          <div class="section-kicker">${copy.pathwaysTag}</div>
           <h2>${copy.pathwaysTitle}</h2>
         </div>
         <div class="pathway-grid">
           <article class="pathway-card farmer">
-            <div class="pathway-icon">👨‍🌾</div>
+            <div class="pathway-badge-top">${lang === 'mr' ? 'शेतकरी भागीदारी व सेवा' : lang === 'hi' ? 'किसान सेवा व अनुबंध खेती' : 'Farmer Partnership & Sourcing'}</div>
             <h3>${copy.farmerCardTitle}</h3>
             <p>${copy.farmerCardDesc}</p>
             <a class="button outline" href="${getUrl(lang, 'farmers')}">${copy.farmerCardBtn}</a>
           </article>
           <article class="pathway-card buyer">
-            <div class="pathway-icon">🏢</div>
+            <div class="pathway-badge-top">${lang === 'mr' ? 'व्यापारी व घाऊक पुरवठा' : lang === 'hi' ? 'व्यापारी व थोक आपूर्ति' : 'Wholesale Sourcing & Mills'}</div>
             <h3>${copy.buyerCardTitle}</h3>
             <p>${copy.buyerCardDesc}</p>
             <a class="button primary" href="${getUrl(lang, 'buyers')}">${copy.buyerCardBtn}</a>
@@ -722,27 +754,27 @@ function renderHomePage(lang) {
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-tag">⚙️ ${copy.processTag}</div>
+          <div class="section-kicker">${copy.processTag}</div>
           <h2>${copy.processTitle}</h2>
         </div>
-        <div class="steps-grid">
+        <div class="process-steps">
           <article class="step-card">
-            <span class="step-number">STEP 01</span>
+            <span class="step-number">01</span>
             <h3>${copy.p1T}</h3>
             <p>${copy.p1D}</p>
           </article>
           <article class="step-card">
-            <span class="step-number">STEP 02</span>
+            <span class="step-number">02</span>
             <h3>${copy.p2T}</h3>
             <p>${copy.p2D}</p>
           </article>
           <article class="step-card">
-            <span class="step-number">STEP 03</span>
+            <span class="step-number">03</span>
             <h3>${copy.p3T}</h3>
             <p>${copy.p3D}</p>
           </article>
           <article class="step-card">
-            <span class="step-number">STEP 04</span>
+            <span class="step-number">04</span>
             <h3>${copy.p4T}</h3>
             <p>${copy.p4D}</p>
           </article>
@@ -754,7 +786,7 @@ function renderHomePage(lang) {
     <section class="section subtle">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-tag">❓ ${copy.faqTag}</div>
+          <div class="section-kicker">${copy.faqTag}</div>
           <h2>${copy.faqTitle}</h2>
         </div>
         <div class="faq-box">
@@ -787,7 +819,7 @@ function renderHomePage(lang) {
             <span>${t.btnEnquiry}</span>
           </a>
           <a class="button outline-white" href="${getUrl(lang, 'contact')}">
-            <span>📍 ${t.navContact}</span>
+            <span>${t.navContact}</span>
           </a>
         </div>
       </div>
@@ -942,7 +974,7 @@ function renderAboutPage(lang) {
           <span class="sep">/</span>
           <span class="current">${copy.breadcrumb}</span>
         </div>
-        <div class="page-hero-tag">🏛️ ${copy.tag}</div>
+        <div class="page-hero-tag">${copy.tag}</div>
         <h1>${copy.heroTitle}</h1>
         <p>${copy.heroDesc}</p>
       </div>
@@ -953,10 +985,10 @@ function renderAboutPage(lang) {
       <div class="wrap split-showcase">
         <div class="split-image-box">
           <img src="/data/from_farmers/farmer-field.webp" width="768" height="1152" alt="Shetimay Farmer Collective" loading="lazy">
-          <div class="split-badge-tag">📍 Tawkheda, Dhule (Khandesh)</div>
+          <div class="split-badge-tag">${mapPinSvg} <span>Tawkheda, Dhule (Khandesh)</span></div>
         </div>
         <div class="split-text">
-          <div class="section-tag">🌱 ${copy.storyTag}</div>
+          <div class="section-kicker">${copy.storyTag}</div>
           <h2>${copy.storyTitle}</h2>
           <p>${copy.storyP1}</p>
           <p>${copy.storyP2}</p>
@@ -968,22 +1000,22 @@ function renderAboutPage(lang) {
     <section class="section subtle">
       <div class="wrap">
         <div class="section-head center">
-          <div class="section-tag">⭐ ${lang === 'mr' ? 'विश्वास व तत्त्वे' : lang === 'hi' ? 'भरोसा व सिद्धांत' : 'Our Commitments'}</div>
+          <div class="section-kicker">${lang === 'mr' ? 'विश्वास व तत्त्वे' : lang === 'hi' ? 'भरोसा व सिद्धांत' : 'Our Commitments'}</div>
           <h2>${lang === 'mr' ? 'शेतिमायचे ३ मुख्य नियम' : lang === 'hi' ? 'शेतिमाय की ३ मुख्य बातें' : 'What Guides Our Work'}</h2>
         </div>
         <div class="grid-3">
           <article class="clean-card">
-            <div class="clean-card-icon">⚖️</div>
+            <div class="clean-card-icon">${scaleSvg}</div>
             <h3>${copy.p1T}</h3>
             <p>${copy.p1D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">🌾</div>
+            <div class="clean-card-icon">${wheatSvg}</div>
             <h3>${copy.p2T}</h3>
             <p>${copy.p2D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">🤝</div>
+            <div class="clean-card-icon">${handshakeSvg}</div>
             <h3>${copy.p3T}</h3>
             <p>${copy.p3D}</p>
           </article>
@@ -1004,7 +1036,7 @@ function renderAboutPage(lang) {
             <span>${t.btnEnquiry}</span>
           </a>
           <a class="button outline-white" href="${getUrl(lang, 'contact')}">
-            <span>📍 ${t.navContact}</span>
+            <span>${t.navContact}</span>
           </a>
         </div>
       </div>
@@ -1123,7 +1155,7 @@ function renderCropsPage(lang) {
           <span class="sep">/</span>
           <span class="current">${copy.breadcrumb}</span>
         </div>
-        <div class="page-hero-tag">🌾 ${copy.tag}</div>
+        <div class="page-hero-tag">${copy.tag}</div>
         <h1>${copy.heroTitle}</h1>
         <p>${copy.heroDesc}</p>
       </div>
@@ -1134,10 +1166,10 @@ function renderCropsPage(lang) {
       <div class="wrap split-showcase">
         <div class="split-image-box">
           <img src="/data/crops/khapli-gahu.webp" width="768" height="1152" alt="Emmer Khapli Wheat" loading="lazy">
-          <div class="split-badge-tag">🌾 ${lang === 'mr' ? 'खास खपली गहू' : lang === 'hi' ? 'खास खपली गेहूँ' : 'Special Khapli Wheat'}</div>
+          <div class="split-badge-tag">${wheatSvg} <span>${lang === 'mr' ? 'खास खपली गहू' : lang === 'hi' ? 'खास खपली गेहूँ' : 'Special Khapli Wheat'}</span></div>
         </div>
         <div class="split-text">
-          <div class="section-tag">⭐ ${copy.spotlightTag}</div>
+          <div class="section-kicker">${copy.spotlightTag}</div>
           <h2>${copy.spotlightTitle}</h2>
           <p>${copy.spotlightDesc}</p>
           <ul class="feature-check-list">
@@ -1157,7 +1189,7 @@ function renderCropsPage(lang) {
     <section class="section subtle">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-tag">📋 ${copy.catalogTag}</div>
+          <div class="section-kicker">${copy.catalogTag}</div>
           <h2>${copy.catalogTitle}</h2>
           <p>${copy.catalogDesc}</p>
         </div>
@@ -1197,7 +1229,7 @@ function renderCropsPage(lang) {
             <span>${t.btnEnquiry}</span>
           </a>
           <a class="button outline-white" href="${getUrl(lang, 'contact')}">
-            <span>📍 ${t.navContact}</span>
+            <span>${t.navContact}</span>
           </a>
         </div>
       </div>
@@ -1269,7 +1301,7 @@ function renderBuyersPage(lang) {
       desc: 'Buy pure Khapli wheat, pulses, and grains in bulk (50kg bags to truckloads) directly from Maharashtra farmers. Safe transport dispatch to any state in India.',
       ogTitle: 'Wholesale Agri Sourcing Across India | Shetimay Farmer Producer Company',
       breadcrumb: 'For Buyers (Bulk Supply)',
-      tag: '🇮🇳 All-India Bulk Grain Supply',
+      tag: 'All-India Bulk Grain Supply',
       heroTitle: 'Direct farm grain sourcing & bulk supply across all India.',
       heroDesc: 'Supplying flour mills, dal mills, chakki brands, and grain merchants across India with pure Khapli wheat, pulses, and grains in 50kg bags or full truckloads.',
       advTag: 'Benefits for Buyers',
@@ -1288,7 +1320,7 @@ function renderBuyersPage(lang) {
       desc: 'देशभरातील व्यापारी, गिरण्या व कंपन्यांसाठी खपली गहू, डाळी व धान्याची थेट घाऊक खरेदी. ५० किलो गोणी ते ट्रक लोड, संपूर्ण भारतात सुरक्षित वाहतूक.',
       ogTitle: 'खरेदीदारांसाठी घाऊक शेतीमाल पुरवठा | शेतिमाय शेतकरी उत्पादक कंपनी',
       breadcrumb: 'खरेदीदारांसाठी (घाऊक माल)',
-      tag: '🇮🇳 संपूर्ण भारतात घाऊक पुरवठा',
+      tag: 'संपूर्ण भारतात घाऊक पुरवठा',
       heroTitle: 'शेतकऱ्यांकडून थेट अस्सल शेतीमालाचा संपूर्ण भारतात पुरवठा.',
       heroDesc: 'डाळ मिल, पिठाच्या गिरण्या, चक्की आणि घाऊक व्यापाऱ्यांसाठी थेट शेतातून शुद्ध खपली गहू, डाळी व धान्य — ५० किलो गोणी किंवा थेट ट्रक लोड.',
       advTag: 'घाऊक खरेदीचे फायदे',
@@ -1307,7 +1339,7 @@ function renderBuyersPage(lang) {
       desc: 'व्यापारियों, आटा-दाल मिलों और दुकानों के लिए खपली गेहूँ, दालें और अनाज। ५० किलो बोरी से लेकर पूरा ट्रक लोड, पूरे देश में माल भेजने की व्यवस्था।',
       ogTitle: 'व्यापारियों और मिलों के लिए अनाज खरीद | शेतिमाय FPC',
       breadcrumb: 'व्यापारियों के लिए (अनाज खरीद)',
-      tag: '🇮🇳 पूरे देश में डिलीवरी',
+      tag: 'पूरे देश में डिलीवरी',
       heroTitle: 'खेतों से सीधा अनाज, आपके गोदाम या मिल तक डिलीवरी।',
       heroDesc: 'दाल मिलों, आटा मिलों, चक्की और अनाज व्यापारियों के लिए महाराष्ट्र के खेतों से सीधे शुद्ध खपली गेहूँ, दालें और अनाज — ५० किलो बोरी से लेकर पूरा ट्रक लोड।',
       advTag: 'व्यापारियों के लिए फायदे',
@@ -1332,7 +1364,7 @@ function renderBuyersPage(lang) {
           <span class="sep">/</span>
           <span class="current">${copy.breadcrumb}</span>
         </div>
-        <div class="page-hero-tag">🏢 ${copy.tag}</div>
+        <div class="page-hero-tag">${copy.tag}</div>
         <h1>${copy.heroTitle}</h1>
         <p>${copy.heroDesc}</p>
       </div>
@@ -1342,27 +1374,27 @@ function renderBuyersPage(lang) {
     <section class="section">
       <div class="wrap">
         <div class="section-head center">
-          <div class="section-tag">⭐ ${copy.advTag}</div>
+          <div class="section-kicker">${copy.advTag}</div>
           <h2>${copy.advTitle}</h2>
         </div>
         <div class="grid-3" style="grid-template-columns: repeat(2, 1fr);">
           <article class="clean-card">
-            <div class="clean-card-icon">🌾</div>
+            <div class="clean-card-icon">${wheatSvg}</div>
             <h3>${copy.a1T}</h3>
             <p>${copy.a1D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">⚙️</div>
+            <div class="clean-card-icon">${packageSvg}</div>
             <h3>${copy.a2T}</h3>
             <p>${copy.a2D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">🧪</div>
+            <div class="clean-card-icon">${shieldCheckSvg}</div>
             <h3>${copy.a3T}</h3>
             <p>${copy.a3D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">🚛</div>
+            <div class="clean-card-icon">${truckSvg}</div>
             <h3>${copy.a4T}</h3>
             <p>${copy.a4D}</p>
           </article>
@@ -1383,7 +1415,7 @@ function renderBuyersPage(lang) {
             <span>${t.btnEnquiry}</span>
           </a>
           <a class="button outline-white" href="${getUrl(lang, 'contact')}">
-            <span>📍 ${t.navContact}</span>
+            <span>${t.navContact}</span>
           </a>
         </div>
       </div>
@@ -1445,7 +1477,7 @@ function renderFarmersPage(lang) {
       desc: 'Partner with Shetimay for contract farming: good seeds provided and guaranteed good prices at harvest. Or sell your harvested crops directly on digital scales with fast bank payment.',
       ogTitle: 'Contract Farming & Fair Crop Purchase for Farmers | Shetimay FPC',
       breadcrumb: 'For Farmers (Contract Farming)',
-      tag: '🤝 Contract Farming & Farmer Services • शेतकऱ्यांच्या सेवार्थ',
+      tag: 'Contract Farming & Farmer Services • शेतकऱ्यांच्या सेवार्थ',
       heroTitle: 'Contract farming with good seeds, guaranteed prices, and direct crop purchase.',
       heroDesc: 'We work directly with farmers. Get pure seeds, crop guidance, guaranteed purchase price at harvest (हमीभाव), or sell your harvested crop directly.',
       bTag: 'What We Offer Farmers',
@@ -1464,7 +1496,7 @@ function renderFarmersPage(lang) {
       desc: 'शेतिमायसोबत कॉन्ट्रॅक्ट फार्मिंग करा: अस्सल बियाणे व काढणीच्या वेळी आधीच ठरलेला चांगला भाव (हमीभाव). किंवा आपला शेतीमाल इलेक्ट्रॉनिक काट्यावर मोजून थेट रास्त भावात विका.',
       ogTitle: 'शेतकऱ्यांसाठी कॉन्ट्रॅक्ट फार्मिंग व थेट खरेदी | शेतिमाय शेतकरी कंपनी',
       breadcrumb: 'शेतकऱ्यांसाठी (कॉन्ट्रॅक्ट फार्मिंग)',
-      tag: '🤝 कॉन्ट्रॅक्ट फार्मिंग व शेतकरी सेवा • शेतकऱ्यांच्या सेवार्थ',
+      tag: 'कॉन्ट्रॅक्ट फार्मिंग व शेतकरी सेवा • शेतकऱ्यांच्या सेवार्थ',
       heroTitle: 'अस्सल बियाण्यांसह कॉन्ट्रॅक्ट फार्मिंग, खात्रीशीर चांगला भाव आणि थेट शेतीमाल खरेदी.',
       heroDesc: 'शेतकऱ्यांच्या घामाच्या दाण्याला योग्य भाव मिळावा म्हणून आम्ही काम करतो. शुद्ध बियाणे, शेती सल्ला, हमखास खरेदी किंवा आपला तयार शेतीमाल थेट रास्त भावात विका.',
       bTag: 'शेतकऱ्यांसाठी ४ मुख्य सुविधा',
@@ -1483,7 +1515,7 @@ function renderFarmersPage(lang) {
       desc: 'शेतिमाय के साथ कॉन्ट्रैक्ट फार्मिंग करें: शुद्ध बीज और कटाई पर तय किया हुआ अच्छा भाव (हमीभाव)। अथवा अपनी तैयार फसल इलेक्ट्रॉनिक कांटे पर सीधे सही भाव में बेचें।',
       ogTitle: 'किसानों के लिए अनुबंध खेती व सीधी फसल खरीद | शेतिमाय FPC',
       breadcrumb: 'किसानों के लिए (कॉन्ट्रैक्ट फार्मिंग)',
-      tag: '🤝 अनुबंध खेती व किसान सेवाएँ • शेतकऱ्यांच्या सेवार्थ',
+      tag: 'अनुबंध खेती व किसान सेवाएँ • शेतकऱ्यांच्या सेवार्थ',
       heroTitle: 'शुद्ध बीजों के साथ कॉन्ट्रैक्ट फार्मिंग, पक्का अच्छा भाव और सीधी फसल खरीद।',
       heroDesc: 'बुवाई से कटाई तक किसानों के साथ। अच्छे बीज, खेती की सलाह, पहले से तय भाव पर खरीद अथवा अपनी तैयार फसल सीधे बेचें।',
       bTag: 'किसानों के लिए ४ मुख्य सेवाएँ',
@@ -1508,7 +1540,7 @@ function renderFarmersPage(lang) {
           <span class="sep">/</span>
           <span class="current">${copy.breadcrumb}</span>
         </div>
-        <div class="page-hero-tag">👨‍🌾 ${copy.tag}</div>
+        <div class="page-hero-tag">${copy.tag}</div>
         <h1>${copy.heroTitle}</h1>
         <p>${copy.heroDesc}</p>
       </div>
@@ -1518,27 +1550,27 @@ function renderFarmersPage(lang) {
     <section class="section">
       <div class="wrap">
         <div class="section-head center">
-          <div class="section-tag">🌱 ${copy.bTag}</div>
+          <div class="section-kicker">${copy.bTag}</div>
           <h2>${copy.bTitle}</h2>
         </div>
         <div class="grid-3" style="grid-template-columns: repeat(2, 1fr);">
           <article class="clean-card">
-            <div class="clean-card-icon">🌾</div>
+            <div class="clean-card-icon">${wheatSvg}</div>
             <h3>${copy.b1T}</h3>
             <p>${copy.b1D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">💡</div>
+            <div class="clean-card-icon">${bulbSvg}</div>
             <h3>${copy.b2T}</h3>
             <p>${copy.b2D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">🤝</div>
+            <div class="clean-card-icon">${handshakeSvg}</div>
             <h3>${copy.b3T}</h3>
             <p>${copy.b3D}</p>
           </article>
           <article class="clean-card">
-            <div class="clean-card-icon">⚖️</div>
+            <div class="clean-card-icon">${scaleSvg}</div>
             <h3>${copy.b4T}</h3>
             <p>${copy.b4D}</p>
           </article>
@@ -1559,7 +1591,8 @@ function renderFarmersPage(lang) {
             <span>${t.btnEnquiry}</span>
           </a>
           <a class="button outline-white" href="tel:+918080704715">
-            <span>📞 ${t.callUs}</span>
+            ${phoneSvg}
+            <span>${t.callUs}</span>
           </a>
         </div>
       </div>
@@ -1678,7 +1711,7 @@ function renderContactPage(lang) {
           <span class="sep">/</span>
           <span class="current">${copy.breadcrumb}</span>
         </div>
-        <div class="page-hero-tag">📞 ${copy.tag}</div>
+        <div class="page-hero-tag">${copy.tag}</div>
         <h1>${copy.heroTitle}</h1>
         <p>${copy.heroDesc}</p>
       </div>
@@ -1691,14 +1724,14 @@ function renderContactPage(lang) {
           <h2>${copy.infoTitle}</h2>
           <div class="contact-item-list">
             <div class="contact-item-row">
-              <div class="contact-item-icon">📍</div>
+              <div class="contact-item-icon">${mapPinSvg}</div>
               <div>
                 <strong>${t.regOffice.split(',')[0]}</strong>
                 <span>${t.regOffice}</span>
               </div>
             </div>
             <div class="contact-item-row">
-              <div class="contact-item-icon">📞</div>
+              <div class="contact-item-icon">${phoneSvg}</div>
               <div>
                 <strong>${lang === 'mr' ? 'थेट फोन क्रमांक' : lang === 'hi' ? 'फोन नंबर' : 'Phone Numbers'}</strong>
                 <div><a href="tel:+918080704715">+91 80807 04715</a></div>
@@ -1707,7 +1740,7 @@ function renderContactPage(lang) {
               </div>
             </div>
             <div class="contact-item-row">
-              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-icon">${mailSvg}</div>
               <div>
                 <strong>${lang === 'mr' ? 'अधिकृत ईमेल' : lang === 'hi' ? 'ईमेल' : 'Official Email'}</strong>
                 <a href="mailto:${config.email}">${config.email}</a>
