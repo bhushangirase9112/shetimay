@@ -1,0 +1,19 @@
+{
+  "name": "shetimay",
+  "version": "2.0.0",
+  "description": "Shetimay Farmer Producer Company Official Website",
+  "scripts": {
+    "build": "node scripts/build-multipage.cjs"
+  },
+  "keywords": [
+    "shetimay",
+    "fpc",
+    "khapli",
+    "emmer-wheat",
+    "agriculture",
+    "maharashtra",
+    "dhule"
+  ],
+  "author": "Shetimay Farmer Producer Company Limited",
+  "license": "UNLICENSED"
+}
