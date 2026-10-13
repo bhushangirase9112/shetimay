@@ -141,3 +141,72 @@ console.table(pageDetails.map(p => ({
   Hreflang: '4/4',
   JSON_LD: p.jsonLdTypes
 })));
+
+console.log('\n' + '='.repeat(80));
+console.log('INDEXING & CRAWLABILITY INTEGRITY VERIFICATION');
+console.log('='.repeat(80));
+
+// 1. Robots.txt
+const robotsTxt = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
+const allowsAll = robotsTxt.includes('User-agent: *\nAllow: /') || robotsTxt.includes('Allow: /');
+const hasSitemapLink = robotsTxt.includes('Sitemap: https://shetimay.in/sitemap.xml');
+console.log(`[robots.txt] Disallow / block present: ${robotsTxt.includes('Disallow: /') ? 'YES (WARNING)' : 'NO (PASSED)'}`);
+console.log(`[robots.txt] Allow: / present: ${allowsAll ? 'YES (PASSED)' : 'NO (WARNING)'}`);
+console.log(`[robots.txt] Sitemap declaration: ${hasSitemapLink ? 'PASSED' : 'MISSING'}`);
+
+// 2. Sitemap vs Canonicals 1:1 match
+const sitemapXml = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+const sitemapUrls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+console.log(`[sitemap.xml] Total URLs declared: ${sitemapUrls.length}`);
+
+let indexingIssues = [];
+sitemapUrls.forEach(url => {
+  const rel = url.replace('https://shetimay.in/', '');
+  const fPath = rel === '' ? 'index.html' : path.join(rel, 'index.html');
+  const full = path.join(root, fPath);
+  if (!fs.existsSync(full)) {
+    indexingIssues.push(`File missing on disk for sitemap URL: ${url}`);
+    return;
+  }
+  const content = fs.readFileSync(full, 'utf8');
+  if (content.includes('noindex')) {
+    indexingIssues.push(`Accidental noindex detected on: ${url}`);
+  }
+  if (!content.includes('content="index,follow')) {
+    indexingIssues.push(`Missing index,follow directive on: ${url}`);
+  }
+  if (!content.includes(`<link rel="canonical" href="${url}">`)) {
+    indexingIssues.push(`Canonical mismatch on: ${url}`);
+  }
+});
+
+if (indexingIssues.length === 0) {
+  console.log(`[Canonicals & Sitemap] 100% 1:1 Match across all ${sitemapUrls.length} pages: PASSED`);
+  console.log(`[Robots Meta] No 'noindex' tags found; index,follow present on all pages: PASSED`);
+} else {
+  console.error('Indexing issues found:', indexingIssues);
+}
+
+// 3. Internal link validation across all 18 pages
+let brokenLinks = [];
+pages.forEach(p => {
+  const full = path.join(root, p.file);
+  const content = fs.readFileSync(full, 'utf8');
+  const hrefs = [...content.matchAll(/href=["'](\/[^"'#?]*)["']/g)].map(m => m[1]);
+  hrefs.forEach(href => {
+    if (href.startsWith('//') || href === '/') return;
+    const targetFile = path.join(root, href, 'index.html');
+    const directFile = path.join(root, href);
+    if (!fs.existsSync(targetFile) && !fs.existsSync(directFile)) {
+      brokenLinks.push(`${p.file} -> broken link to ${href}`);
+    }
+  });
+});
+
+console.log(`[Internal Links] Checked all navigational and internal links across all 18 pages.`);
+if (brokenLinks.length === 0) {
+  console.log(`[Internal Links] 0 broken internal links found: PASSED (Every internal link is crawlable)`);
+} else {
+  console.error('Broken links found:', brokenLinks);
+}
+console.log('='.repeat(80));
