@@ -2535,11 +2535,77 @@ footer {
   border-bottom: none;
 }
 
-.blog-table tr:hover td {
-  background: #fbfdfb;
+/* Quick Takeaways Box (AEO / GEO Highlights) */
+.blog-takeaways-box {
+  background: #f8faf8;
+  border: 1px solid #c9e6ce;
+  border-left: 5px solid var(--brand-green);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  margin: 24px 0 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.takeaways-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.takeaways-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--brand-green);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.takeaways-header strong {
+  font-size: 1.05rem;
+  color: var(--brand-green-dark);
+}
+
+.blog-takeaways-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+.blog-takeaways-box li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.blog-takeaways-box li:last-child {
+  margin-bottom: 0;
+}
+
+/* Blog FAQ Section (AEO Question Answering) */
+.blog-faq-section {
+  margin: 44px 0 32px;
+  padding-top: 28px;
+  border-top: 2px solid var(--border);
+}
+
+.blog-faq-section h2 {
+  font-size: 1.45rem;
+  color: var(--brand-green-dark);
+  margin-bottom: 20px;
+}
+
+.blog-faq-list {
+  display: grid;
+  gap: 12px;
 }
 
 /* Author and WhatsApp CTA */
+
 .blog-author-card {
   background: #f8faf8;
   border: 1px solid var(--border);

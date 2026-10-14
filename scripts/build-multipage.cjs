@@ -258,12 +258,14 @@ function getUrl(lang, pageId) {
 }
 
 // Master HTML Shell Builder
-function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd }) {
+function buildShell({ lang, pageId, title, description, ogTitle, ogType = 'website', ogImage, articleMeta, content, jsonLd }) {
   const t = dict[lang];
   const canonicalUrl = `${config.domain}${getUrl(lang, pageId)}`;
   const enUrl = `${config.domain}${getUrl('en', pageId)}`;
   const mrUrl = `${config.domain}${getUrl('mr', pageId)}`;
   const hiUrl = `${config.domain}${getUrl('hi', pageId)}`;
+
+  const pageOgImage = ogImage || 'https://shetimay.in/data/crops/khapli-gahu-og.jpg';
 
   const navItem = (id, label) => {
     const url = getUrl(lang, id);
@@ -284,20 +286,26 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
   <link rel="icon" href="/logo.jpeg" type="image/jpeg">
   <link rel="apple-touch-icon" href="/logo.jpeg">
   <meta property="og:site_name" content="Shetimay">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="${ogType}">
+  ${ogType === 'article' && articleMeta ? `
+  <meta property="article:published_time" content="${articleMeta.date}">
+  <meta property="article:modified_time" content="${articleMeta.date}">
+  <meta property="article:author" content="${articleMeta.author}">
+  <meta property="article:section" content="${articleMeta.section}">
+  ` : ''}
   <meta property="og:title" content="${ogTitle}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:image" content="https://shetimay.in/data/crops/khapli-gahu-og.jpg">
+  <meta property="og:image" content="${pageOgImage}">
   <meta property="og:locale" content="${lang === 'mr' ? 'mr_IN' : lang === 'hi' ? 'hi_IN' : 'en_IN'}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${ogTitle}">
   <meta name="twitter:description" content="${description}">
-  <meta name="twitter:image" content="https://shetimay.in/data/crops/khapli-gahu-og.jpg">
+  <meta name="twitter:image" content="${pageOgImage}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=2.0.4">
+  <link rel="stylesheet" href="/css/style.css?v=2.0.5">
   <link rel="alternate" hreflang="en-IN" href="${enUrl}">
   <link rel="alternate" hreflang="mr-IN" href="${mrUrl}">
   <link rel="alternate" hreflang="hi-IN" href="${hiUrl}">
@@ -2029,9 +2037,39 @@ function renderBlogPostPage(lang, post) {
           <img src="${post.featuredImage}" width="820" height="420" alt="${post.title[lang]}">
         </div>
 
+        ${post.takeaways && post.takeaways[lang] ? `
+          <div class="blog-takeaways-box">
+            <div class="takeaways-header">
+              <span class="takeaways-badge">${lang === 'mr' ? 'ठळक वैशिष्ट्ये' : lang === 'hi' ? 'मुख्य बिंदु' : 'Key Highlights'}</span>
+              <strong>${lang === 'mr' ? 'थोडक्यात महत्त्वाचे निष्कर्ष (Quick Takeaways):' : lang === 'hi' ? 'संक्षिप्त सारांश (Quick Takeaways):' : 'Key Facts & Summary (Quick Takeaways):'}</strong>
+            </div>
+            <ul>
+              ${post.takeaways[lang].map(pt => `<li>${pt}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+
         <div class="blog-content">
           ${post.contentHtml[lang]}
         </div>
+
+        ${post.faqs && post.faqs.length > 0 ? `
+          <section class="blog-faq-section">
+            <h2>${lang === 'mr' ? 'नेहमी विचारले जाणारे प्रश्न (FAQ)' : lang === 'hi' ? 'अक्सर पूछे जाने वाले सवाल (FAQ)' : 'Frequently Asked Questions (FAQ)'}</h2>
+            <div class="blog-faq-list">
+              ${post.faqs.map((faq, idx) => `
+                <details class="faq-item"${idx === 0 ? ' open' : ''}>
+                  <summary class="faq-question">
+                    <span>${faq.q[lang]}</span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>${faq.a[lang]}</p>
+                  </div>
+                </details>
+              `).join('')}
+            </div>
+          </section>
+        ` : ''}
 
         <!-- Author Bio Card -->
         <div class="blog-author-card">
@@ -2060,69 +2098,94 @@ function renderBlogPostPage(lang, post) {
     </article>
   `;
 
+  const schemaGraph = [
+    {
+      "@type": "BlogPosting",
+      "@id": `${postUrl}#article`,
+      "headline": post.title[lang],
+      "description": post.summary[lang],
+      "image": `${config.domain}${post.featuredImage}`,
+      "datePublished": post.date,
+      "dateModified": post.date,
+      "inLanguage": lang === 'mr' ? 'mr-IN' : lang === 'hi' ? 'hi-IN' : 'en-IN',
+      "articleSection": post.category[lang],
+      "author": {
+        "@type": "Organization",
+        "name": post.author[lang],
+        "url": "https://shetimay.in/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Shetimay Farmer Producer Company Limited",
+        "url": "https://shetimay.in/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://shetimay.in/logo.jpeg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": postUrl
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${postUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": t.breadcrumbHome,
+          "item": `${config.domain}${getUrl(lang, 'home')}`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": lang === 'mr' ? 'ब्लॉग' : lang === 'hi' ? 'ब्लॉग' : 'Blog',
+          "item": `${config.domain}${getUrl(lang, 'blog')}`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": post.title[lang],
+          "item": postUrl
+        }
+      ]
+    }
+  ];
+
+  if (post.faqs && post.faqs.length > 0) {
+    schemaGraph.push({
+      "@type": "FAQPage",
+      "@id": `${postUrl}#faq`,
+      "mainEntity": post.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q[lang],
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a[lang]
+        }
+      }))
+    });
+  }
+
   return buildShell({
     lang,
     pageId: `blog/${post.slug}`,
     title: `${post.title[lang]} | Shetimay`,
     description: post.summary[lang],
     ogTitle: post.title[lang],
+    ogType: 'article',
+    ogImage: `${config.domain}${post.featuredImage}`,
+    articleMeta: {
+      date: post.date,
+      author: post.author[lang],
+      section: post.category[lang]
+    },
     content,
     jsonLd: {
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BlogPosting",
-          "@id": `${postUrl}#article`,
-          "headline": post.title[lang],
-          "description": post.summary[lang],
-          "image": `${config.domain}${post.featuredImage}`,
-          "datePublished": post.date,
-          "dateModified": post.date,
-          "inLanguage": lang === 'mr' ? 'mr-IN' : lang === 'hi' ? 'hi-IN' : 'en-IN',
-          "author": {
-            "@type": "Organization",
-            "name": post.author[lang],
-            "url": "https://shetimay.in/"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Shetimay Farmer Producer Company Limited",
-            "url": "https://shetimay.in/",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://shetimay.in/logo.jpeg"
-            }
-          },
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": postUrl
-          }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": `${postUrl}#breadcrumb`,
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": t.breadcrumbHome,
-              "item": `${config.domain}${getUrl(lang, 'home')}`
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": lang === 'mr' ? 'ब्लॉग' : lang === 'hi' ? 'ब्लॉग' : 'Blog',
-              "item": `${config.domain}${getUrl(lang, 'blog')}`
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": post.title[lang],
-              "item": postUrl
-            }
-          ]
-        }
-      ]
+      "@graph": schemaGraph
     }
   });
 }
