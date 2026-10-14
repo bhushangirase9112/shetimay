@@ -282,6 +282,7 @@ function buildShell({ lang, pageId, title, description, ogTitle, ogType = 'websi
   <meta name="description" content="${description}">
   <meta name="theme-color" content="#14532d">
   <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-site-verification" content="dJ2XXnRuFKuXDBpRV5l-ENFw-6kDO0ZRa-I31C5lWCY">
   <link rel="canonical" href="${canonicalUrl}">
   <link rel="icon" href="/logo.jpeg" type="image/jpeg">
   <link rel="apple-touch-icon" href="/logo.jpeg">
