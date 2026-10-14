@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2XCLB5DVM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G2XCLB5DVM');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shetimay | Buy Khapli Wheat, Pulses & Grains in Bulk | All-India Supply & Contract Farming</title>
@@ -535,6 +543,30 @@
         menuButton.setAttribute('aria-label', 'Open navigation');
       }));
     }
+
+    // Google Analytics 4 Conversion Event Tracking for WhatsApp & Phone Enquiries
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      if (href.includes('wa.me') || href.includes('whatsapp')) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_lead', {
+            event_category: 'conversion',
+            event_label: (link.textContent || '').trim().substring(0, 50) || 'WhatsApp Enquiry',
+            transport_type: 'beacon'
+          });
+        }
+      } else if (href.startsWith('tel:')) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'phone_call_lead', {
+            event_category: 'conversion',
+            event_label: href.replace('tel:', ''),
+            transport_type: 'beacon'
+          });
+        }
+      }
+    });
   </script>
 </body>
 </html>
