@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { blogPosts } = require('./blog-data.cjs');
 
 const root = path.resolve(__dirname, '..');
 
@@ -171,6 +172,7 @@ const dict = {
     navCrops: 'Crops & Produce',
     navBuyers: 'For Buyers (Bulk Supply)',
     navFarmers: 'For Farmers (Contract Farming)',
+    navBlog: 'Blog',
     navContact: 'Contact',
     btnEnquiry: 'WhatsApp Enquiry',
     callUs: 'Call: +91 80807 04715',
@@ -199,6 +201,7 @@ const dict = {
     navCrops: 'शेतीमाल व पिके',
     navBuyers: 'खरेदीदारांसाठी (घाऊक माल)',
     navFarmers: 'शेतकऱ्यांसाठी (कॉन्ट्रॅक्ट फार्मिंग)',
+    navBlog: 'ब्लॉग',
     navContact: 'संपर्क',
     btnEnquiry: 'व्हॉट्सॲप चौकशी',
     callUs: 'कॉल: +91 80807 04715',
@@ -227,6 +230,7 @@ const dict = {
     navCrops: 'फसलें और अनाज',
     navBuyers: 'व्यापारियों के लिए (अनाज खरीद)',
     navFarmers: 'किसानों के लिए (कॉन्ट्रैक्ट फार्मिंग)',
+    navBlog: 'ब्लॉग',
     navContact: 'संपर्क',
     btnEnquiry: 'व्हाट्सएप पूछताछ',
     callUs: 'कॉल: +91 80807 04715',
@@ -263,7 +267,7 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
 
   const navItem = (id, label) => {
     const url = getUrl(lang, id);
-    const active = pageId === id ? ' class="active"' : '';
+    const active = pageId === id || (id === 'blog' && pageId.startsWith('blog')) ? ' class="active"' : '';
     return `<a href="${url}"${active}>${label}</a>`;
   };
 
@@ -344,19 +348,25 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
       </button>
 
       <nav class="nav-links" id="main-nav">
+        <!-- Prominent Mobile Drawer Language Selector at Top -->
+        <div class="mobile-drawer-lang-section" role="navigation" aria-label="Language Selector">
+          <span class="mobile-drawer-lang-title">${lang === 'mr' ? 'भाषा निवडा (Select Language):' : lang === 'hi' ? 'भाषा चुनें (Select Language):' : 'Select Language:'}</span>
+          <div class="drawer-lang-pills">
+            <a href="${getUrl('mr', pageId)}" class="drawer-lang-btn${lang === 'mr' ? ' active' : ''}">मराठी</a>
+            <a href="${getUrl('en', pageId)}" class="drawer-lang-btn${lang === 'en' ? ' active' : ''}">English</a>
+            <a href="${getUrl('hi', pageId)}" class="drawer-lang-btn${lang === 'hi' ? ' active' : ''}">हिंदी</a>
+          </div>
+        </div>
+
         ${navItem('home', t.navHome)}
         ${navItem('about', t.navAbout)}
         ${navItem('crops', t.navCrops)}
         ${navItem('buyers', t.navBuyers)}
         ${navItem('farmers', t.navFarmers)}
+        ${navItem('blog', t.navBlog)}
         ${navItem('contact', t.navContact)}
 
         <div class="nav-actions">
-          <div class="mobile-lang-drawer" role="navigation" aria-label="Language Selector">
-            <a href="${getUrl('mr', pageId)}" class="lang-btn${lang === 'mr' ? ' active' : ''}">मराठी</a>
-            <a href="${getUrl('en', pageId)}" class="lang-btn${lang === 'en' ? ' active' : ''}">English</a>
-            <a href="${getUrl('hi', pageId)}" class="lang-btn${lang === 'hi' ? ' active' : ''}">हिंदी</a>
-          </div>
           <a class="button wa nav-cta-btn" href="https://wa.me/918080704715?text=${encodeURIComponent(t.floatingWaMsg)}" target="_blank" rel="noopener">
             ${whatsappSvg}
             <span>${t.btnEnquiry}</span>
@@ -398,6 +408,7 @@ function buildShell({ lang, pageId, title, description, ogTitle, content, jsonLd
           <a href="${getUrl(lang, 'crops')}">${t.navCrops}</a>
           <a href="${getUrl(lang, 'buyers')}">${t.navBuyers}</a>
           <a href="${getUrl(lang, 'farmers')}">${t.navFarmers}</a>
+          <a href="${getUrl(lang, 'blog')}">${t.navBlog}</a>
           <a href="${getUrl(lang, 'contact')}">${t.navContact}</a>
         </div>
 
@@ -1834,9 +1845,291 @@ function renderContactPage(lang) {
   });
 }
 
+// PAGE 7: BLOG INDEX
+function renderBlogIndexPage(lang) {
+  const t = dict[lang];
+  const copy = {
+    en: {
+      title: 'Agricultural Knowledge & Farming Blog | Khapli Wheat & Wholesale Grains | Shetimay',
+      desc: 'Explore educational and informative articles on ancient Khapli wheat nutrition, farming guides, wholesale grain sourcing, and contract farming by Shetimay FPC.',
+      ogTitle: 'Agricultural Knowledge & Farming Blog | Shetimay FPC',
+      breadcrumb: 'Blog',
+      tag: 'Agri Knowledge & Farming Insights',
+      heroTitle: 'Educational & practical guides for conscious consumers, millers, and farmers.',
+      heroDesc: 'Explore scientifically grounded and field-tested insights on Khapli wheat health benefits, commercial grain sourcing, and farmer contract farming.',
+      readMore: 'Read Full Guide →'
+    },
+    mr: {
+      title: 'कृषी ज्ञान व माहिती ब्लॉग | खपली गहू, घाऊक धान्य व शेतकरी सेवा | शेतिमाय धुळे',
+      desc: 'खपली गव्हाचे आरोग्यदायी फायदे, सविस्तर लागवड तंत्रज्ञान, घाऊक शेतीमाल खरेदी व हमीभावासह कॉन्ट्रॅक्ट फार्मिंग याविषयी उपयुक्त व माहितीपूर्ण लेख.',
+      ogTitle: 'कृषी ज्ञान व शेतकरी माहिती ब्लॉग | शेतिमाय शेतकरी उत्पादक कंपनी धुळे',
+      breadcrumb: 'ब्लॉग',
+      tag: 'कृषी ज्ञान व माहिती मंच',
+      heroTitle: 'ग्राहक, व्यापारी, गिरणी चालक व शेतकरी बांधवांसाठी उपयुक्त माहिती.',
+      heroDesc: 'खपली गव्हाचे आरोग्यदायी फायदे, लागवड तंत्रज्ञान, घाऊक धान्य खरेदी आणि हमीभावाच्या कॉन्ट्रॅक्ट फार्मिंगबद्दल सविस्तर व खात्रीशीर माहिती.',
+      readMore: 'संपूर्ण माहिती वाचा →'
+    },
+    hi: {
+      title: 'कृषि ज्ञान व जानकारी ब्लॉग | खपली गेहूँ, थोक अनाज व किसान सेवाएँ | शेतिमाय धुले',
+      desc: 'खपली गेहूँ के फायदे, खेती की तकनीक, थोक अनाज खरीद और कॉन्ट्रैक्ट फार्मिंग पर उपयोगी व ज्ञानवर्धक लेख — शेतिमाय किसान कंपनी धुले।',
+      ogTitle: 'कृषि ज्ञान व किसान जानकारी ब्लॉग | शेतिमाय किसान उत्पादक कंपनी',
+      breadcrumb: 'ब्लॉग',
+      tag: 'कृषि ज्ञान व जानकारी मंच',
+      heroTitle: 'ग्राहकों, व्यापारियों, मिल मालिकों और किसान भाइयों के लिए उपयोगी मार्गदर्शक।',
+      heroDesc: 'खपली गेहूँ के स्वास्थ्य लाभ, बुवाई से कटाई तक खेती की तकनीक, थोक अनाज खरीद और कॉन्ट्रैक्ट फार्मिंग पर प्रामाणिक जानकारी।',
+      readMore: 'पूरी जानकारी पढ़ें →'
+    }
+  }[lang];
+
+  const content = `
+    <!-- Page Hero -->
+    <section class="page-hero-clean">
+      <div class="wrap">
+        <div class="breadcrumb-clean">
+          <a href="${getUrl(lang, 'home')}">${t.breadcrumbHome}</a>
+          <span class="sep">/</span>
+          <span class="current">${copy.breadcrumb}</span>
+        </div>
+        <div class="page-hero-tag">${copy.tag}</div>
+        <h1>${copy.heroTitle}</h1>
+        <p>${copy.heroDesc}</p>
+      </div>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section class="section">
+      <div class="wrap">
+        <div class="blog-grid">
+          ${blogPosts.map(post => `
+            <article class="blog-card">
+              <div class="blog-card-thumb">
+                <img src="${post.featuredImage}" width="768" height="500" alt="${post.title[lang]}" loading="lazy">
+                <span class="blog-card-category-tag">${post.category[lang]}</span>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span>${post.dateFormatted[lang]}</span>
+                  <span class="meta-sep">•</span>
+                  <span>${post.readTime[lang]}</span>
+                </div>
+                <h3><a href="${getUrl(lang, `blog/${post.slug}`)}">${post.title[lang]}</a></h3>
+                <p>${post.summary[lang]}</p>
+                <div class="blog-card-footer">
+                  <span style="font-size: 0.84rem; color: var(--text-muted);">${post.author[lang]}</span>
+                  <a class="blog-read-link" href="${getUrl(lang, `blog/${post.slug}`)}">${copy.readMore}</a>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Band -->
+    <section class="cta-clean-band">
+      <div class="wrap cta-clean-inner">
+        <div class="cta-clean-copy">
+          <h2>${t.ctaTitle}</h2>
+          <p>${t.ctaSub}</p>
+        </div>
+        <div class="cta-clean-actions">
+          <a class="button wa" href="https://wa.me/918080704715?text=${encodeURIComponent(t.floatingWaMsg)}" target="_blank" rel="noopener">
+            ${whatsappSvg}
+            <span>${t.btnEnquiry}</span>
+          </a>
+          <a class="button outline-white" href="${getUrl(lang, 'contact')}">
+            <span>${t.navContact}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  `;
+
+  return buildShell({
+    lang,
+    pageId: 'blog',
+    title: copy.title,
+    description: copy.desc,
+    ogTitle: copy.ogTitle,
+    content,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Blog",
+          "@id": `${config.domain}${getUrl(lang, 'blog')}#blog`,
+          "name": copy.title,
+          "description": copy.desc,
+          "url": `${config.domain}${getUrl(lang, 'blog')}`,
+          "publisher": {
+            "@type": "Organization",
+            "name": "Shetimay Farmer Producer Company Limited",
+            "url": "https://shetimay.in/",
+            "logo": "https://shetimay.in/logo.jpeg"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `${config.domain}${getUrl(lang, 'blog')}#breadcrumb`,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": t.breadcrumbHome,
+              "item": `${config.domain}${getUrl(lang, 'home')}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": copy.breadcrumb,
+              "item": `${config.domain}${getUrl(lang, 'blog')}`
+            }
+          ]
+        }
+      ]
+    }
+  });
+}
+
+// INDIVIDUAL BLOG POST PAGE
+function renderBlogPostPage(lang, post) {
+  const t = dict[lang];
+  const postUrl = `${config.domain}${getUrl(lang, `blog/${post.slug}`)}`;
+
+  const content = `
+    <!-- Page Hero Breadcrumbs -->
+    <section class="page-hero-clean" style="padding: 38px 0 32px;">
+      <div class="wrap">
+        <div class="breadcrumb-clean">
+          <a href="${getUrl(lang, 'home')}">${t.breadcrumbHome}</a>
+          <span class="sep">/</span>
+          <a href="${getUrl(lang, 'blog')}">${lang === 'mr' ? 'ब्लॉग' : lang === 'hi' ? 'ब्लॉग' : 'Blog'}</a>
+          <span class="sep">/</span>
+          <span class="current">${post.category[lang]}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Article Container -->
+    <article class="blog-post-article">
+      <div class="wrap">
+        <header class="blog-post-header">
+          <div class="blog-post-category-tag">${post.category[lang]}</div>
+          <h1>${post.title[lang]}</h1>
+          <div class="blog-post-meta-row">
+            <span><strong>${post.author[lang]}</strong></span>
+            <span>•</span>
+            <span>${post.dateFormatted[lang]}</span>
+            <span>•</span>
+            <span>${post.readTime[lang]}</span>
+          </div>
+        </header>
+
+        <div class="blog-post-featured-image">
+          <img src="${post.featuredImage}" width="820" height="420" alt="${post.title[lang]}">
+        </div>
+
+        <div class="blog-content">
+          ${post.contentHtml[lang]}
+        </div>
+
+        <!-- Author Bio Card -->
+        <div class="blog-author-card">
+          <img class="blog-author-avatar" src="/logo.jpeg" alt="Shetimay Logo" width="56" height="56">
+          <div class="blog-author-info">
+            <strong>${post.author[lang]}</strong>
+            <p>${lang === 'mr' ? 'शेतिमाय शेतकरी उत्पादक कंपनी मर्यादित (धुळे, महाराष्ट्र). आम्ही शेतकऱ्यांना योग्य भाव मिळवून देण्यासाठी आणि ग्राहकांपर्यंत अस्सल शेतीमाल पोहोचवण्यासाठी कटिबद्ध आहोत.' : lang === 'hi' ? 'शेतिमाय किसान उत्पादक कंपनी लिमिटेड (धुले, महाराष्ट्र)। हम किसानों को सही भाव दिलाने और खरीदारों तक शुद्ध अनाज पहुंचाने के लिए समर्पित हैं।' : 'Shetimay Farmer Producer Company Limited (Dhule, Maharashtra). Committed to fair prices for farmers and genuine agricultural produce for conscious consumers and mills across India.'}</p>
+          </div>
+        </div>
+
+        <!-- Direct WhatsApp Enquiry CTA -->
+        <div class="blog-cta-box">
+          <h3>${lang === 'mr' ? 'या विषयावर अधिक जाणून घ्यायचे आहे किंवा घाऊक खरेदी करायची आहे?' : lang === 'hi' ? 'इस विषय पर अधिक जानकारी या थोक खरीद के लिए संपर्क करें' : 'Have Questions or Looking for Bulk Supply / Contract Farming?'}</h3>
+          <p>${lang === 'mr' ? 'शेतिमायच्या कृषी तज्ज्ञांशी थेट फोन किंवा व्हॉट्सॲपवर संपर्क साधा.' : lang === 'hi' ? 'शेतिमाय की विशेषज्ञ टीम से सीधे फोन या व्हाट्सएप पर बात करें।' : 'Speak directly with our agronomy and commercial trade desk via WhatsApp or phone.'}</p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a class="button wa" href="https://wa.me/918080704715?text=${encodeURIComponent(`Hello Shetimay, I read your article on ${post.slug} and would like to ask a question.`)}" target="_blank" rel="noopener">
+              ${whatsappSvg}
+              <span>${t.btnEnquiry}</span>
+            </a>
+            <a class="button outline-white" href="${getUrl(lang, 'blog')}">
+              <span>← ${lang === 'mr' ? 'इतर सर्व लेख पहा' : lang === 'hi' ? 'सभी लेख देखें' : 'View All Articles'}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  `;
+
+  return buildShell({
+    lang,
+    pageId: `blog/${post.slug}`,
+    title: `${post.title[lang]} | Shetimay`,
+    description: post.summary[lang],
+    ogTitle: post.title[lang],
+    content,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": `${postUrl}#article`,
+          "headline": post.title[lang],
+          "description": post.summary[lang],
+          "image": `${config.domain}${post.featuredImage}`,
+          "datePublished": post.date,
+          "dateModified": post.date,
+          "inLanguage": lang === 'mr' ? 'mr-IN' : lang === 'hi' ? 'hi-IN' : 'en-IN',
+          "author": {
+            "@type": "Organization",
+            "name": post.author[lang],
+            "url": "https://shetimay.in/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Shetimay Farmer Producer Company Limited",
+            "url": "https://shetimay.in/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://shetimay.in/logo.jpeg"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": postUrl
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `${postUrl}#breadcrumb`,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": t.breadcrumbHome,
+              "item": `${config.domain}${getUrl(lang, 'home')}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": lang === 'mr' ? 'ब्लॉग' : lang === 'hi' ? 'ब्लॉग' : 'Blog',
+              "item": `${config.domain}${getUrl(lang, 'blog')}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": post.title[lang],
+              "item": postUrl
+            }
+          ]
+        }
+      ]
+    }
+  });
+}
+
 // Master Build Execution
 function buildSite() {
-  console.log('Building neat, clean, logo-aligned multi-page website...');
+  console.log('Building neat, clean, multi-page website with educational blog...');
 
   const pages = [
     { id: 'home', render: renderHomePage, path: 'index.html' },
@@ -1844,12 +2137,14 @@ function buildSite() {
     { id: 'crops', render: renderCropsPage, path: 'crops/index.html' },
     { id: 'buyers', render: renderBuyersPage, path: 'buyers/index.html' },
     { id: 'farmers', render: renderFarmersPage, path: 'farmers/index.html' },
+    { id: 'blog', render: renderBlogIndexPage, path: 'blog/index.html' },
     { id: 'contact', render: renderContactPage, path: 'contact/index.html' }
   ];
 
   const langs = ['en', 'mr', 'hi'];
 
   langs.forEach(lang => {
+    // 1. Build Core Pages
     pages.forEach(p => {
       const html = p.render(lang);
       let targetFile;
@@ -1863,14 +2158,31 @@ function buildSite() {
       fs.writeFileSync(targetFile, html, 'utf8');
       console.log(`Generated: ${path.relative(root, targetFile)}`);
     });
+
+    // 2. Build Individual Blog Posts
+    blogPosts.forEach(post => {
+      const html = renderBlogPostPage(lang, post);
+      let targetFile;
+      const postRelPath = `blog/${post.slug}/index.html`;
+      if (lang === 'en') {
+        targetFile = path.join(root, postRelPath);
+      } else {
+        targetFile = path.join(root, `${lang}/${postRelPath}`);
+      }
+      ensureDir(path.dirname(targetFile));
+      fs.writeFileSync(targetFile, html, 'utf8');
+      console.log(`Generated Blog Post: ${path.relative(root, targetFile)}`);
+    });
   });
 
-  // Generate XML Sitemap
+  // Generate XML Sitemap with all 33 URLs
   const sitemapUrls = [];
   langs.forEach(lang => {
     pages.forEach(p => {
-      const u = `${config.domain}${getUrl(lang, p.id)}`;
-      sitemapUrls.push(u);
+      sitemapUrls.push(`${config.domain}${getUrl(lang, p.id)}`);
+    });
+    blogPosts.forEach(post => {
+      sitemapUrls.push(`${config.domain}${getUrl(lang, `blog/${post.slug}`)}`);
     });
   });
 
@@ -1880,8 +2192,8 @@ ${sitemapUrls.map(u => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${new Date().
 </urlset>`;
 
   fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemapXml, 'utf8');
-  console.log('Updated sitemap.xml with all 18 pages.');
-  console.log('Multi-page build completed successfully!');
+  console.log(`Updated sitemap.xml with all ${sitemapUrls.length} pages.`);
+  console.log('Multi-page build with educational blog completed successfully!');
 }
 
 buildSite();

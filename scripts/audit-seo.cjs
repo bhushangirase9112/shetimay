@@ -3,26 +3,43 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 
-const pages = [
+const { blogPosts } = require('./blog-data.cjs');
+
+const basePages = [
   { file: 'index.html', lang: 'en', type: 'home' },
   { file: 'about/index.html', lang: 'en', type: 'about' },
   { file: 'crops/index.html', lang: 'en', type: 'crops' },
   { file: 'buyers/index.html', lang: 'en', type: 'buyers' },
   { file: 'farmers/index.html', lang: 'en', type: 'farmers' },
   { file: 'contact/index.html', lang: 'en', type: 'contact' },
+  { file: 'blog/index.html', lang: 'en', type: 'blog' },
+
   { file: 'mr/index.html', lang: 'mr', type: 'home' },
   { file: 'mr/about/index.html', lang: 'mr', type: 'about' },
   { file: 'mr/crops/index.html', lang: 'mr', type: 'crops' },
   { file: 'mr/buyers/index.html', lang: 'mr', type: 'buyers' },
   { file: 'mr/farmers/index.html', lang: 'mr', type: 'farmers' },
   { file: 'mr/contact/index.html', lang: 'mr', type: 'contact' },
+  { file: 'mr/blog/index.html', lang: 'mr', type: 'blog' },
+
   { file: 'hi/index.html', lang: 'hi', type: 'home' },
   { file: 'hi/about/index.html', lang: 'hi', type: 'about' },
   { file: 'hi/crops/index.html', lang: 'hi', type: 'crops' },
   { file: 'hi/buyers/index.html', lang: 'hi', type: 'buyers' },
   { file: 'hi/farmers/index.html', lang: 'hi', type: 'farmers' },
-  { file: 'hi/contact/index.html', lang: 'hi', type: 'contact' }
+  { file: 'hi/contact/index.html', lang: 'hi', type: 'contact' },
+  { file: 'hi/blog/index.html', lang: 'hi', type: 'blog' }
 ];
+
+const blogArticlePages = [];
+blogPosts.forEach(p => {
+  blogArticlePages.push({ file: `blog/${p.slug}/index.html`, lang: 'en', type: 'blog-post' });
+  blogArticlePages.push({ file: `mr/blog/${p.slug}/index.html`, lang: 'mr', type: 'blog-post' });
+  blogArticlePages.push({ file: `hi/blog/${p.slug}/index.html`, lang: 'hi', type: 'blog-post' });
+});
+
+const pages = [...basePages, ...blogArticlePages];
+
 
 console.log('='.repeat(80));
 console.log('COMPREHENSIVE SEO & AEO/GEO VERIFICATION AUDIT');
