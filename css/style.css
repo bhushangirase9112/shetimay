@@ -2531,8 +2531,59 @@ footer {
   color: var(--text-main);
 }
 
-.blog-table tr:last-child td {
-  border-bottom: none;
+/* Interactive Table of Contents */
+.blog-toc {
+  background: #f8faf8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin: 24px 0 30px;
+}
+
+.blog-toc-header {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brand-green-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blog-toc ol {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+.blog-toc li {
+  margin-bottom: 8px;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.blog-toc a {
+  color: var(--brand-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.blog-toc a:hover {
+  color: var(--brand-green-dark);
+  text-decoration: underline;
+}
+
+/* External Scientific & Authority Citation Links */
+.citation-link {
+  color: var(--brand-green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.citation-link:hover {
+  color: var(--brand-gold-dark);
 }
 
 /* Quick Takeaways Box (AEO / GEO Highlights) */

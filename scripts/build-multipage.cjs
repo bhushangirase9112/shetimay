@@ -2082,6 +2082,18 @@ function renderBlogPostPage(lang, post) {
           </div>
         ` : ''}
 
+        ${post.toc && post.toc[lang] ? `
+          <nav class="blog-toc" aria-label="Table of Contents">
+            <div class="blog-toc-header">
+              <span>📋</span>
+              <span>${lang === 'mr' ? 'या लेखातील महत्त्वाचे विभाग (Table of Contents)' : lang === 'hi' ? 'इस लेख में मुख्य विषय (Table of Contents)' : 'Table of Contents'}</span>
+            </div>
+            <ol>
+              ${post.toc[lang].map(item => `<li><a href="${item.anchor}">${item.title}</a></li>`).join('')}
+            </ol>
+          </nav>
+        ` : ''}
+
         <div class="blog-content">
           ${post.contentHtml[lang]}
         </div>
